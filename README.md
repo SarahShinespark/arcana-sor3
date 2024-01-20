@@ -2,12 +2,14 @@
 Project page for Arcana - Seal of Rimsala v3, a Super Nintendo game mod.\
 These files can be assembled using Asar to create a patch for version 3.\
 The modular nature of these ASM files makes it much easier to edit and troubleshoot one section at a time.\
-The code language is 65c816 ASM, based on 6502 (NES).\
+The code language is 65c816 ASM, based on 6502 (NES).
 
 ## Patching instructions
 Use an IPS patcher to patch an unheadered Arcana ROM with sor_v2.1.15_a10.\
 Change the extension to SFC.\
-Then use Asar (asar main.asm sor_a10.sfc) to patch all of the files at once to create sor_v3.sfc.
+Then use Asar (asar main.asm sor_a10.sfc) to patch all of the files at once to create sor_v3.sfc.\
+\
+To test out the new FastROM patch, start with sor_v2.1.15_a11 instead.
 
 ## Contents
 alchemist_sor_v3.asm		- Localized conversations for the alchemist NPC.\

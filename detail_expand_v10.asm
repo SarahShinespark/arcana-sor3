@@ -25,6 +25,21 @@ lorom
 ;org $88E640: Weapon minibox expand (icons, crit rate etc)
 ;org $88E6B0: Magic expansion (Power, Acc%, MP)
 
+org $88E640 : WeaponSubscreen:
+;Update pointer to Weapon minibox expansion
+;Don't ask me why there's so many pointers to this
+org $819BA9 : dl WeaponSubscreen
+org $819CC5 : dl WeaponSubscreen
+org $819D0E : dl WeaponSubscreen
+org $819E12 : dl WeaponSubscreen
+org $819EA5 : dl WeaponSubscreen
+org $859C70 : dl WeaponSubscreen  ;Battle weapons menu
+
+;org $88E490 : StatusScreen:
+;Update pointer to new status screen
+org $819B86 : dl StatusScreen
+
+
 org $88E3BF
 RaceTypes:
 db "None      ",$00
@@ -208,8 +223,8 @@ db "Int"   : db $08,$1C : db $06,$0E : db $11,$01 : dl $0016E1 : db $06,$0D : db
 db "Alert" : db $08,$68 : db $06,$0E : db $11,$01 : dl $0016E3 : db $06,$06 : db $0D,$7F,$00
 
 
-org $808772
-jsr FastDecompress
+;org $808772
+;jsr FastDecompress
 
 org $80E080
 AttackRaceBonus:
@@ -311,12 +326,12 @@ Multiply_far:         ;far routine since C88B is local
     padbyte $FF       ;Remove old Spell Expand code
     pad $80E17D
 
-org $80E180
-FastDecompress:
-    ora #$80          ;FastROM read/write access for $877C decompressor
-    sta $02
-    stx $00
-    rts
+;org $80E180
+;FastDecompress:
+;    ora #$80          ;FastROM read/write access for $877C decompressor
+;    sta $02
+;    stx $00
+;    rts
 
 ;Equipment Detail expand: loads Atk, Def, MDef, Crit values to RAM
 org $80E190

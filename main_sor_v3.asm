@@ -10,8 +10,11 @@ incsrc "enemies_sor_v3.asm"
 incsrc "epilogue_sor_v3.asm"
 incsrc "equipment_sor_v3.asm"
 incsrc "intro_sor_v3.asm"
+incsrc "minor_text_sor_v3.asm"  ;New
 incsrc "names_sor_v3.asm"
+incsrc "smart_shops.asm"  ;New
 incsrc "spells_sor_v3.asm"
+incsrc "stage_select.asm" ;New
 incsrc "story_sor_v3.asm"
 incsrc "treasures_shops_sor_v3.asm"
 incsrc "unfuck_credits_sor_v3.asm"
