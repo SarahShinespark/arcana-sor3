@@ -33,7 +33,7 @@ org $819CC5 : dl WeaponSubscreen
 org $819D0E : dl WeaponSubscreen
 org $819E12 : dl WeaponSubscreen
 org $819EA5 : dl WeaponSubscreen
-org $859C70 : dl WeaponSubscreen  ;Battle weapons menu
+org $859C71 : dl WeaponSubscreen  ;Battle weapons menu
 
 ;org $88E490 : StatusScreen:
 ;Update pointer to new status screen
