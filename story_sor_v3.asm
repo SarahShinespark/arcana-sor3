@@ -1525,8 +1525,8 @@ SCRIPT_065: db $10 : dl PROMPT_ROOKS
             db " all set."
             db $10 : dl CONTINUE_AXS
             db " If this continues, the",$0D
-            db " the Evil Empress will",$0D
-            db " be resurrected."
+            db " Evil Empress will be",$0D
+            db " resurrected."
             db $10 : dl CONTINUE_AXS
             db " This may be our last",$0D
             db " chance to stop it."
