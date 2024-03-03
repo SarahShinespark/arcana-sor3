@@ -28,11 +28,12 @@ db $45
 org $A08000
 incbin "sor_v3_maps.bin"
 
+;Causes a game crash, hold off until DMA can be sped up
 ;Speed up final fight
-org $818F75
-  db $07 : dl $878001  ; Call Is_FightingFinalBoss
-  db $1A : dw $818F7E  ; Always skip the pause (Default $0B: skip if false)
-  db $06,$3C           ; 1 second pause
+;org $818F75
+;  db $07 : dl $878001  ; Call Is_FightingFinalBoss
+;  db $1A : dw $818F7E  ; Always skip the pause (Default $0B: skip if false)
+;  db $06,$3C           ; 1 second pause
 
 ;Confuse buff
 ;Makes confused enemies skip spellcasting attempts
