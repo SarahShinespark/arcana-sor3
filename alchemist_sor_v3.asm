@@ -88,12 +88,12 @@ Convo_Set_9:
 
 
 org $88CCBA : Speaking_text_setup:
-org $88D1B7 : Alchemist_menu:
+org $88D1B7 : Speak_Alchemist:
 
 org $88D3C3
 Conversation_1:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"If ya meet more",$0D
   db " companions, come back",$0D
   db " ta town and get 'em",$0D
@@ -103,7 +103,7 @@ Conversation_1:
 ;org $88D413
 Conversation_2:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Rumor has it,",$0D
   db " monsters're gatherin'",$0D
   db " at the temple.",$22
@@ -112,7 +112,7 @@ Conversation_2:
 ;org $88D44D
 Conversation_3:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Yer quite the",$0D
   db " strappin' young lad!",$0D
   db " Do ya need a job?",$22
@@ -121,7 +121,7 @@ Conversation_3:
 ;org $88D482
 Conversation_4:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"They say, nobody",$0D
   db " who goes deep inta the",$0D
   db " Lost Forest ever comes",$0D
@@ -131,7 +131,7 @@ Conversation_4:
 ;org $88D4DF
 Conversation_5:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"A long time ago, ya",$0D 
   db " could go through the",$0D 
   db " Lost Forest ta reach",$0D 
@@ -141,7 +141,7 @@ Conversation_5:
 ;org $88D538
 Conversation_6:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Thanks ta all the",$0D 
   db " monsters, sales've",$0D
   db " been good.",$22
@@ -150,7 +150,7 @@ Conversation_6:
 ;org $88D571
 Conversation_7:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Be careful, lately",$0D 
   db " monsters've been",$0D 
   db " showin' up a lot.",$0D
@@ -160,7 +160,7 @@ Conversation_7:
 ;org $88D5CC
  Conversation_8:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Long ago the Lost Forest",$0D 
   db " used ta be a nice place.",$0D 
   db " Not any more...",$22
@@ -169,7 +169,7 @@ Conversation_7:
 ;org $88D623
  Conversation_9:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"I've heard people say",$0D 
   db " there's somebody livin'",$0D 
   db " deep in the Lost Forest.",$22
@@ -178,7 +178,7 @@ Conversation_7:
 ;org $88D670
 Conversation_10:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"The mine got closed off",$0D 
   db " cuz of all the monsters.",$22 
   db $7F,$00
@@ -186,7 +186,7 @@ Conversation_10:
 ;org $88D6AD
 Conversation_11:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"A customer was saying",$0D 
   db " there's somethin' secret",$0D
   db " deep in the Ice Mine.",$22 
@@ -195,7 +195,7 @@ Conversation_11:
 ;org $88D6EC
 Conversation_12:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Oh, yer the guy Axs",$0D 
   db " mentioned.",$22
   db $7F,$00
@@ -203,7 +203,7 @@ Conversation_12:
 ;org $88D71A
 Conversation_13:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"People say they've",$0D 
   db " seen soldiers going inta",$0D 
   db " the mine.",$22
@@ -212,7 +212,7 @@ Conversation_13:
 ;org $88D76B
 Conversation_14:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Now that ya mention",$0D 
   db " it, some are sayin' the",$0D 
   db " ice is startin' to melt",$0D 
@@ -222,7 +222,7 @@ Conversation_14:
 ;org $88D7CA
 Conversation_15:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Axs, yer really",$0D 
   db " lookin' old these days!",$22
   db $7F,$00
@@ -230,7 +230,7 @@ Conversation_15:
 ;org $88D808
 Conversation_16:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"I heard there's a place",$0D
   db " deep inside the tower ya",$0D 
   db " can't get into.",$22
@@ -239,7 +239,7 @@ Conversation_16:
 ;org $88D84F
 Conversation_17:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Phew, I'm just worried",$0D 
   db " 'bout all the earthquakes",$0D 
   db " we've had recently.",$22
@@ -248,7 +248,7 @@ Conversation_17:
 ;org $88D89F
 Conversation_18:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"It's dangerous ta get",$0D 
   db " near the tower, so ya",$0D
   db " should stay away.",$22
@@ -257,7 +257,7 @@ Conversation_18:
 ;org $88D8D9
 Conversation_19:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Lately, whenever it gets",$0D
   db " dark, there's a light",$0D
   db " shinin' from the tower.",$0D
@@ -267,7 +267,7 @@ Conversation_19:
 ;org $88D92D
 Conversation_20:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Soldiers've been",$0D
   db " goin' inta the tower",$0D 
   db " a lot lately. Somethin'",$0D 
@@ -277,7 +277,7 @@ Conversation_20:
 ;org $88D98C
 Conversation_21:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"The tower must hold",$0D 
   db " some kinda secret.",$22
   db $7F,$00
@@ -287,7 +287,7 @@ Conversation_21:
 ;org $88D9BE
 Conversation_22:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Somethin' weird's goin'",$0D
   db " on in the tower. Maybe",$0D 
   db " that Evil Empress came",$0D
@@ -297,7 +297,7 @@ Conversation_22:
 ;org $88DA2E
 Conversation_23:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Yeah... it's bein' kept",$0D
   db " secret, but sounds like",$0D 
   db " the King went crazy.",$22
@@ -306,7 +306,7 @@ Conversation_23:
 ;org $88DA8A
 Conversation_24:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"Apparently the castle's",$0D
   db " become a place even",$0D 
   db " monsters won't go any",$0D
@@ -316,7 +316,7 @@ Conversation_24:
 ;org $88DAD3
 Conversation_25:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"The king's disappeared!",$0D 
   db " Serves 'im right.",$22
   db $7F,$00
@@ -324,7 +324,7 @@ Conversation_25:
 ;org $88DB28
 Conversation_26:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"All the rich folks took",$0D 
   db " off fer somewhere far",$0D 
   db " away.",$22
@@ -337,7 +337,7 @@ pad $88DBE0
 org $88CC27
 Conversation_27:
   db $10 : dl Speaking_text_setup
-  db $10 : dl Alchemist_menu
+  db $10 : dl Speak_Alchemist
   db $22,"If only I'd the money",$0D 
   db " I'd get outta here too,",$0D 
   db " but wherever I went it'd",$0D
