@@ -2,7 +2,6 @@ arch 65816
 lorom
 ;Main loader for Seal of Rimsala v3
 
-incsrc "alchemist_sor_v3.asm"
 incsrc "cool_maps_sor_v3.asm"
 incsrc "descriptions_sor_v3.asm"
 incsrc "detail_expand_v10.asm"
