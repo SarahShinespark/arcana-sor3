@@ -361,9 +361,9 @@ db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598
 db $0D,$22,"Whoops! That was close.",$22,$0D,$7F,$00
 
-warnpc $888D69 ;Don't overwrite levelup routine
-padbyte $FF     ; Clear unused original text, if necessary
-pad $888D69
+warnpc $888E00 ;Don't overwrite new levelup location
+padbyte $FF
+pad $888E00
 ;---------------------------------
 org $88CCBA
 Speaking_text_setup:    ;Used for shop dialogue
@@ -575,9 +575,12 @@ org $83BC97 : dl Eat_Food_B
 org $83BC3C : dl Gained_5_HP
 org $83BC74 : dl Gained_10_HP
 org $83BCAC : dl Gained_10_HP_5_MP
-org $88D1B7 : Speak_Alchemist:
 
-org $88D1C4
+org $88D1B7
+Speak_Alchemist:  ;Displays his name during Conversations
+db $1C,"Bartender",$0D,$1E,$00
+
+;org $88D1C4
 Alchemist_welcome:
 db $10 : dl Speaking_text_setup
 db "Welcome.",$0D
@@ -1132,8 +1135,6 @@ db $01,$4C,$10
 db $06,$0D
 db $11,$01 : dl $00119F : db $00
 
-; $88E3BF: After this is the status elements None/Zombie/Reptile etc
-; $88E48E: Status screen
-; $88E590: None/Bolt/Fire etc
-; $88E640: (Sword) Atk / (Shield) Def etc
-; $88E6B0: 
+warnpc $88E3FF  ;Don't overwrite RaceTypes in detail_expand_v10
+padbyte $FF
+pad $88E3FF
