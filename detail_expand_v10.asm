@@ -3,9 +3,6 @@ lorom
 ; Detail expand a10
 ;   Converts 2.1.15 a6 to a9 + bugfix
 
-; Header:
-; FastDecompress:  speeds up read/write speed for the decompressor
-; AttackRaceBonus: returns 4-bit race bonus. (Anti-Zombie, Reptile, Human, Giant)
 
 ; Splices in some dynamic data for each spell. ExpandSpell requires a 1 byte spell ID on A.
 ; Saves the following to display temp vars:
@@ -19,13 +16,7 @@ lorom
 ;C:\Users\sarah\OneDrive\Games\Arcana\sor_v2.1.15_a6\spell_expand_v9.asm
 ;C:\Users\sarah\OneDrive\Games\Arcana\sor_v2.1.15_a6\sor_v2.1.15_a9.sfc
 
-;TODO: expand text edits here
-;org $88E490: Status screen rewrite
-;org $88E590: Element displays, icons (Bolt)(Fire)(Water)(Earthquake)
-;org $88E640: Weapon minibox expand (icons, crit rate etc)
-;org $88E6B0: Magic expansion (Power, Acc%, MP)
 
-org $88E640 : WeaponSubscreen:
 ;Update pointer to Weapon minibox expansion
 ;Don't ask me why there's so many pointers to this
 org $819BA9 : dl WeaponSubscreen
@@ -40,27 +31,8 @@ org $859C71 : dl WeaponSubscreen  ;Battle weapons menu
 org $819B86 : dl StatusScreen
 
 
-org $88E3BF
-RaceTypes:
-db "None      ",$00
-db "Undead    ",$00
-db "Dragons   ",$00
-db "Undead/Dgn",$00
-db "Medusa    ",$00
-db "Undead/Med",$00
-db "Dragon/Med",$00
-db "Un/Dgn/Med",$00
-db "Giants    ",$00
-db "Unde/Giant",$00
-db "Drgn/Giant",$00
-db "UndDrgnGnt",$00
-db "MedsaGiant",$00
-db "Un/Mds/Gnt",$00
-db "Dgn/MdsGnt",$00
-db "All       ",$00
-
 org $88C9F6
-SpiritStatusScreen:
+SpiritStatusScreen:   ;Status for Sylph, Dao, Marid, Ifrit
 db $06,$0D,$0C
 db $01,$04,$04
 db $03,$0D
@@ -108,8 +80,32 @@ db $08,$44
 db $10 : dl $0015C2
 db $00
 
-org $88E490
-StatusScreen:
+;----------------------------
+;End of bank 08: Race bonuses for the status screen
+org $88E3FF
+RaceTypes:
+db "None      ",$00
+db "Undead    ",$00
+db "Dragons   ",$00
+db "Undead/Dgn",$00
+db "Medusa    ",$00
+db "Undead/Med",$00
+db "Dragon/Med",$00
+db "Un/Dgn/Med",$00
+db "Giants    ",$00
+db "Unde/Giant",$00
+db "Drgn/Giant",$00
+db "UndDrgnGnt",$00
+db "MedsaGiant",$00
+db "Un/Mds/Gnt",$00
+db "Dgn/MdsGnt",$00
+db "All       ",$00
+
+fillbyte $FF
+fill align 16
+
+;org $88E490
+StatusScreen:   ;Status screen for Rooks, Teefa, Sarah, Darwin and Axs
 db $06,$0D,$0C
 db $01,$04,$04
 db $03,$0D
@@ -174,17 +170,71 @@ db $08,$44
 db $10 : dl $0015F8
 db $00
 
+fillbyte $FF
+fill align 16
 
-;org $88E590: Element displays, icons (Bolt)(Fire)(Water)(Earthquake)
-;org $88E640: Weapon minibox expand (icons, crit rate etc)
+ElementIcons:
+!SP = $22  ;Space
+db "None",$00
+db $EC,!SP,!SP,!SP, $00   ;Wind
+db $EF,!SP,!SP,!SP, $00   ;Earth
+db $EC,$EF,!SP,!SP, $00   ;Wind, Earth
+db $EE,!SP,!SP,!SP, $00   ;Water
+db $EC,$EE,!SP,!SP, $00   ;Wind, Water
+db $EE,$EF,!SP,!SP, $00   ;Water, Earth
+db $EC,$EE,$EF,!SP, $00   ;Wind, Water, Earth
+db $ED,!SP,!SP,!SP, $00   ;Fire
+db $EC,$ED,!SP,!SP, $00   ;Wind, Fire
+db $ED,$EF,!SP,!SP, $00   ;Fire, Earth
+db $EC,$ED,$EF,!SP, $00   ;Wind, Fire, Earth
+db $ED,$EE,!SP,!SP, $00   ;Fire, Water
+db $EC,$EE,$EF,!SP, $00   ;Wind, Water, Earth
+db $ED,$EE,$EF,!SP, $00   ;Fire, Water, Earth
+db $EC,$ED,$EE,$EF, $00   ;Wind, Fire, Water, Earth
 
+fillbyte $FF
+fill align 16
+
+;org $88E640
+WeaponSubscreen:    ;Weapon minibox expand (icons, crit rate etc)
+db $06,$0D,$0C  ;White text, clear box
+db $01,$00,$06  ;X,Y to (0,6)
+db $03,$0E,$1C  ;Normal vertical spacing, no text delay
+
+db " ", $10 : dl $001697  ;Weapon name (temp var)
+db $08,$68,$F0  ;Xpos 68, Draw Sword icon
+db $08,$72      ;Xpos 72
+db $11,$02 : dl $0016DB   ;Base attack stat (temp var)
+db $0D          ;Newline
+
+db " ", $10 : dl $0016A8  ;Armor name (temp var)
+db $08,$68,$5B  ;Xpos 68, Draw Shield icon
+db $08,$72      ;Xpos 72
+db $11,$02 : dl $0016DD   ;Base defense stat (temp var)
+db $0D          ;Newline
+
+db " ", $10 : dl $0016B9  ;Amulet name (temp var)
+db $08,$68,$5F  ;Xpos 68, Draw MagicShield icon
+db $08,$71      ;Xpos 71
+db $11,$02 : dl $0016E3   ;Magic defense stat (temp var)
+db $0D          ;Newline
+
+;db " ", $10 : dl $0016CA  ;Ring name (temp var)
+db "                "
+db $08,$68,$F1  ;Xpos 68, Draw "x2" icon for critical hit chance
+db $08,$72      ;Xpos 72
+db $11,$01 : dl $0016E1   ;Critical hit% (temp var)
+db $25,$00      ;Draw % sign
+
+warnpc $88E6B0  ;Don't overwrite SpellDetails in minor_text_sor_v3
+padbyte $FF
+pad $88E6B0
 
 ;$F0 Sword
 ;$5B Shield
 ;$5F Magic Shield
 ;$F1 x2
 ;$25 %
-;org $88E6B0: Magic expansion (Power, Acc%, MP)
 
 ;Level up screen
 ;888D69;                           06 0D 0C 05 01 05 20
@@ -290,10 +340,10 @@ ldy #$0000
 sep #$20
 
 WriteRace:
-lda $88E3BF,x
+lda RaceTypes,x
 sta $15F8,y
 inx : iny
-lda $88E3BF,x
+lda RaceTypes,x
 beq GetElement
 bra WriteRace
 
@@ -315,10 +365,10 @@ ldy #$0000
 sep #$20
 
 WriteElement:
-lda $88E590,x
+lda ElementIcons,x
 sta $1608,y
 inx : iny
-lda $88E590,x
+lda ElementIcons,x
 beq GetRaceDef
 bra WriteElement
 
@@ -340,10 +390,10 @@ ldy #$0000
 sep #$20
 
 WriteRaceDef:
-lda $88E590,x
+lda ElementIcons,x
 sta $160D,y
 inx : iny
-lda $88E590,x
+lda ElementIcons,x
 beq ExitDefendBonus
 bra WriteRaceDef
 
@@ -439,10 +489,10 @@ org $87A706
     ldy #$0000
     sep #$20
   LoadRaceText:
-    lda $88E3BF,x
+    lda RaceTypes,x
     sta $15C9,y     ;$87/A71F 99 C9 15    STA $15C9,y
     inx : iny
-    lda $88E3BF,x
+    lda RaceTypes,x
     beq LoadDRB
     bra LoadRaceText
   LoadDRB:
