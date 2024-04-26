@@ -209,7 +209,15 @@ SaveLVL:
   sta $16E5
   rts
 
-org $888D69
+;Level up: pointers to learned spell text
+;org $8190EA : dl LearnedSpell1
+;org $8190FD : dl LearnedSpell2
+;org $819110 : dl LearnedSpell3
+;org $81911B : dl LearnedSpellEnd
+
+;Level the hell up!
+;org $888D69
+org $888E00
 LevelUp:
 db $06,$0D : db $0C : db $05,$01,$05,$20        ;Pause 5 frames
 db $0C : db $01,$00,$06 : db $03,$0E : db $1D   ;Set up formatting
@@ -221,6 +229,33 @@ db "Str"   : db $08,$1C : db $06,$0E : db $11,$01 : dl $0016DD : db $06,$0D : db
 db "Endur" : db $08,$68 : db $06,$0E : db $11,$01 : dl $0016DF : db $0D : db $06,$0D 
 db "Int"   : db $08,$1C : db $06,$0E : db $11,$01 : dl $0016E1 : db $06,$0D : db $08,$40
 db "Alert" : db $08,$68 : db $06,$0E : db $11,$01 : dl $0016E3 : db $06,$06 : db $0D,$7F,$00
+
+warnpc $888E8E
+padbyte $FF
+pad $888E8E
+
+;Level up: Learned spells (you can get up to 3 per level)   ;Commented out bc Battle_Text_Format ptr is in minor_text_sor_v3
+;org $888E8E
+;LearnedSpell1:
+;db $10 : dl Battle_Text_Format
+;db $10 : dl $001581
+;db " has mastered", $0D, $06, $0E
+;db $10 : dl $0015AF : db $06, $0D, $7F, $00
+
+;LearnedSpell2:
+;db $0D, $06, $0E
+;db $10 : dl $0015C7 : db $06, $0D, $7F, $00
+
+;LearnedSpell3:
+;db $0D, $06, $0E
+;db $10 : dl $0015DF : db $06, $0D, $7F, $00
+
+;LearnedSpellEnd:
+;db ".", $7F, $00
+
+warnpc $888EC7 ;Don't overwrite Card/Item menu
+;padbyte $FF     ; Clear unused original text, if necessary
+;pad $888EC7
 
 
 ;org $808772
