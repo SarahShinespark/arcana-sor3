@@ -1,7 +1,7 @@
 ;Gratuitous Japanese freespace
 ;$88CC27-$88CCB9
 
-
+;Alchemist text: pointer tables
 org $83DEB3
 Tbl_Alchemist_Events:
 ;If your progress is LESS than that number, use that convo set. i.e. Chapter 1 is less than 4, so it uses Set 1.
@@ -95,7 +95,7 @@ Setup_Text_Parser:
   LDA.W #$0000
   RTL         
 
-;Dungeon text section; update text pointers dynamically
+;Treasure events: update text pointers dynamically
 org $819276 : dl Nothing_here
 org $87A8BB : LDA.W #Nothing_here
 org $87A8AF : LDA.W #Empty_Chest
@@ -106,12 +106,13 @@ org $87A8D3 : LDA.W #TooManyItems
 org $87A8DF : LDA.W #TooMuchEquipment
 org $87A89A : LDA.W #MonsterInABox
 
-;Event: Too much GP (Loads pointer to the new text)
+;Treasure event: Pointer, can't carry more gold
 ;Overwrites a duplicate pointer to "the chest was empty".
 org $87A8EB : Treasure_Full_GP:
 LDA.W #TooMuchGold
 
-;Replace unused text with a new "Can't carry more gold" line
+;Treasure event: Text, can't carry more gold
+;Replace some unused text (only 5 enemies can appear at once, this text was for up to 8)
 org $888F63
 Enemy5_Num:
   db $10 : dl $0015F3 : db $01,$60,$30
@@ -126,7 +127,8 @@ warnpc $888F9F  ;Don't overwrite Dungeon_TextSetup
 
 
 org $888F9F
-Dungeon_TextSetup:
+;Treasure events: text
+Dungeon_TextSetup:  ;There are 6 copies of this subroutine, we only need one
 db $06, $0D, $0C, $05, $01, $05, " "
 db $0C, $01, $00, $06, $03, $0E, $1D, $00
  
@@ -179,7 +181,190 @@ db $10 : dl Dungeon_TextSetup : db $1C
 db "Rooks", $0D, $22, "AAAAAAHHH!", $22, $00
 warnpc $8890D6 ;Don't overwrite Item_Text_Setup
 ;---------------------------------
+;Battle quotes: pointer tables
+org $87B731
+Tbl_Critical_hit_text:
+dw Take_That_Rooks
+dw Take_That_Sylph
+dw Take_That_Dao  
+dw Take_That_Marid
+dw Take_That_Ifrit
+dw Take_That_Teefa 
+dw Take_That_Sarah 
+dw Take_That_Darwin
+dw Take_That_Axs   
 
+org $87B782
+Tbl_Getting_crit_text:
+dw Ouch_Rooks
+dw Ouch_Sylph
+dw Ouch_Dao  
+dw Ouch_Marid
+dw Ouch_Ifrit
+dw Ouch_Teefa 
+dw Ouch_Sarah 
+dw Ouch_Darwin
+dw Ouch_Axs   
+
+org $87B7CE
+Tbl_Dodge_text:
+dw Dodge_Rooks
+dw Dodge_Sylph
+dw Dodge_Dao  
+dw Dodge_Marid
+dw Dodge_Ifrit
+dw Dodge_Teefa 
+dw Dodge_Sarah 
+dw Dodge_Darwin
+dw Dodge_Axs   
+
+;Custom font tiles
+;!Wind    = $EC
+;!Fire    = $ED
+;!Water   = $EE
+;!Earth   = $EF
+
+;Battle quotes: text
+org $888A3F
+Take_That_Rooks:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001581   ;Character name
+db $0D,$22,"HA!",$22,$0D,$7F,$00
+
+Take_That_Sylph:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001581   ;Character name
+db $0D,$22,$EC,"!",$22,$0D,$7F,$00
+
+Take_That_Dao:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001581   ;Character name
+db $0D,$22,$EF,"!",$22,$0D,$7F,$00
+
+Take_That_Marid:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001581   ;Character name
+db $0D,$22,$EE,"!",$22,$0D,$7F,$00
+
+Take_That_Ifrit:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001581   ;Character name
+db $0D,$22,$ED,"!",$22,$0D,$7F,$00
+
+Take_That_Teefa:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001581   ;Character name
+db $0D,$22,"Take that.",$22,$0D,$7F,$00
+
+Take_That_Sarah:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001581   ;Character name
+db $0D,$22,"Take that!",$22,$0D,$7F,$00
+
+Take_That_Darwin:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001581   ;Character name
+db $0D,$22,"Let's go!",$22,$0D,$7F,$00
+
+Take_That_Axs:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001581   ;Character name
+db $0D,$22,"RAAAAGH!",$22,$0D,$7F,$00
+
+Ouch_Rooks:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598   ;Character name
+db $0D,$22,"Ow!",$22,$0D,$7F,$00
+
+Ouch_Sylph:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598   ;Character name
+db $0D,"took a direct hit!",$0D,$7F,$00
+
+Ouch_Dao:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598   ;Character name
+db $0D,"took a direct hit!",$0D,$7F,$00
+
+Ouch_Marid:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598   ;Character name
+db $0D,"took a direct hit!",$0D,$7F,$00
+
+Ouch_Ifrit:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598   ;Character name
+db $0D,"took a direct hit!",$0D,$7F,$00
+
+Ouch_Teefa:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598   ;Character name
+db $0D,$22,"Ahhh!",$22,$0D,$7F,$00
+
+Ouch_Sarah:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598   ;Character name
+db $0D,$22,"Eyaaaa!",$22,$0D,$7F,$00
+
+Ouch_Darwin:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598   ;Character name
+db $0D,$22,"Oof!",$22,$0D,$7F,$00
+
+Ouch_Axs:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598   ;Character name
+db $0D,$22,"Whoa!",$22,$0D,$7F,$00
+
+Dodge_Rooks:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598
+db $0D,$22,"Too easy!",$22,$0D,$7F,$00
+
+Dodge_Sylph:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598
+db $0D,"dodged gracefully.",$0D,$7F,$00
+
+Dodge_Dao:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598
+db $0D,"dodged gracefully.",$0D,$7F,$00
+
+Dodge_Marid:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598
+db $0D,"dodged gracefully.",$0D,$7F,$00
+
+Dodge_Ifrit:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598
+db $0D,"dodged gracefully.",$0D,$7F,$00
+
+Dodge_Teefa:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598
+db $0D,$22,"You missed.",$22,$0D,$7F,$00
+
+Dodge_Sarah:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598
+db $0D,$22,"Missed me!",$22,$0D,$7F,$00
+
+Dodge_Darwin:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598
+db $0D,$22,"Almost had me!",$22,$0D,$7F,$00
+
+Dodge_Axs:
+db $10 : dl Dungeon_TextSetup
+db $10 : dl $001598
+db $0D,$22,"Whoops! That was close.",$22,$0D,$7F,$00
+
+warnpc $888D69 ;Don't overwrite levelup routine
+padbyte $FF     ; Clear unused original text, if necessary
+pad $888D69
+;---------------------------------
 org $88CCBA
 Speaking_text_setup:    ;Used for shop dialogue
 db $06, $0D, $0C, $03, $0E, $04, $06, $01, $00, $06, $1E, $00
@@ -908,7 +1093,7 @@ db $22,"I guess there's no one",$0D
 db " here.",$22,$7F,$00
 
 org $88E2FD
-Text_Is_Salah_All_right:
+Text_Is_Sarah_All_right:
 db $10 : dl Speaking_text_setup
 db $10 : dl Speak_Rooks
 db $22,"Is Sarah all right?",$22,$7F
