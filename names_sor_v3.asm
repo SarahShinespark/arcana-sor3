@@ -253,7 +253,7 @@ org $85D67D
   db "Whip            ", $00
   db "Chain Whip      ", $00
   db "Thorn Whip      ", $00
-  db "Sword 1         ", $00
+  db "No-Horny Bat    ", $00
   db "Sword 2         ", $00
   db "Sword 3         ", $00
   db "Sword 4         ", $00
