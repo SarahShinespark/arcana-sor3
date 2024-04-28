@@ -148,7 +148,7 @@ endmacro
 %equipment(34, 170, %00110, 35, 0, 0, 5, 77, 0)                 ;Whip
 %equipment(35, 850, %00110, 55, 0, 0, 5, 77, 0)                 ;Chain Whip
 %equipment(36, 1500, %00110, 60, 0, 0, 10, 77, 0)               ;Blackthorne Whip
-%equipment(37, 2, 0, 0, 0, 0, 0, 128, 0)                        ;Sword 1
+%equipment(37, 2, %00110, 280, !R_All, 0, 20, 77, !Flame3)      ;No-Horny Bat (Sword 1)
 %equipment(38, 2, 0, 0, 0, 0, 0, 128, 0)                        ;Sword 2
 %equipment(39, 2, 0, 0, 0, 0, 0, 128, 0)                        ;Sword 3
 %equipment(40, 2, 0, 0, 0, 0, 0, 128, 0)                        ;Sword 4
