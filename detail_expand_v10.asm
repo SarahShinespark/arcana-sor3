@@ -37,9 +37,10 @@ db $06,$0D,$0C
 db $01,$04,$04
 db $03,$0D
 db $1C
-db $10 : dl $0015D6       ;Job
-db $08,$4F
-db $10 : dl $0015AF       ;Name
+db $02,$04
+db $10 : dl $0015AF ;Name
+db $08,$34
+db $10 : dl $0015D6 ;Job
 db $0D
 db "LV"
 db $11,$01 : dl $0016DB   ;LV
@@ -110,10 +111,15 @@ db $06,$0D,$0C
 db $01,$04,$04
 db $03,$0D
 db $1C
-db $10 : dl $0015D6       ;Job
-db $08,$4F
-db $10 : dl $0015AF       ;Name
+;db $10 : dl $0015D6       ;Job
+;db $08,$4F
+;db $10 : dl $0015AF       ;Name
+db $02,$04
+db $10 : dl $0015AF ;Name
+db $08,$35
+db $10 : dl $0015D6 ;Job
 db $0D
+
 db $08,$04
 db "LV"
 db $11,$01 : dl $0016DB   ;LV
@@ -121,6 +127,7 @@ db $08,$27
 db $11,$05 : dl $0016ED   ;EXP
 db $08,$5F
 db "EXP ",$0D
+
 db $02,$04
 db "HP"
 db $08,$1B
@@ -128,6 +135,7 @@ db $11,$02 : dl $0016E5   ;HP
 db "/"
 db $11,$00 : dl $0016E7   ;Max HP
 db $0D
+
 db $02,$04
 db "MP"
 db $08,$1B
@@ -135,6 +143,7 @@ db $11,$02 : dl $0016E9   ;MP
 db "/"
 db $11,$00 : dl $0016EB   ;Max MP
 db $0D
+
 db $02,$04
 db "Str"
 db $08,$1B
@@ -144,6 +153,7 @@ db "Endur"
 db $08,$68
 db $11,$02 : dl $0016DF   ;Endurance
 db $0D
+
 db $02,$04
 db "Int"
 db $08,$1B
@@ -153,14 +163,16 @@ db "Alert"
 db $08,$68
 db $11,$02 : dl $0016E3   ;Agility
 db $0D
-db "Attack Attr. "
-db $08,$54
+
+db "Atk attr."
+db $08,$44
 db $10 : dl $001608
 db $0D
-db "Defense Attr.  "
-db $08,$54
+db "Def attr."
+db $08,$44
 db $10 : dl $00160D
 db $0D
+
 db "Atk bonus"
 db $08,$44
 db $10 : dl $0015C9
@@ -174,7 +186,7 @@ fillbyte $FF
 fill align 16
 
 ElementIcons:
-!SP = $22  ;Space
+!SP = $20  ;Space
 db "None",$00
 db $EC,!SP,!SP,!SP, $00   ;Wind
 db $EF,!SP,!SP,!SP, $00   ;Earth
@@ -229,6 +241,16 @@ db $25,$00      ;Draw % sign
 warnpc $88E6B0  ;Don't overwrite SpellDetails in minor_text_sor_v3
 padbyte $FF
 pad $88E6B0
+
+
+;Update pointer to WeaponSubscreen
+;Don't ask me why there's so many pointers to this
+org $819BA9 : dl WeaponSubscreen
+org $819CC5 : dl WeaponSubscreen
+org $819D0E : dl WeaponSubscreen
+org $819E12 : dl WeaponSubscreen
+org $819EA5 : dl WeaponSubscreen
+org $859C71 : dl WeaponSubscreen
 
 ;$F0 Sword
 ;$5B Shield
@@ -479,7 +501,8 @@ ExpandSpell:
     rts
 
 ;Overwrite "Condition" RAM transfer with Attack/Defend Race Bonus
-org $87A706           
+org $87A706
+  ReadRaceText:
     jsl AttackRaceBonus
     nop : nop
     ldx #$000B
