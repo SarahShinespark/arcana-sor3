@@ -289,6 +289,8 @@ SaveLVL:
 
 ;Level the hell up!
 ;org $888D69
+org $8190C9 : dl LevelUp
+
 org $888E00
 LevelUp:
 db $06,$0D : db $0C : db $05,$01,$05,$20        ;Pause 5 frames
