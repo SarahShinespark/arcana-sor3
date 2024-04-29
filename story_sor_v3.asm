@@ -856,7 +856,7 @@ SCRIPT_028: db $10 : dl CLEAR
             db $10 : dl PROMPT_ROOKS
             db $05,$01,$08
             db $22,"......"
-            db $05,$01,$02
+            db $05,$01,$01
             db "I guess I have no",$0D
             db " choice, but that's as",$0D
             db " far as we'll go together.",$22
