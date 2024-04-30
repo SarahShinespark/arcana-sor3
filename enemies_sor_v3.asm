@@ -81,17 +81,23 @@
 !Wind_None    = $0100
 !Wind_Undead  = $0101
 !Wind_Dragon  = $0102
+!Wind_Medusa  = $0104
+!Wind_Giant   = $0108
 !Earth_None   = $0200
 !Earth_Undead = $0201
 !Earth_Dragon = $0202
+!Earth_Medusa = $0204
+!Earth_Giant  = $0208
 !Earth_Boss   = $0210
 !Water_None   = $0400
 !Water_Dragon = $0402
 !Water_Medusa = $0404
+!Water_Giant  = $0408
 !Water_Boss   = $0410
 !Fire_None    = $0800
 !Fire_Dragon  = $0802
 !Fire_Medusa  = $0804
+!Fire_Giant   = $0808
 !Fire_Boss    = $0810
 !Fire_GiantBoss = $0818
 ;Breakdown:
