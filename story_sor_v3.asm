@@ -2618,7 +2618,7 @@ SCRIPT_117: db $10 : dl MACRO_119
             db " You must believe."
             db $10 : dl WAIT_NEWLINE
             db " In your strength...",$0D
-            db " In everyone's strength...",$22
+            db " In everyone's strength.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $0C
             db $1B,$01,$FF
