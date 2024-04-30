@@ -171,8 +171,8 @@ Enemy_Affinity:
   dw !Earth_Undead                     ;05C9B1|        |      ;  Death Lich
   dw !None                             ;05C9B3|        |      ;  Bishop
   dw !Earth_None                       ;05C9B5|        |      ;  Sphinx
-  dw !Fire_Medusa                      ;05C9B7|        |      ;  Ba'al
-  dw !Earth_None                       ;05C9B9|        |      ;  Medusa
+  dw !Fire_None                        ;05C9B7|        |      ;  Ba'al
+  dw !Earth_Medusa                     ;05C9B9|        |      ;  Medusa
   dw !Wind_Undead                      ;05C9BB|        |      ;  Wraith
   dw !Earth_Undead                     ;05C9BD|        |      ;  Phantom
   dw !Wind_None                        ;05C9BF|        |      ;  Giant Bee
