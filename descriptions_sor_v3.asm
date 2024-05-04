@@ -775,8 +775,7 @@ org $889652
                        db "affecting the party."
                        db $10 : dl SpellMP : db $00
 
-           Revitalize: db $00
-                       db $10 : dl Details_Text_Setup
+           Revitalize: db $10 : dl Details_Text_Setup
                        db "Cures paralysis."
                        db $10 : dl SpellMP : db $00
 
