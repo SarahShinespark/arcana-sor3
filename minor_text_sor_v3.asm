@@ -1,3 +1,6 @@
+;This turned out to be a major file, ironically.
+;Battle text, town text, music test...
+
 ;Gratuitous Japanese freespace
 ;$88CC27-$88CCB9
 
@@ -181,6 +184,546 @@ db $10 : dl Dungeon_TextSetup : db $1C
 db "Rooks", $0D, $22, "AAAAAAHHH!", $22, $00
 warnpc $8890D6 ;Don't overwrite Item_Text_Setup
 ;---------------------------------
+;Attack effects: pointers
+org $888492 : dl X_Attacks
+org $87B71F : LDA.W #X_Attacks
+org $8598C7 : dl X_dodged
+org $8598D2 : dl X_dodged_quickly
+org $8598E4 : dl X_damaged_defeated
+org $8598EF : dl X_suffered_damage
+org $828F5A : dl X_damaged_perished
+org $828F45 : dl X_taken_damage
+org $828EF4 : dl Lost_His_Mind
+org $828F08 : dl Despises_Himself
+org $828F18 : dl Surprised_by_wounds
+;Spell effects: pointers
+org $87BF70 : LDA.W #Not_enough_MP
+org $87C875 : dw Suffered_damage2                  ;07C875|088624; 0: Damaging spells
+org $87C7AC : LDA.W #Suffered_damage_defeated2
+org $87C879 : dw HP_restored                       ;07C879|08868E; 2: Healing
+org $87C87B : dw X_has_X                           ;07C87B|0886BA; 3: Death and Statuses
+org $87C87D : dw X_has_X                           ;07C87D|0886BA; 4: Death and Statuses
+org $87C87F : dw X_stat_decreased                  ;07C87F|0886CE; 5: Debuffs
+org $87C877 : dw No_effect                         ;07C877|0887BF; 1: Draining (no effect)
+org $87C881 : dw No_effect                         ;07C881|0887BF; 6: Undeath (no effect)
+org $87C889 : dw No_effect                         ;07C889|0887BF; 0A: Reflects (no effect)
+org $87C88F : dw No_effect                         ;07C88F|0887BF; 0D: Out of battle (no effect)
+org $87C883 : dw Spirit_explosion_atk              ;07C883|0886EF; 7: Ruinous Mission
+org $87C885 : dw X_stat_increased                  ;07C885|088724; 8: Buffs
+org $87C887 : dw Change_Attribute                  ;07C887|08874A; 9: Change Attr.
+org $87C88B : dw Status_healed                     ;07C88B|088771; 0B: Status heals
+org $87C88D : dw Restoration_of_Spirit             ;07C88D|088794; 0C: Restoration of Spirit
+;Other spell effects: pointers
+org $87C891 : dw HP_recovery                       ;07C891|0888B9; HP recovery
+org $87C893 : dw Status_healed                     ;07C893|088771; Status recovery
+org $87C895 : dw Restoration_of_Spirit             ;07C895|088794; Restoration of Spirit
+org $87C897 : dw Restoration_of_Spirit             ;07C897|088794; Restoration of Spirit
+;Other effects: pointers
+org $87C95F : LDA.W #Spirit_explosion              ;07C95F|      ; Ruinous Mission text $08/87E1
+org $87C99F : LDA.W #Card_Torn                     ;07C99F|      ; Load card break text
+org $87C971 : LDA.W #Spirit_not_here               ;07C971|      ; Load spirit not here (can't use Ruinous Mission)
+org $87C804 : LDA.W #No_effect_revive              ;07C804|      ; No effect (Restoration of spirit)
+org $85F54B : dl No_flee_boss                      ;05F54B|08886C; Can't run from bosses
+org $87C31B : LDA.W #Cast_the_Spell_of             ;07C31B|      ; Load "cast the spell of" text
+org $85F688 : LDA.W #Rooks_used_cards              ;05F688|      ; Used cards
+org $87C2CF : LDA.W #Annihilated_item              ;07C2CF|      ; Used weapon or amulet as an item
+;Status effects: pointers
+org $8596C2 : dl IsParalyzed                       ;0596C2|088936;
+org $8596CD : dl IsPetrified                       ;0596CD|08894E;
+org $8596ED : dl IsConfused                        ;0596ED|088966;
+org $85971A : dl IsAsleep                          ;05971A|08897D;
+org $85972D : dl HasAwakened                       ;05972D|088992;
+;Item effects: pointers
+org $85F1D9 : dl ItemUsed                          ;05F1D9|0889AE; Item used: honey boosts stat
+org $85F25E : dl ItemUsed                          ;05F25E|0889AE; Item used: X has recovered. (HP+)
+org $85F2B3 : dl ItemUsed                          ;05F2B3|0889AE; Item used: X has recovered from X
+org $85F2DC : dl ItemUsed                          ;05F2DC|0889AE; Item used: no effect
+org $85F1F0 : dl ItemStatIncreased                 ;05F1F0|0889D0;
+org $85F271 : dl ItemRecovered                     ;05F271|0889F2;
+org $85F2C1 : dl ItemRecoveredStatus               ;05F2C1|088A08;
+org $85F2E6 : dl ItemNoEffect                      ;05F2E6|088A28;
+
+;Battle text----------------------
+org $888492
+X_Attacks:
+db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $03, $0E, $1D;088492|      ;
+db $10 : dl $001581
+db " attacks!", $0D, $7F, $00                               ;0884AF|      ;
+
+org $8884B0
+X_dodged:
+db $10                               ;0884B0|      ;
+dl $001598                           ;0884B1|001598;
+db $0D, "dodged."                    ;0884B4|      ;
+db $7F                               ;0884BC|      ;
+db $00                               ;0884BD|      ;
+
+org $8884BE
+X_dodged_quickly:   ;50% chance of a different text on enemy dodge
+db $10                               ;0884BE|      ;
+dl $001598                           ;0884BF|001598;
+db $0D, "dodged quickly."            ;0884C2|      ;
+db $7F                               ;0884D2|      ;
+db $00                               ;0884D3|      ;
+
+org $8884D4
+X_damaged_defeated:
+db $0C, $01, $00, $06                ;0884D4|      ;
+db $10                               ;0884D8|      ;
+dl $001598                           ;0884D9|001598;
+db " suffered", $0D, $06, $0E        ;0884DC|      ;
+db $11                               ;0884E8|      ;
+db $00                               ;0884E9|      ;
+dl $0016DB                           ;0884EA|0016DB;
+db $06, $0D
+db " points damage.", $0D             ;0884ED|      ;
+db $10                               ;0884FF|      ;
+dl $001598                           ;088500|001598;
+db " was", $0D, "defeated."          ;088503|      ;
+db $7F                               ;088510|      ;
+db $00                               ;088511|      ;
+
+org $888513
+X_suffered_damage:
+db $0C, $01, $00, $06                ;088512|      ;
+db $10                               ;088516|      ;
+dl $001598                           ;088517|001598;
+db " suffered", $0D, $06, $0E        ;08851A|      ;
+db $11                               ;088526|      ;
+db $00                               ;088527|      ;
+dl $0016DB                           ;088528|0016DB;
+db $06, $0D
+db " points damage."                 ;08852B|      ;
+db $7F                               ;08853C|      ;
+db $00                               ;08853D|      ;
+
+org $88853F
+X_damaged_perished:
+db $10                               ;08853E|      ; Game over, man!
+dl $001598                           ;08853F|001598;
+db " took    ", $0D, $06, $0E        ;088542|      ;
+db $11                               ;08854F|      ;
+db $00                               ;088550|      ;
+dl $0016DB                           ;088551|0016DB;
+db $06, $0D, " points damage.", $0D
+db $10                               ;088572|      ;
+dl $001598                           ;088573|001598;
+db " perished."                      ;088576|      ;
+db $05, $01, $24, " "
+db $7F                               ;088584|      ;
+db $00                               ;088585|      ;
+
+warnpc $888586
+padbyte $FF
+pad $888586
+
+org $888586
+X_taken_damage:
+db $10                               ;088586|      ;
+dl $001598                           ;088587|001598;
+db " took     ", $0D, $06, $0E       ;08858A|      ;
+db $11                               ;088597|      ;
+db $00                               ;088598|      ;
+dl $0016DB                           ;088599|0016DB;
+db $06, $0D, " points damage."       ;08859C|      ;
+db $7F                               ;0885AD|      ;
+db $00                               ;0885AE|      ;
+
+org $8885AF
+Lost_His_Mind: ; Confusion self-damage: Enemy death
+db $10                               ;0885AF|      
+dl $001598                           ;0885B0|001598;
+db $0D, "committed suicide."         ;0885B3|      ;
+db $05, $01, $14, " "
+db $7F                               ;0885C6|      ;
+db $00                               ;0885C7|      ;
+
+;org $8885C9
+Despises_Himself: ; Confusion self-damage: Enemy
+db $10                               ;0885C8|      ; Enemy confusion damage
+dl $001598                           ;0885C9|001598;
+db $0D, "truly hated themselves."
+db $05, $01, $14, " "
+db $7F                               ;0885DD|      ;
+db $00                               ;0885DE|      ;
+
+;org $8885DF
+Surprised_by_wounds: ; Confusion self-damage: Enemy misses self
+db $10 : dl $001598 : db $0D
+db "almost hit themselves."          ;0885F8|      ;
+db $05, $01, $14, " "
+db $7F                               ;0885FF|      ;
+db $00                               ;088600|      ;
+
+;org $888601
+;Battle_Text_Format:
+;db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $03, $0E, $1D, $00;088601|      ;
+;Dungeon_TextSetup:  ;There are 6 copies of this subroutine, we only need one
+
+warnpc $888610
+padbyte $FF
+pad $888610
+
+;Spell effects-----------------------
+org $888610
+Not_enough_MP:
+db $10                               ;088610|      ; Call Formatting sub
+dl Dungeon_TextSetup                 ;088611|088601;
+db "Not enough MP!"                  ;088614|      ;
+db $7F                               ;088622|      ; Pause
+db $00                               ;088623|      ; Return
+
+org $888624
+Suffered_damage2:   ;Taken spell damage
+db $10                               ;088624|      ;
+dl Dungeon_TextSetup                 ;088625|088601;
+db $10                               ;088628|      ;
+dl $001598                           ;088629|001598;
+db " suffered", $0D, $06, $0E        ;08862C|      ;
+db $11, $00                          ;088639|      ;
+dl $0016DB                           ;08863A|0016DB;
+db $06, $0D, " points damage."       ;08863D|      ;
+db $7F                               ;08864E|      ;
+db $00                               ;08864F|      ;
+
+org $888650   ;Taken spell damage and died
+Suffered_damage_defeated2:
+db $10                               ;088650|      ;
+dl Dungeon_TextSetup                 ;088651|088601;
+db $10                               ;088654|      ;
+dl $001598                           ;088655|001598;
+db " suffered", $0D, $06, $0E        ;088658|      ;
+db $11, $00                          ;088665|      ;
+dl $0016DB                           ;088666|0016DB;
+db $06, $0D, " points damage.", $0D  ;088669|      ;
+db $10                               ;08867B|      ;
+dl $001598                           ;08867C|001598;
+db " was", $0D, "defeated."          ;08867F|      ;
+db $7F                               ;08868C|      ;
+db $00                               ;08868D|      ;
+
+org $88868F
+HP_restored:  ;In battle healing
+db $10                               ;08868E|      ; Sub
+dl Dungeon_TextSetup                 ;08868F|088601;
+db $10                               ;088692|      ;
+dl $001598                           ;088693|001598;
+db $0D
+db "recovered "
+db $06,$0E,$11,$00 : dl $0016DB      ;08869D|0016DB;
+db $06,$0D," HP.", $0D
+db $7F                               ;0886B8|      ;
+db $00                               ;0886B9|      ;
+
+warnpc $8886BA
+padbyte $FF
+pad $8886BA
+
+org $8886BA
+X_has_X:
+db $10                               ;0886BA|      ; Used for death and status effects
+dl Dungeon_TextSetup                 ;0886BB|088601;
+db $10                               ;0886BE|      ;
+dl $001598                           ;0886BF|001598;
+db " has", $0D                       ;0886C2|      ;
+db $10                               ;0886C7|      ;
+dl $0015AF                           ;0886C8|0015AF;
+db "."                               ;0886CB|      ;
+db $7F                               ;0886CC|      ;
+db $00                               ;0886CD|      ;
+
+org $8886CE
+X_stat_decreased:
+db $10                               ;0886CE|      ;
+dl Dungeon_TextSetup                 ;0886CF|088601;
+db $10                               ;0886D2|      ;
+dl $001598                           ;0886D3|001598;
+db "'s     ", $0D                    ;0886D6|      ;
+db $10                               ;0886DA|      ;
+dl $001581                           ;0886DB|001581;
+db " decreased."                     ;0886DE|      ;
+db $7F                               ;0886ED|      ;
+db $00                               ;0886EE|      ;
+
+org $8886EF
+Spirit_explosion_atk:
+db $10                               ;0886EF|      ;
+dl Dungeon_TextSetup                 ;0886F0|088601;
+db $10                               ;0886F3|      ;
+dl $001598                           ;0886F4|001598;
+db $0D, "was caught in     ", $0D    ;0886F7|      ;
+db "the spirit's sacrifice."         ;08870C|      ;
+db $7F                               ;088722|      ;
+db $00                               ;088723|      ;
+
+org $888724
+X_stat_increased:
+db $10                               ;088724|      ;
+dl Dungeon_TextSetup                 ;088725|088601;
+db $10                               ;088728|      ;
+dl $001598                           ;088729|001598;
+db "'s      ", $0D                   ;08872C|      ;
+db $10                               ;088730|      ;
+dl $001581                           ;088731|001581;
+db " increased.    "                 ;088734|      ;
+db $7F                               ;088748|      ;
+db $00                               ;088749|      ;
+
+org $88874A
+Change_Attribute:
+db $10                               ;08874A|      ;
+dl Dungeon_TextSetup                 ;08874B|088601;
+db $10                               ;08874E|      ;
+dl $001598                           ;08874F|001598;
+db "'s attribute", $0D,
+"became "                            ;088767|      ;
+db $10                               ;08876A|      ;
+dl $011581                           ;08876B|001581;
+db ".    "                           ;08876E|      ;
+db $7F                               ;08876F|      ;
+db $00                               ;088770|      ;
+
+org $888771
+Status_healed:
+db $10                               ;088771|      ;
+dl Dungeon_TextSetup                 ;088772|088601;
+db $10                               ;088775|      ;
+dl $001598                           ;088776|001598;
+db $0D, "recovered    ", $0D, "from ";088779|      ;
+db $10                               ;08878D|      ;
+dl $011581                           ;08878E|001581;
+db "."                               ;088791|      ;
+db $7F                               ;088792|      ;
+db $00                               ;088793|      ;
+
+org $888794
+Restoration_of_Spirit:
+db $10                               ;088794|      ;
+dl Dungeon_TextSetup                 ;088795|088601;
+db "The "                            ;088798|      ;
+db $10                               ;08879C|      ;
+dl $001581                           ;08879D|001581;
+db " Spirit", $0D
+db "has been revived.    "           ;0887B5|      ;
+db $7F                               ;0887BD|      ;
+db $00                               ;0887BE|      ;
+
+org $8887BF
+No_effect:
+db $10                               ;0887BF|      ;
+dl Dungeon_TextSetup                 ;0887C0|088601;
+db "There was no effect", $0D
+db "on "                             ;0887D8|      ;
+db $10                               ;0887DA|      ;
+dl $001598                           ;0887DB|001598;
+db "."                               ;0887DE|      ;
+db $7F                               ;0887DF|      ;
+db $00                               ;0887E0|      ;
+
+org $8887E1
+Spirit_explosion: ;Casting Last Resort
+db $10                               ;0887E1|      ;
+dl Dungeon_TextSetup                 ;0887E2|088601;
+db $10                               ;0887E5|      ;
+dl $001581                           ;0887E6|001581;
+db " made the ultimate", $0D
+db "sacrifice.  ", $0D               ;0887FE|      ;
+db $7F                               ;08880B|      ;
+db $00                               ;08880C|      ;
+
+org $88880C
+Card_Torn:      ;Casting Last Resort with a dead spirit
+db $10                               ;08880D|      ;
+dl Dungeon_TextSetup                 ;08880E|088601;
+db "The "                            ;088811|      ;
+db $10                               ;088815|      ;
+dl $001581                           ;088816|001581;
+db " Card"
+db $0D, "was torn."                  ;088819|      ;
+db $7F                               ;088827|      ;
+db $00                               ;088828|      ;
+
+org $888829
+Spirit_not_here:  ;Casting Last Resort with no spirit out
+db $10                               ;088829|      ;
+dl Dungeon_TextSetup                 ;08882A|088601;
+db "But the Spirit is", $0D
+db "not summoned."                   ;088842|      ;
+db $7F                               ;08884C|      ;
+db $00                               ;08884D|      ;
+
+org $88884E
+No_effect_revive:
+db $10                               ;08884E|      ;
+dl Dungeon_TextSetup                 ;08884F|088601;
+db "But the Spirit is well. "        ;088867|      ;
+db $7F                               ;08886A|      ;
+db $00                               ;08886B|      ;
+
+org $88886C
+No_flee_boss:
+db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $03, $0E, $1C ;08886C|      ;
+db "There's no escape!      ", $00          ;088881|      ;
+
+org $888893
+Cast_the_Spell_of:
+db $10                               ;088893|      ;
+dl Dungeon_TextSetup                 ;088894|088601;
+db $10                               ;088897|      ;
+dl $001581                           ;088898|001581;
+db "    ", $0D
+db "cast the spell of", $0D          ;0888B0|      ;
+db $10                               ;0888B2|      ;
+dl $011598                           ;0888B3|001598;
+db "."                               ;0888B6|      ;
+db $7F                               ;0888B7|      ;
+db $00                               ;0888B8|      ;
+
+org $8888B9
+HP_recovery:  ;Out of battle healing
+db $10                               ;0888B9|      ;
+dl Dungeon_TextSetup                 ;0888BA|088601;
+db $10                               ;0888BD|      ;
+dl $001598                           ;0888BE|001598;
+db $0D
+db "recovered "
+db $11, $00                          ;0888C5|      ;
+dl $0016DB                           ;0888C6|0016DB;
+db " HP.",$0D
+db $7F                               ;0888E2|      ;
+db $00                               ;0888E3|      ;
+
+warnpc $8888E4
+padbyte $FF
+pad $8888E4
+
+org $8888E4
+Rooks_used_cards:
+db $10                               ;0888E4|      ;
+dl Dungeon_TextSetup                 ;0888E5|088601;
+db "Rooks used      ", $0D           ;0888E8|      ;
+db $11                               ;0888F7|      ;
+db $00                               ;0888F8|      ;
+dl $0016DB                           ;0888F9|0016DB;
+db "x "                              ;0888FC|      ;
+db $10                               ;088900|      ;
+dl $011598                           ;088901|001598;
+db "."                               ;088904|      ;
+db $7F                               ;088905|      ;
+db $00                               ;088906|      ;
+
+org $888907
+Annihilated_item:
+db $10                               ;088907|      ;
+dl Dungeon_TextSetup                 ;088908|088601;
+db $10                               ;08890B|      ;
+dl $001581                           ;08890C|001581;
+db " raised the     ", $0D, $10      ;08890F|      ;
+dl $001598                           ;088921|001598;
+db "!"                               ;088924|      ;
+db $7F                               ;088925|      ;
+db $00                               ;088926|      ;
+
+;org $888927
+;Statused_Text_Setup:
+;db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $03, $0E, $1D, $00;088927|      ; Subroutine for X is statused
+
+warnpc $888936
+padbyte $FF
+pad $888936
+
+org $888936
+IsParalyzed:
+db $10                               ;088936|      ;
+dl Dungeon_TextSetup                 ;088937|088927;
+db $10                               ;08893A|      ;
+dl $001581                           ;08893B|001581;
+db $0D, "is paralyzed."              ;08893E|      ;
+db $7F                               ;08894C|      ;
+db $00                               ;08894D|      ;
+
+org $88894E
+IsPetrified:
+db $10                               ;08894E|      ;
+dl Dungeon_TextSetup                 ;08894F|088927;
+db $10                               ;088952|      ;
+dl $001581                           ;088953|001581;
+db $0D, "is petrified."              ;088956|      ;
+db $7F                               ;088964|      ;
+db $00                               ;088965|      ;
+
+org $888966
+IsConfused:
+db $10                               ;088966|      ;
+dl Dungeon_TextSetup                 ;088967|088927;
+db $10                               ;08896A|      ;
+dl $001581                           ;08896B|001581;
+db $0D, "is confused."               ;08896E|      ;
+db $7F                               ;08897B|      ;
+db $00                               ;08897C|      ;
+
+org $88897D
+IsAsleep:
+db $10                               ;08897D|      ;
+dl Dungeon_TextSetup                 ;08897E|088927;
+db $10                               ;088981|      ;
+dl $001581                           ;088982|001581;
+db $0D, "is asleep."                 ;088985|      ;
+db $7F                               ;088990|      ;
+db $00                               ;088991|      ;
+
+org $888992
+HasAwakened:
+db $10                               ;088992|      ;
+dl Dungeon_TextSetup                 ;088993|088927;
+db "But", $0D, $10                   ;088996|      ;
+dl $001581                           ;08899B|001581;
+db $0D
+db "woke up.     "                   ;08899E|      ;
+db $7F                               ;0889AC|      ;
+db $00                               ;0889AD|      ;
+
+org $8889AE
+ItemUsed:
+db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $03, $0E, $1C, $10;0889AE|      ;
+dl $001581                           ;0889BD|001581;
+db $0D, "was used.     ", $00        ;0889C0|      ;
+
+org $8889D0
+ItemStatIncreased:
+db $0D, $10                          ;0889D0|      ;
+dl $001581                           ;0889D2|001581;
+db "'s ", $10                        ;0889D5|      ;
+dl $001598                           ;0889D9|001598;
+db $0D, "increased.         "        ;0889DC|      ;
+db $7F                               ;0889F0|      ;
+db $00                               ;0889F1|      ;
+
+org $8889F2
+ItemRecovered:
+db $0D, $10                          ;0889F2|      ;
+dl $001581                           ;0889F4|001581;
+db " recovered.    "                 ;0889F7|      ;
+db $7F                               ;088A06|      ;
+db $00                               ;088A07|      ;
+
+org $888A08
+ItemRecoveredStatus:
+db $0D, $10                          ;088A08|      ;
+dl $001581                           ;088A0A|001581;
+db " recovered    ", $0D, "from " 
+db $10 : dl $001598                  ;088A22|001598;
+db "."                               ;088A25|      ;
+db $7F                               ;088A26|      ;
+db $00                               ;088A27|      ;
+
+org $888A28
+ItemNoEffect:
+db $0D, "There was no effect."       ;088A28|      ;
+db $7F                               ;088A3D|      ;
+db $00                               ;088A3E|      ;
+
+;---------------------------------------------
 ;Battle quotes: pointer tables
 org $87B731
 Tbl_Critical_hit_text:
@@ -1119,7 +1662,7 @@ Sound_test:
 db $06,$0D
 db $0C
 db $04,$06
-db $01,$04,$02
+db $01,$10,$02  ;db $01,$04,$02
 db $1C
 db "ARCANA SOUND ROOM", $00
 
@@ -1128,7 +1671,7 @@ Text_Music_Number:
 db $06,$0D
 db $0C
 db $04,$06
-db $01,$22,$02
+db $01,$28,$02  ;db $01,$22,$02
 db $1C
 db $06,$0E,"MUSIC NUMBER"
 db $01,$4C,$10
