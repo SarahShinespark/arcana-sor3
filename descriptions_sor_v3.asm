@@ -174,7 +174,7 @@ Tbl_Weapons_desc:
   dw Whip        
   dw ChainWhip   
   dw BlackthorneWhip
-  dw SwordNone      
+  dw NoHornyBat      
   dw SwordNone      
   dw SwordNone      
   dw SwordNone      
@@ -255,7 +255,7 @@ Tbl_Weapons_desc:
   dw TwistedRing     
   dw GrandRing       
   dw CharmRing       
-  dw RingNone        
+  dw TiamatRepellent        
   dw RingNone        
   dw RingNone        
 
@@ -1020,9 +1020,14 @@ org $88A5FA
                        db "iron thorns for a", $0D
                        db "more powerful attack.", $06, $0E, $01, $00, $34
                        db "    R    D    A  ", $06, $0D, "  S    T", $00
-                       
+
+           NoHornyBat: db $10 : dl Details_Text_Setup
+                       db "This is why we can't", $0D
+                       db "have nice things...", $06, $0E, $01, $00, $34
+                       db "    R    D    A  ", $06, $0D, "  S    T", $00
+
             SwordNone: db $10 : dl Details_Text_Setup
-                       db "None", $00
+                       db "Hidden item", $00
                        
           SoftLeather: db $10 : dl Details_Text_Setup
                        db "Relatively soft armor", $0D
@@ -1174,7 +1179,7 @@ org $88A5FA
                        db "    R    D    A    S  ", $06, $0D, "  T", $00
                        
             ArmorNone: db $10 : dl Details_Text_Setup
-                       db "None", $00
+                       db "Hidden item", $00
                        
               SmallSH: db $10 : dl Details_Text_Setup
                        db "A small shield used for", $0D
@@ -1279,7 +1284,7 @@ org $88A5FA
                        db "    R  ", $06, $0D, "  D  ", $06, $0E, "  A    S  ", $06, $0D, "  T", $00
                        
            AmuletNone: db $10 : dl Details_Text_Setup
-                       db "None", $00
+                       db "Hidden item", $00
                        
            SecretRing: db $10 : dl Details_Text_Setup
                        db "A ring that helps you", $0D
@@ -1384,9 +1389,15 @@ org $88A5FA
                        db "draw anyone into", $0D
                        db "obsession.", $01, $00, $34
                        db "    R    D    A    S    T", $00
-                       
+
+      TiamatRepellent: db $10 : dl Details_Text_Setup
+                       db "Tiamats hate this smell!", $0D
+                       db "Wear this to keep your", $0D
+                       db "final party.", $01, $00, $34
+                       db "    R  ", $06, $0E, "  D    A    S    T", $06, $0D, $00
+
              RingNone: db $10 : dl Details_Text_Setup
-                       db "None", $00
+                       db "Hidden item", $00
 warnpc $88C9F4  ;88C93E: original Status/Ability screen (revert if fucked!)
 padbyte $FF     ; Clear unused original text, if necessary
 pad $88C9F4

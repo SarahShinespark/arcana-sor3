@@ -232,7 +232,7 @@ endmacro
 %equipment(115, 0, %11111, 0, 0, 0, 0, 0, 0)                    ;Twisted Ring
 %equipment(116, 0, %11110, 0, 0, 0, 0, 0, 0)                    ;Grand Ring
 %equipment(117, 0, %11111, 0, 0, 0, 0, 0, 0)                    ;Charm Ring
-%equipment(118, 0, 0, 0, 0, 0, 0, 0, 0)                         ;Ring 1
+%equipment(118, 0, !Rooks, 0, 0, 0, 0, 0, 0)                    ;Tiamat Repellent (Ring 1)
 %equipment(119, 0, 0, 0, 0, 0, 0, 0, 0)                         ;Ring 2
 %equipment(120, 0, 0, 0, 0, 0, 0, 0, 0)                         ;Ring 3
 

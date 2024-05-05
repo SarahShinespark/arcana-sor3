@@ -334,7 +334,7 @@ org $85D67D
   db "Twisted Ring    ", $00
   db "Ultimate Ring   ", $00
   db "Fascination Ring", $00
-  db "Ring 1          ", $00
+  db "Tiamat Repellent", $00
   db "Ring 2          ", $00
   db "Ring 3          ", $00
 

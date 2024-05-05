@@ -159,7 +159,7 @@ Stage_Select_Ch2:
   dw $FF04              ;06DEE3; Broad Sword
   dw $FF2A              ;06DEE5; Hard Leather
   dw $FF5C              ;06DEE7; Metal Bracelet
-  dw $FF00              ;06DEE9;  
+  dw $FF76              ;06DEE9; Tiamat Repellent
   dw $FF00              ;06DEEB;  
   dw $FF00              ;06DEED;  
   dw $FF00              ;06DEEF;  
@@ -483,7 +483,7 @@ Stage_Select_Ch3:
   dw $FF53              ;06E3E1; Buckler
   dw $FF06              ;06E3E3; Ice Blade
   dw $FF05              ;06E3E5; Bastard Sword
-  dw $FF00              ;06E3E7;  
+  dw $FF76              ;06E3E7; Tiamat Repellent
   dw $FF00              ;06E3E9;  
   dw $FF00              ;06E3EB;  
   dw $FF00              ;06E3ED;  
@@ -813,7 +813,7 @@ Stage_Select_Ch4:
   dw $FF58              ;06E8EB; Magic Shield
   dw $FF1A              ;06E8ED; Sage's Staff
   dw $FF5E              ;06E8EF; Mythril Bracelet
-  dw $FF00              ;06E8F1;  
+  dw $FF76              ;06E8F1; Tiamat Repellent
   dw $FF00              ;06E8F3;  
   dw $FF00              ;06E8F5;  
   dw $FF00              ;06E8F7;  
@@ -1018,10 +1018,10 @@ Stage_Select_Ch5:
   dw $0000              ;06ED07;  
   dw $0658              ;06ED09;  
   dw $0857              ;06ED0B;  
-  dw $0065              ;06ED0D; $12CB-12D2 (Equipped Ring)
+  dw $0000              ;06ED0D; $12CB-12D2 (Equipped Ring)
   dw $0000              ;06ED0F;  
-  dw $0665              ;06ED11;  
-  dw $0865              ;06ED13;  
+  dw $0600              ;06ED11;  
+  dw $0800              ;06ED13;  
   dw $027A              ;06ED15; $12F3-12FA (Current HP)
   dw $0203              ;06ED17;  
   dw $01E4              ;06ED19;  
@@ -1128,19 +1128,19 @@ Stage_Select_Ch5:
   dw $0009              ;06EDD7;  Dragon Blade (Rooks)
   dw $0038              ;06EDD9;  Magic Mail (Rooks)
   dw $0059              ;06EDDB;  Kaiser Shield (Rooks)
-  dw $0065              ;06EDDD;  Secret Ring (Rooks)
   dw $0815              ;06EDDF;  Devil Axe (Axs)
   dw $0835              ;06EDE1;  Devil Mail (Axs)
   dw $0857              ;06EDE3;  Devil Shield (Axs)
-  dw $0865              ;06EDE5;  Secret Ring (Axs)
   dw $061B              ;06EDE7;  Wand of Lords (Sarah)
   dw $063F              ;06EDE9;  Priest Robe (Sarah)
   dw $0658              ;06EDEB;  Magic Shield (Sarah)
-  dw $0665              ;06EDED;  Secret Ring (Sarah)
   dw $FF0A              ;06EDEF;  Mythril Sword
   dw $FF0B              ;06EDF1;  Thunder Blade
   dw $FF10              ;06EDF3;  Golden Sword  
   dw $FF3B              ;06EDF5;  Gorgeous Mail    
+  dw $FF76              ;06EDF7;  Tiamat Repellent
+  dw $FF00              ;06EDF7;  
+  dw $FF00              ;06EDF7;  
   dw $FF00              ;06EDF7;  
   dw $FF00              ;06EDF9;  
   dw $FF00              ;06EDFB;  
