@@ -1201,8 +1201,8 @@ Gained_10_HP_5_MP:
 db $10 : dl Speaking_text_setup
 db $1D      ;Display one line at a time
 db $10 : dl $0015AF 
-db " recovers HP",$0D
-db "and MP.",$0D,$7F,$00
+db " recovers",$0D
+db "HP and MP.",$0D,$7F,$00
 warnpc $88D3C3
 
 org $88D3C3
@@ -1585,6 +1585,16 @@ db "costs ",$11,$00 : dl $0016DB : db "GP",$0D
 db $1C
 db $01,$20,$22, "Sell        Refuse",$7F,$00
 ;------------------------------
+;Icorina house events: pointers
+org $83B9FB : dl Text_Entrust_the_princess         ;03B9FB|08E202;
+org $83BA40 : dl Text_Axs_isnt_here                ;03BA40|08E257;
+org $83BA53 : dl Text_Axs_not_back                 ;03BA53|08E291;
+org $83BA66 : dl Text_Is_Anyone_there              ;03BA66|08E2B7;
+org $83BAB8 : dl Text_Is_Sarah_All_right           ;03BAB8|08E2FD;
+org $83BAF8 : dl Text_Be_Careful                   ;03BAF8|08E36B;
+org $80D3CE : dl Sound_test                        ;00D3CE|08E382;
+org $80D3D8 : dl Text_Music_Number                 ;00D3D8|08E39D;
+
 org $88E1E7
 Speak_Rooks:
 db $1C
@@ -1604,60 +1614,62 @@ db "Icorina",$0D
 db $1E,$00
 
 org $88E202
-Text_Entrust_the_princess:
+Text_Entrust_the_princess:  ;After getting Sarah in Chapter 2
 db $10 : dl Speaking_text_setup
 db $10 : dl Speak_Axs
-db $22, "Rooks, I entrust the",$0D
-db " Princess to you.",$22,$0D,$7F
+db $22, "Rooks, I'm counting",$0D
+db " on you to protect",$0D
+db " the Princess.",$22,$0D,$7F
 db $10 : dl Delayed_text_setup
 db $10 : dl Speak_Rooks
-db $22, "Leave everything to me.", $22,$7F,$00
+db $22, "Leave it to me.", $22,$7F,$00
 
-org $88E257
-Text_Axs_isnt_here:
+;org $88E257
+Text_Axs_isnt_here:   ;After getting Darwin in Chapter 2
 db $10 : dl Speaking_text_setup
 db $10 : dl Speak_Rooks
-db $22, "What? Axs isn't here.",$0D
-db " I wonder where he went?",$22,$7F,$00
+db $22, "What...?",$0D
+db " Axs isn't here.",$0D
+db " Where did he go?",$22,$7F,$00
 
-org $88E291
-Text_Axs_not_back:
+;org $88E291
+Text_Axs_not_back:    ;Before getting Axs in Chapter 3
 db $10 : dl Speaking_text_setup
 db $10 : dl Speak_Rooks
 db $22, "Axs hasn't come back",$0D
 db " yet.",$22,$7F,$00
 
-org $88E2B7
-Text_Is_Anyone_there:
+;org $88E2B7
+Text_Is_Anyone_there:   ;After getting Axs in Chapter 3
 db $10 : dl Speaking_text_setup
 db $10 : dl Speak_Rooks
-db $22,"Anyone there?",$22,$0D
+db $22,"Is anyone there?",$22,$0D
 db $05,$01,$06        ;Text speed 6 frames per letter
 db $22,".....?",$22,$0D
 db $1E
-db $22,"I guess there's no one",$0D
-db " here.",$22,$7F,$00
+db $22,"I guess not.",$22,$7F,$00
 
-org $88E2FD
-Text_Is_Sarah_All_right:
+;org $88E2FD
+Text_Is_Sarah_All_right:  ;Before getting Sarah in Chapter 4
 db $10 : dl Speaking_text_setup
 db $10 : dl Speak_Rooks
-db $22,"Is Sarah all right?",$22,$7F
+db $22,"Is Sarah okay?",$22,$7F
 db $10 : dl Delayed_text_setup
 db $10 : dl Speak_Icorina
-db $22,"Don't worry, I'm here.",$22,$7F
+db $22,"Don't worry, I'm here",$0D
+db " with her.",$22,$7F
 db $10 : dl Delayed_text_setup
 db $10 : dl Speak_Rooks
-db $22,"Thank you. I'll leave it up",$0D
-db "to you.",$22,$7F,$00
+db $22,"Thank you. I'll leave her",$0D
+db " in your hands.",$22,$7F,$00
 
-org $88E36B
-Text_Be_Careful:
+;org $88E36B
+Text_Be_Careful:    ;After getting Sarah in Chapter 4
 db $10 : dl Speaking_text_setup
 db $10 : dl Speak_Icorina
-db $22,"Be careful.",$22,$7F,$00
+db $22,"Just be careful.",$22,$7F,$00
 
-org $88E382
+;org $88E382
 Sound_test:
 db $06,$0D
 db $0C
@@ -1666,7 +1678,7 @@ db $01,$10,$02  ;db $01,$04,$02
 db $1C
 db "ARCANA SOUND ROOM", $00
 
-org $88E39D
+;org $88E39D
 Text_Music_Number:
 db $06,$0D
 db $0C
