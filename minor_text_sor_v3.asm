@@ -928,7 +928,23 @@ db "Money         "
 db $01,$4B,$78        ; Cursor: (4B,78)
 db $11,$04 : dl $001559 : db "GP",$00   ; Load current GP, End string
 ;---------------------------------
-;Inn events start at $3BD3D
+;Inn events: pointers
+org $83BD41 : dl Inn_menu                          ;03BD41|08CD58;
+org $83BD53 : dl Inn_Anything_Else                 ;03BD53|08CD91;
+org $83BD7F : dl Inn_Save_in_which_file            ;03BD7F|08CDB8;
+org $83BD83 : dl Inn_Saving_file_x                 ;03BDB3|08CDED;
+org $83BDCC : dl Inn_File_x_not_saved              ;03BDCC|08CE4C;
+org $83BDDE : dl Inn_File_x_is_saved               ;03BDDE|08CE1B;
+org $83B930 : dl Inn_Loading_save                  ;03B930|08CE82;
+org $83BDF5 : dl Inn_Anything_Else                 ;03BDF5|08CD91;
+org $83BE17 : dl Sub_Shop_menu_GP                  ;03BE17|08CCE3;
+org $83BE21 : dl Inn_One_night_costs_x             ;03BE21|08CEA9;
+org $83BE62 : dl Inn_Not_Enough                    ;03BE62|08CF1D;
+org $83BE75 : dl Inn_Good_night                    ;03BE75|08CF2E;
+org $83BE99 : dl Speaking_text_setup               ;03BE99|08CCBA;
+org $83BEB4 : dl Inn_Good_morning_Crono            ;03BEB4|08CF4B;
+org $83BEC7 : dl Inn_Bye                           ;03BEC7|08CEE7;
+
 org $88CD58
 Inn_menu:
 db $10 : dl Speaking_text_setup
@@ -1018,6 +1034,28 @@ db "It looks like you slept well",$0D
 db "last night.",$7F,$00
 
 ;Healer events start at $3BED1
+;Healer events: pointers
+org $83BED5 : dl Spirit_Healer_shop                ;03BED5|08CF87;
+org $83BEE4 : dl Sub_Shop_menu_GP                  ;03BEE4|08CCE3;
+org $83BF1C : dl Healer_Thank_You                  ;03BF1C|08D020;
+org $83BF3E : dl Healer_No_Torn_Spirits            ;03BF3E|08D08D;
+org $83BF4E : dl Healer_What_Else                  ;03BF4E|08D030;
+org $83BF67 : dl Healer_Choose_Spirit              ;03BF67|08D191;
+org $83BF78 : dl Healer_Revive                     ;03BF78|08D064;
+org $83BFA5 : dl Healer_Revive_Price               ;03BFA5|08D0BC;
+org $83BFE1 : dl Healer_Revive_Complete            ;03BFE1|08D16B;
+org $83BFF4 : dl Healer_Cant_buy_revive            ;03BFF4|08D111;
+org $83C020 : dl Healer_What_Else                  ;03C020|08D030;
+;org $83C048 : dl Healer_4_Items_For_Sale           ;03C048|08E033;
+;org $83C077 : dl Healer_4_Items_For_Sale           ;03C077|08E033;
+;org $83C08C : dl Healer_3_Items_For_Sale           ;03C08C|08E081;
+org $83C0AC : dl Healer_What_Else                  ;03C0AC|08D030;
+org $83C0CC : dl Sub_Shop_menu_GP                  ;03C0CC|08CCE3;
+org $83C0E5 : dl Healer_What_Else                  ;03C0E5|08D030;
+org $83C0FA : dl Healer_Cant_Buy_Card              ;03C0FA|08CFBF;
+org $83C11C : dl Healer_Full_Cards                 ;03C11C|08CFF2;
+
+
 org $88CF87
 Spirit_Healer_shop:
 db $10 : dl Speaking_text_setup
@@ -1129,7 +1167,7 @@ db $10 : dl Speaking_text_setup
 db "Welcome.",$0D
 db "What can I do for ya?",$0D
 db $1C    ;Display options immediately
-db "  Menu",$08,$44,"Chat",$7F,$00
+db "   Menu",$08,$48,"Chat",$7F,$00
 
 ;org $88D203
 Alchemist_Pick_drink:
@@ -1143,7 +1181,7 @@ db $10 : dl Speaking_text_setup
 db "Anything else I can get",$0D
 db "for ya?"
 db $1C,$0D
-db "  Menu",$08,$44,"Chat",$7F,$00
+db "   Menu",$08,$48,"Chat",$7F,$00
 
 ;org $88D266
 Alchemist_Leaving:
@@ -1203,9 +1241,9 @@ db $1D      ;Display one line at a time
 db $10 : dl $0015AF 
 db " recovers",$0D
 db "HP and MP.",$0D,$7F,$00
-warnpc $88D3C3
+warnpc $88D3C4
 
-org $88D3C3
+org $88D3C4
 Conversation_1:
   db $10 : dl Speaking_text_setup
   db $10 : dl Speak_Alchemist
@@ -1478,11 +1516,56 @@ db $01,$25,$64 : db "20GP"
 db $10 : dl Sub_Shop_menu_GP : db $00
 
 ;Outfitter events start at $3C130
+;Outfitter events: pointers
+;dl Outfitter_menu                    ;03C134|08DC27;
+;dl Sub_Shop_menu_GP                  ;03C143|08CCE3;
+;dl Outfitter_Bye                     ;03C186|08DD43;
+;dl Outfitter_Anything_else           ;03C1FE|08DCCF;
+;dl Outfitter_Pay_How                 ;03C222|08DC64;
+;dl Sub_Shop_menu_GP                  ;03C27F|08CCE3;
+;dl Outfitter_Thanks                  ;03C295|08DC95;
+;dl Outfitter_No_Money                ;03C2A0|08DD89;
+;dl Outfitter_Full_Items              ;03C2AB|08DDBC;
+;dl Outfitter_No_Trade                ;03C2DA|08DE3E;
+;dl Outfitter_Cant_Trade              ;03C39D|08DE72;
+;dl Outfitter_No_Money                ;03C3D6|08DD89;
+;dl Sub_Shop_menu_GP                  ;03C40E|08CCE3;
+;dl Outfitter_Traded_X                ;03C427|08DE5E;
+;dl Outfitter_Anything_else           ;03C432|08DCCF;
+;dl Outfitter_Anything_else           ;03C49D|08DCCF;
+;dl Outfitter_Pay_How                 ;03C4C5|08DC64;
+;dl Outfitter_Thanks                  ;03C538|08DC95;
+;dl Outfitter_No_Money                ;03C547|08DD89;
+;dl Outfitter_Full_Items              ;03C552|08DDBC;
+;dl Outfitter_No_Trade                ;03C581|08DE3E;
+;dl Outfitter_Cant_Trade              ;03C637|08DE72;
+;dl Outfitter_No_Money                ;03C674|08DD89;
+;dl Outfitter_Sell_Choice             ;03C6DE|08DD09;
+;dl Outfitter_Anything_else           ;03C711|08DCCF;
+;dl Menu_Sell_8_Weapons               ;03C73F|08E0F2;
+;dl Sub_Shop_menu_GP                  ;03C791|08CCE3;
+;dl Outfitter_Sell_Price              ;03C7B1|08DECC;
+;dl Sub_Shop_menu_GP                  ;03C7E6|08CCE3;
+;dl Outfitter_Thanks                  ;03C7F0|08DC95;
+;dl Outfitter_Cant_Sell               ;03C809|08DE9F;
+;dl Speaking_text_setup               ;03C837|08CCBA;
+;dl Outfitter_No_Equipment            ;03C89F|08DDF4;
+;dl Menu_Sell_8_Items                 ;03C8C2|08E190;
+;dl Sub_Shop_menu_GP                  ;03C902|08CCE3;
+;dl Outfitter_Sell_Price              ;03C922|08DECC;
+;dl Sub_Shop_menu_GP                  ;03C957|08CCE3;
+;dl Outfitter_Thanks                  ;03C961|08DC95;
+;dl Outfitter_Cant_Sell               ;03C97A|08DE9F;
+;dl Speaking_text_setup               ;03C9A3|08CCBA;
+;dl Outfitter_No_Items                ;03C9FE|08DE1A;
+;dl Outfitter_Anything_else           ;03CA22|08DCCF;
+
+
 org $88DC27
 Outfitter_menu:
 db $10 : dl Speaking_text_setup
-db "Welcome.",$0D
-db "What would you like?",$0D
+db "Welcome!",$0D
+db "What do you need?   ",$0D
 db $1C      ;Display options all at once
 db "  Weapons  Items    Sell",$7F,$00
 
@@ -1503,15 +1586,15 @@ db "  Weapons  Items    Sell",$7F,$00
 org $88DCCF
 Outfitter_Anything_else:
 db $10 : dl Speaking_text_setup
-db "Anything else you'd like?",$0D
+db "You need anything else?  ",$0D
 db $1C,$0D
 db "  Weapons  Items    Sell",$7F,$00
 
 org $88DD09
 Outfitter_Sell_Choice:
 db $10 : dl Speaking_text_setup
-db "What do you want to",$0D
-db "sell me?",$0D
+db "What'll you sell me?",$0D
+db "       ",$0D
 db $1C
 db "    Weapons      Items",$7F,$00
 
@@ -1519,8 +1602,8 @@ org $88DD43
 Outfitter_Bye:
 db $10 : dl Speaking_text_setup
 db "Thank you.",$0D
-db "Come back again if there's",$0D
-db "anything I can do to help.",$7F,$00
+db "Come back whenever you",$0D
+db "need anything else.           ",$7F,$00
 
 org $88DD89
 Outfitter_No_Money:
@@ -1531,8 +1614,8 @@ db "money to buy that item.",$7F,$00
 org $88DDBC
  Outfitter_Full_Items:
 db $10 : dl Speaking_text_setup
-db "Your inventory is full!",$0D
-db "You can't hold more items.",$7F,$00
+db "You're holding too many",$0D
+db "things to take more items.",$7F,$00
 
 org $88DDF4
 Outfitter_No_Equipment:
@@ -1562,13 +1645,13 @@ db $7F,$00
 org $88DE72
 Outfitter_Cant_Trade:
 db $10 : dl Speaking_text_setup
-db "Too bad, but you can't",$0D
-db "trade with that.",$7F,$00
+db "I'm sorry to say I can't",$0D
+db "take that.    ",$7F,$00
 
 org $88DE9F
 Outfitter_Cant_Sell:
 db $10 : dl Speaking_text_setup
-db "Sorry, but you can't sell",$0D
+db "I'm sorry, I can't buy   ",$0D
 db $10 : dl Sub_Color_Text
 db $10 : dl $0015AF
 db $10 : dl Sub_White_Text
@@ -1577,13 +1660,20 @@ db ".",$7F,$00
 org $88DECC
 Outfitter_Sell_Price:
 db $10 : dl Speaking_text_setup
+
 db $10 : dl Sub_Color_Text
 db $10 : dl $0015AF
 db $10 : dl Sub_White_Text
 db $0D
-db "costs ",$11,$00 : dl $0016DB : db "GP",$0D
+db "is worth ",$11,$00 : dl $0016DB : db "GP.",$0D
 db $1C
-db $01,$20,$22, "Sell        Refuse",$7F,$00
+db $01,$20,$22, "Sell"
+db $08,$52
+db "Refuse",$7F,$00
+
+warnpc $88DF03  ;Don't overwrite Outfitter_Trade_6_Weapons:
+padbyte $FF
+pad $88DF03
 ;------------------------------
 ;Icorina house events: pointers
 org $83B9FB : dl Text_Entrust_the_princess         ;03B9FB|08E202;
