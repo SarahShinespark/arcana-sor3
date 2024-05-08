@@ -932,7 +932,7 @@ db $11,$04 : dl $001559 : db "GP",$00   ; Load current GP, End string
 org $83BD41 : dl Inn_menu                          ;03BD41|08CD58;
 org $83BD53 : dl Inn_Anything_Else                 ;03BD53|08CD91;
 org $83BD7F : dl Inn_Save_in_which_file            ;03BD7F|08CDB8;
-org $83BD83 : dl Inn_Saving_file_x                 ;03BDB3|08CDED;
+org $83BDB3 : dl Inn_Saving_file_x                 ;03BDB3|08CDED;
 org $83BDCC : dl Inn_File_x_not_saved              ;03BDCC|08CE4C;
 org $83BDDE : dl Inn_File_x_is_saved               ;03BDDE|08CE1B;
 org $83B930 : dl Inn_Loading_save                  ;03B930|08CE82;
@@ -1684,6 +1684,8 @@ org $83BAB8 : dl Text_Is_Sarah_All_right           ;03BAB8|08E2FD;
 org $83BAF8 : dl Text_Be_Careful                   ;03BAF8|08E36B;
 org $80D3CE : dl Sound_test                        ;00D3CE|08E382;
 org $80D3D8 : dl Text_Music_Number                 ;00D3D8|08E39D;
+org $80D47A : LDA.W #Text_Music_Number      ;Called to update the current music number
+org $80D47F : LDA.W #$0088
 
 org $88E1E7
 Speak_Rooks:
