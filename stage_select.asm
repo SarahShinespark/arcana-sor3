@@ -1305,7 +1305,29 @@ Stage_Select_Ch5:
   dw $0018              ;06EF31; $18FF-1900 (Story progress)
 
 
-org $98DB92
-;Check for Secret Rings function
+org $98C6ED   ;Original Tiamat event
+ASM_Vs_Tiamat:
 
-;Redirect the ptr $18/96C5 here (Tiamat event) and call CheckSecretRings
+org $9896C5   ;Event list; Redirect Tiamat event to check for key item
+dw TiamatEventSkip
+
+;Subroutine to check Rooks' equipped ring
+org $98DB92   
+CheckTiamatRepellent:
+LDA.W $12CB   ;Check Rooks' equipped ring
+CMP #$0076    ;If ID=76 (Tiamat Repellent) return true
+BEQ +
+LDA #$0000
+RTL
++:
+LDA #$0001
+RTL
+
+TiamatEventSkip:
+db $07 : dl CheckTiamatRepellent  ;Check if Rooks is wearing the key item
+db $0B : dw ASM_Vs_Tiamat     ;If false: play original event
+;                             ;Else
+db $07 : dl $009C44 : db $28  ;Play running away SFX
+db $16 : dw $1901,$0000       ;Disable cutscene and re-enable control
+db $00                        ;Return
+
