@@ -1002,9 +1002,10 @@ org $88CE82
 Inn_Loading_save:
 db $10 : dl Speaking_text_setup
 db "Good morning.",$0D
-db "Have a great day!  ",$7F,$00
+db "I hope you have a",$0D
+db "great day!",$7F,$00
 
-org $88CEA9
+;org $88CEA9
 Inn_One_night_costs_x:
 db $10 : dl Speaking_text_setup
 db "It will cost "
@@ -1020,13 +1021,16 @@ db "Leave",$7F,$00
 Inn_Bye:
 db $10 : dl Speaking_text_setup
 db "Please come and stay",$0D
-db "here whenever you are",$0D
-db "tired. ",$7F,$00
+db "with us whenever you",$0D
+db "are tired.",$7F,$00
 
-org $88CF1D
-Inn_Not_Enough:
-db $10 : dl Speaking_text_setup
-db "Not enough.",$7F,$00
+;org $88CF1D
+;Inn_Not_Enough:
+;(Moved to free space after Alchemist Conversation_27)
+
+warnpc $88CF2E  ;Don't overwrite Inn_Good_night
+padbyte $FF
+pad $88CF2E
 
 org $88CF2E
 Inn_Good_night:
@@ -1037,8 +1041,8 @@ org $88CF4B
 Inn_Good_morning_Crono:
 db $10 : dl Speaking_text_setup
 db "Good morning.",$0D
-db "It looks like you slept well",$0D
-db "last night.",$7F,$00
+db "It looks like you slept",$0D
+db "well last night.",$7F,$00
 
 ;Healer events start at $3BED1
 ;Healer events: pointers
@@ -1102,8 +1106,6 @@ Healer_Revive:
 db $10 : dl Speaking_text_setup
 db "Which Spirit shall I heal?",$0D
 db "        ",$7F,$00
-;db "Which Spirit would you",$0D
-;db "like healed?",$7F,$00
 
 org $88D08D
 Healer_No_Torn_Spirits:
@@ -1510,9 +1512,14 @@ Conversation_27:
   db " prolly be just as bad.",$22
   db $7F,$00
 
-warnpc $88CCB9  ; Don't overwrite Speaking_text_setup
+Inn_Not_Enough:
+db $10 : dl Speaking_text_setup
+db "I'm sorry, you don't",$0D
+db "have enough.",$7F,$00
+
+warnpc $88CCBA  ; Don't overwrite Speaking_text_setup
 padbyte $FF     ; Clear unused original text, if necessary
-pad $88CCB9
+pad $88CCBA
 ;-------------------------------------
 org $88DBE0
 Alchemist_shop_text:  ; The prices are both text here, and hardcoded elsewhere.
