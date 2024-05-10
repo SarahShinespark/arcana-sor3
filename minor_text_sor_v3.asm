@@ -916,9 +916,9 @@ db $06, $0D, $0C, $05, $01, $14, " ", $0C, $03, $0E, $04, $06, $01, $00, $06, $1
 
 org $88CCD9
 Sub_White_Text:         ;Unnecessary subs
-db $06, $0D, $00
+db $06,$0D,$00
 Sub_Color_Text:
-db $06, $0E, $00
+db $06,$0E,$00
 
 org $88CCE3
 Sub_Shop_menu_GP:
@@ -949,7 +949,7 @@ org $88CD58
 Inn_menu:
 db $10 : dl Speaking_text_setup
 db "Welcome.", $0D
-db "What can I do for you?",$0D
+db "How can I help you?   ",$0D
 db $1C : db $01,$1A,$22
 db "A room     Save",$7F,$00
 
@@ -963,7 +963,7 @@ db "A room     Save",$7F,$00
 org $88CDB8
 Inn_Save_in_which_file:
 db $10 : dl Speaking_text_setup
-db "Save as which file?"
+db "Save in which file?"
 db $1C
 db $01,$2E,$14,"File 1"
 db $01,$2E,$22,"File 2"
@@ -972,49 +972,56 @@ db $01,$2E,$30,"File 3",$7F,$00
 org $88CDED
 Inn_Saving_file_x:
 db $10 : dl Speaking_text_setup
-db "Saving "
-db $10 : dl Sub_Color_Text
-db "file ",$11,$00 : dl $0016DB
-db $10 : dl Sub_White_Text
-db ".",$0D
-db "Please wait.",$7F,$00
+db "Okay, saving in "
+db $06,$0E, "File ", $11,$00 : dl $0016DB : db $06,$0D    ;File name in yellow
+db ".",$7F,$00
+warnpc $88CE1B
+padbyte $FF     ; Clear unused original text, if necessary
+pad $88CE1B
+
 
 org $88CE1B
 Inn_File_x_is_saved:
 db $10 : dl Speaking_text_setup
-db $10 : dl Sub_Color_Text
-db "File ",$11,$00 : dl $0016DB
-db $10 : dl Sub_White_Text : db $0D
-db "File successfully saved.",$7F,$00
+db "The game was saved in",$0D
+db $06,$0E, "File ",$11,$00 : dl $0016DB : db $06,$0D   ;File name in yellow
+db ".     ",$7F,$00
+
+warnpc $88CE4C
+padbyte $FF
+pad $88CE4C
 
 org $88CE4C
 Inn_File_x_not_saved:
 db $10 : dl Speaking_text_setup
-db $10 : dl Sub_Color_Text
-db "File ",$11,$00 : dl $0016DB
-db $10 : dl Sub_White_Text : db $0D
-db "File is not saved.",$0D
-db "Try again.",$7F,$00
+db $06,$0E, "File ", $11,$00 : dl $0016DB : db $06,$0D    ;File name in yellow
+db " was not saved.",$0D
+db "Please try again. ",$7F,$00
 
 org $88CE82
 Inn_Loading_save:
 db $10 : dl Speaking_text_setup
 db "Good morning.",$0D
-db "Do your best today!",$7F,$00
+db "Have a great day!  ",$7F,$00
 
 org $88CEA9
 Inn_One_night_costs_x:
 db $10 : dl Speaking_text_setup
-db "One night's stay costs",$0D
-db $11,$00 : dl $0016DB : db "GP.",$0D
+db "It will cost "
+db $11,$00 : dl $0016DB : db "GP",$0D
+db "to stay the night.",$0D
 db $1C
-db "       Stay     Move on",$7F,$00
+db $08,$1D
+db "Stay"
+db $08,$4A
+db "Leave",$7F,$00
 
-org $88CEE7
+;org $88CEE7
 Inn_Bye:
 db $10 : dl Speaking_text_setup
-db "Come back whenever you",$0D
-db "need a good night's rest.",$7F,$00
+db "Please come and stay",$0D
+db "here whenever you are",$0D
+db "tired. ",$7F,$00
 
 org $88CF1D
 Inn_Not_Enough:
@@ -1024,7 +1031,7 @@ db "Not enough.",$7F,$00
 org $88CF2E
 Inn_Good_night:
 db $10 : dl Speaking_text_setup
-db "Good night. Sleep well.",$7F,$00
+db "Good night. Sleep well!",$7F,$00
 
 org $88CF4B
 Inn_Good_morning_Crono:
@@ -1037,7 +1044,7 @@ db "last night.",$7F,$00
 ;Healer events: pointers
 org $83BED5 : dl Spirit_Healer_shop                ;03BED5|08CF87;
 org $83BEE4 : dl Sub_Shop_menu_GP                  ;03BEE4|08CCE3;
-org $83BF1C : dl Healer_Thank_You                  ;03BF1C|08D020;
+org $83BF1C : dl Healer_Bye                        ;03BF1C|08D020;
 org $83BF3E : dl Healer_No_Torn_Spirits            ;03BF3E|08D08D;
 org $83BF4E : dl Healer_What_Else                  ;03BF4E|08D030;
 org $83BF67 : dl Healer_Choose_Spirit              ;03BF67|08D191;
@@ -1063,7 +1070,7 @@ db "Welcome.",$0D
 db "What would you like?"
 db $1C
 db $01,$20,$22
-db "Cards     Healing",$7F,$00
+db "Cards     Mending",$7F,$00
 
 org $88CFBF
 Healer_Cant_Buy_Card:
@@ -1075,10 +1082,10 @@ org $88CFF2
 Healer_Full_Cards:
 db $10 : dl Speaking_text_setup
 db "You can't carry any more",$0D
-db "of those cards.",$7F,$00
+db "of that card.  ",$7F,$00
 
 org $88D020
-Healer_Thank_You:
+Healer_Bye:
 db $10 : dl Speaking_text_setup
 db "Thank you.",$7F,$00
 
@@ -1088,29 +1095,35 @@ db $10 : dl Speaking_text_setup
 db "What else would you like?"
 db $1C
 db $01,$20,$22
-db "Cards     Healing",$7F,$00
+db "Cards     Mending",$7F,$00
 
 org $88D064
 Healer_Revive:
 db $10 : dl Speaking_text_setup
-db "Which Spirit would you",$0D
-db "like healed?",$7F,$00
+db "Which Spirit shall I heal?",$0D
+db "        ",$7F,$00
+;db "Which Spirit would you",$0D
+;db "like healed?",$7F,$00
 
 org $88D08D
 Healer_No_Torn_Spirits:
 db $10 : dl Speaking_text_setup
 db "I can revive your fallen",$0D
-db "spirits for you.",$7F,$00
+db "Spirits for you.",$7F,$00
 
 org $88D0BC
 Healer_Revive_Price:
 db $10 : dl Speaking_text_setup
-db "Healing that spirit will",$0D
-db "cost ",$11,$00 : dl $0016DB : db "GP.",$0D
-db "Do you want to proceed?",$0D
+db "It will cost ",$11,$00 : dl $0016DB : db "GP",$0D
+db "to heal that Spirit.",$0D
+db "Is that all right?  ",$0D
 db $1C
 db $01,$20,$30
 db "Yes       No",$7F,$00
+
+warnpc $88D111
+padbyte $FF
+pad $88D111
 
 org $88D111
 Healer_Cant_buy_revive:
@@ -1118,7 +1131,7 @@ db $10 : dl Speaking_text_setup
 db "You don't seem to have",$0D
 db "enough money.",$0D
 db "I'm afraid I won't be able",$0D
-db "to heal that spirit.",$7F,$00
+db "to heal that Spirit.",$7F,$00
 
 org $88D16B
 Healer_Revive_Complete:
@@ -1172,8 +1185,8 @@ db "   Menu",$08,$48,"Chat",$7F,$00
 ;org $88D203
 Alchemist_Pick_drink:
 db $10 : dl Speaking_text_setup
-db "Which one would ya",$0D
-db "like?",$00
+db "Which one would",$0D
+db "ya like?",$00
 
 ;org $88D22A
 Alchemist_Anything_else:
@@ -1593,17 +1606,17 @@ db "  Weapons  Items    Sell",$7F,$00
 org $88DD09
 Outfitter_Sell_Choice:
 db $10 : dl Speaking_text_setup
-db "What'll you sell me?",$0D
-db "       ",$0D
+db "What will you sell me?",$0D
+db "     ",$0D
 db $1C
 db "    Weapons      Items",$7F,$00
 
 org $88DD43
 Outfitter_Bye:
 db $10 : dl Speaking_text_setup
-db "Thank you.",$0D
+db "Thank you very much. ",$0D
 db "Come back whenever you",$0D
-db "need anything else.           ",$7F,$00
+db "need anything else.",$7F,$00
 
 org $88DD89
 Outfitter_No_Money:
@@ -1615,18 +1628,18 @@ org $88DDBC
  Outfitter_Full_Items:
 db $10 : dl Speaking_text_setup
 db "You're holding too many",$0D
-db "things to take more items.",$7F,$00
+db "things to take any more.  ",$7F,$00
 
 org $88DDF4
 Outfitter_No_Equipment:
 db $10 : dl Speaking_text_setup
-db "You are not holding any",$0D
+db "You're not carrying any",$0D
 db "weapons.",$7F,$00
 
 org $88DE1A
 Outfitter_No_Items:
 db $10 : dl Speaking_text_setup
-db "You are not holding any",$0D
+db "You're not carrying any",$0D
 db "items.",$7F,$00
 
 org $88DE3E
@@ -1637,39 +1650,33 @@ db "You have nothing to trade.",$7F,$00
 org $88DE5E
 Outfitter_Traded_X:
 db $10 : dl Speaking_text_setup
-db "Sold: "
-db $10 : dl Sub_Color_Text
-db $10 : dl $0015AF
+db "Traded: "
+db $06,$0E,$10 : dl $0015AF   ;Item name in yellow
 db $7F,$00
 
 org $88DE72
 Outfitter_Cant_Trade:
 db $10 : dl Speaking_text_setup
-db "I'm sorry to say I can't",$0D
-db "take that.    ",$7F,$00
+db "I'm sorry to say,",$0D
+db "I can't take that.   ",$7F,$00
 
 org $88DE9F
 Outfitter_Cant_Sell:
 db $10 : dl Speaking_text_setup
-db "I'm sorry, I can't buy   ",$0D
-db $10 : dl Sub_Color_Text
-db $10 : dl $0015AF
-db $10 : dl Sub_White_Text
-db ".",$7F,$00
+db "I'm sorry, I can't buy ",$0D
+db "your "
+db $06,$0E,$10 : dl $0015AF : db $06,$0D    ;Item name in yellow
+db ". ",$7F,$00
 
 org $88DECC
 Outfitter_Sell_Price:
 db $10 : dl Speaking_text_setup
-
-db $10 : dl Sub_Color_Text
-db $10 : dl $0015AF
-db $10 : dl Sub_White_Text
-db $0D
-db "is worth ",$11,$00 : dl $0016DB : db "GP.",$0D
+db "I can pay ",$11,$00 : dl $0016DB : db "GP",$0D
+db "for "
+db $06,$0E,$10 : dl $0015AF : db $06,$0D    ;Item name in yellow
+db ".",$0D
 db $1C
-db $01,$20,$22, "Sell"
-db $08,$52
-db "Refuse",$7F,$00
+db $01,$20,$22, "Sell", $08,$52, "Refuse ",$7F,$00
 
 warnpc $88DF03  ;Don't overwrite Outfitter_Trade_6_Weapons:
 padbyte $FF
