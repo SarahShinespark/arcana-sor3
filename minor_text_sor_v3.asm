@@ -945,6 +945,10 @@ org $83BE99 : dl Speaking_text_setup               ;03BE99|08CCBA;
 org $83BEB4 : dl Inn_Good_morning_Crono            ;03BEB4|08CF4B;
 org $83BEC7 : dl Inn_Bye                           ;03BEC7|08CEE7;
 
+;Change outfitter "Trade Goods" to "Trade Value"
+org $88CD1F : db "Trade Value "                    ;08CD1F|      ;
+org $88CD4C : db "Trade Value"                     ;08CD4C|      ;
+
 org $88CD58
 Inn_menu:
 db $10 : dl Speaking_text_setup
