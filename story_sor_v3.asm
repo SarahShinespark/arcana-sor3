@@ -458,7 +458,7 @@ SCRIPT_018: db $1B,$00,$2A
             db $1B,$01,$29
             db $10 : dl MACRO_119
             db $1C
-            db "The Priest has",$0D
+            db "The Priest",$0D
             db "cast the spell of",$0D
             db "Summon Fire Spirit."
             db $05,$FF,$3C
