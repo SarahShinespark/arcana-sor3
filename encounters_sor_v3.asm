@@ -655,6 +655,7 @@ Formation_Zone_01_Boss:
 
 
 ;Zone 02: Used by Ch2 tiles 11,12 (Forest of Doubt)
+;***3.0: Encounter odds 10, 2, 10, 4, 2 /16
 org $189309
 Formation_Zone_02_Num_Entries:
                        db $10                               ;189309|        |      
@@ -1110,6 +1111,7 @@ Formation_Zone_0A_Layout_0F:
 
 ; Zone 0B: Used by Ch 2 (Draven Pass/Crimson Valley)
 ; ***2.1: Layout 0A reduced 6 to 5 entries ($0344 back center removed)
+; ***3.0: Encounter odds 3, 6, 2, 9, 7 /16
 org $1894D9
 Formation_Zone_0B_Num_Entries:
                        db $10                               ;1894D9|        |      ; 
