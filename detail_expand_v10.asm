@@ -308,24 +308,25 @@ warnpc $888E8E
 padbyte $FF
 pad $888E8E
 
-;Level up: Learned spells (you can get up to 3 per level)   ;Commented out bc Battle_Text_Format ptr is in minor_text_sor_v3
-;org $888E8E
-;LearnedSpell1:
-;db $10 : dl Battle_Text_Format
-;db $10 : dl $001581
-;db " has mastered", $0D, $06, $0E
-;db $10 : dl $0015AF : db $06, $0D, $7F, $00
+;Level up: Learned spells (you can get up to 3 per level)
+;Was commented out bc Battle_Text_Format ptr is in minor_text_sor_v3, but Battle_Text_Format was overwritten
+org $888E8E
+LearnedSpell1:
+db $10 : dl $888F9F   ;Hardcoded ptr to Dungeon_TextSetup in minor_text_sor_v3
+db $10 : dl $001581
+db " has mastered", $0D, $06, $0E
+db $10 : dl $0015AF : db $06, $0D, $7F, $00
 
-;LearnedSpell2:
-;db $0D, $06, $0E
-;db $10 : dl $0015C7 : db $06, $0D, $7F, $00
+LearnedSpell2:
+db $0D, $06, $0E
+db $10 : dl $0015C7 : db $06, $0D, $7F, $00
 
-;LearnedSpell3:
-;db $0D, $06, $0E
-;db $10 : dl $0015DF : db $06, $0D, $7F, $00
+LearnedSpell3:
+db $0D, $06, $0E
+db $10 : dl $0015DF : db $06, $0D, $7F, $00
 
-;LearnedSpellEnd:
-;db ".", $7F, $00
+LearnedSpellEnd:
+db ".", $7F, $00
 
 warnpc $888EC7 ;Don't overwrite Card/Item menu
 ;padbyte $FF     ; Clear unused original text, if necessary
