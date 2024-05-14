@@ -1173,8 +1173,8 @@ org $83BC0A : dl Drink_water
 org $83BC27 : dl Drink_Elixir
 org $83BC5F : dl Eat_Food_A
 org $83BC97 : dl Eat_Food_B
-org $83BC3C : dl Gained_5_HP
-org $83BC74 : dl Gained_10_HP
+org $83BC3C : dl Gained_10_HP_5_MP  ;dl Gained_5_HP
+org $83BC74 : dl Gained_10_HP_5_MP  ;dl Gained_10_HP
 org $83BCAC : dl Gained_10_HP_5_MP
 
 org $88D1B7
