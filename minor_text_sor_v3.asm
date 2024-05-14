@@ -120,7 +120,8 @@ org $888F63
 Enemy5_Num:
   db $10 : dl $0015F3 : db $01,$60,$30
   db "*",$11,$00 : dl $0016E3
-  db $7F, $00     ;Replaces Enemy6-8 with a $7F $00 (pause and return)
+  db $0D, $00     ;Replaces Enemy6-8 with a $0D $00 (end line and return)
+                  ;Event code at sub $18F13 handles the pause, so no 7F is necessary
 TooMuchGold:
   db $10 : dl Dungeon_TextSetup
   db "Found ",$11,$00 : dl $0016DB : db " GP.",$0D
