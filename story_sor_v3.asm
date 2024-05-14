@@ -1575,7 +1575,8 @@ SCRIPT_066: db $10 : dl CLEAR
             db $00
 
 SCRIPT_067: db $10 : dl DISPLAY_DARAMA
-            db $22,"Keh heh heh heh.",$0D
+            db $22,"Keh heh heh heh."
+            db $10 : dl CONTINUE_DARAH
             db " I should thank Galneon",$0D
             db " for summoning me from",$0D
             db " the spirit world.",$22
@@ -1696,7 +1697,9 @@ SCRIPT_074: db $10 : dl MACRO_119
             db " is bleeding...",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_SALAH2
-            db $22,"I'm all right. Let's go.",$22
+            db $22,"I'm all right."
+            db $10 : dl CONTINUE_SALAH2
+            db " Let's go.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $0C
             db $1B,$01,$FF
@@ -2638,7 +2641,7 @@ SCRIPT_117: db $10 : dl MACRO_119
             db $05,$01,$01
             db $00
 
-;Unused
+;Unused duplicate
  MACRO_120: db $05,$FF,$14
             db $0C
             db $0D
@@ -2943,7 +2946,7 @@ CONTINUE_SALAH: db $1B,$00,$FE
                 db $1B,$00,$0E
                 db $00
 
-UNUSED_152: db $1B,$00,$FE
+CONTINUE_SALAH2: db $1B,$00,$FE      ;Salah with hat
             db $7F
             db $0D
             db $1B,$00,$12
@@ -2985,7 +2988,7 @@ CONTINUE_GALNEON2: db $1B,$00,$FE
                    db $1B,$00,$24
                    db $00
 
-UNUSED_159: db $1B,$00,$FE
+CONTINUE_DARAH: db $1B,$00,$FE
             db $7F
             db $0D
             db $1B,$00,$1E
