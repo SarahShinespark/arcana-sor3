@@ -1769,7 +1769,7 @@ SCRIPT_080: db $10 : dl PROMPT_ROOKS
             db " Enchanted Jewel.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_ARIEL
-            db $22,"Heh, It's too late."
+            db $22,"Heh, it's too late."
             db $10 : dl CONTINUE_ARIEL
             db " The preparations for the",$0D
             db " resurrection have",$0D
