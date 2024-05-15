@@ -1824,7 +1824,7 @@ SCRIPT_080: db $10 : dl PROMPT_ROOKS
             db " you going to stop me?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
-            db $22,"..... Axs, Sarah, let me",$0D
+            db $22,".....Axs, Sarah, let me",$0D
             db " take care of this on",$0D
             db " my own.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
@@ -2134,6 +2134,7 @@ SCRIPT_092: db $10 : dl DISPLAY_GALNEON
             db $10 : dl PROMPT_ROOKS
             db $05,$01,$08
             db $22,"Galneon..."
+            db $05,$01,$20," "
             db $05,$01,$01
             db " prepare",$0D
             db " yourself for the end."
@@ -2238,7 +2239,7 @@ SCRIPT_096: db $10 : dl PROMPT_ROOKS
             db $10 : dl DISPLAY_DARWIN
             db $22,"It's fine. There",$0D
             db " was no sign of Rimsala's",$0D
-            db " influence in the city.",$22
+            db " influence on the city.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"So, was the revival",$0D
@@ -2258,9 +2259,9 @@ SCRIPT_096: db $10 : dl PROMPT_ROOKS
             db " completely.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
-            db $22,"Really? So if things",$0D
-            db " continue like this,",$0D
-            db " then one day...",$22
+            db $22,"Huh! Then if we don't",$0D
+            db " do anything, it'll be",$0D
+            db " all over for sure...",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_DARWIN
             db $22,"Is there a way to",$0D
