@@ -2368,8 +2368,8 @@ SCRIPT_101: db $10 : dl CLEAR
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_GALNEON2
             db $22,"Geheheheheh,",$0D
-            db " it's you,",$0D
-            db " gehahahaha!",$22
+            db " it's you!",$0D
+            db " Gehahahaha!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"Have you gone mad,",$0D
@@ -2385,8 +2385,7 @@ SCRIPT_101: db $10 : dl CLEAR
             db $10 : dl CONTINUE_GALNEON2
             db " Divine judgement shall",$0D
             db " rain down upon all who",$0D
-            db " oppose me!",$0D
-            db " Die, Rooks!",$22
+            db " oppose me! Die, Rooks!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $0C
             db $1B,$01,$FF
@@ -2415,7 +2414,7 @@ SCRIPT_103: db $10 : dl PROMPT_ROOKS
             db $10 : dl MACRO_119
             db "Galneon",$0D
             db $22,"It doesn't work...",$0D
-            db " it doesn't work..."
+            db " it doesn't work...!"
             db $10 : dl WAIT_NEWLINE
             db " Not against me and",$0D
             db " my divine power!",$22
