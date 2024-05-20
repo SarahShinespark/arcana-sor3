@@ -6,10 +6,11 @@ TABLE OF CONTENTS
    0. Foreward
    1. Game Rating
    2. Installation
-   3. Strategy Tips
-   4. Bugs and Known Issues
-   5. Version History
-   6. Credits
+   3. Discord
+   4. Strategy Tips
+   5. Bugs and Known Issues
+   6. Version History
+   7. Credits
 
 
 
@@ -45,6 +46,7 @@ Thanks for giving it a shot.
 -Sarah, Autumn, Scylla Shinespark
 
 
+
 ==============
 
 1. GAME RATING
@@ -55,6 +57,10 @@ Arcana released before the ESRB/Ratings Board existed, so it doesn't have an off
 Therefore, I have given Seal of Rimsala a content rating of "Everyone 10+".
 There's mild language, fantasy violence, and a bar where you can order beer.
 
+Younger players might have trouble following the story, or might get lost in the mazes.
+So, there are maps included in case players get stuck or don't want to play blind.
+I believe in providing accessibility for those who need it.
+
 
 
 ===============
@@ -63,12 +69,43 @@ There's mild language, fantasy violence, and a bar where you can order beer.
 
 ===============
 
+Seal of Rimsala comes in an .IPS patch, to avoid distributing the original game.
+This patch is for the English ROM of Arcana, which should be .smc or .sfc format.
+
+SNES ROMs come in headered and un-headered; there's a slight difference in
+file size (un-headered Arcana is 1048576 bytes and headered is 1049088 bytes).
+This patch only works on the un-headered version.
+
+You can remove the ROM header with the free program SnesRomUtil or similar tools.
+
+Once you've got your un-headered ROM, use the free file patcher Lunar IPS to apply
+the patch. This will convert the original game into Arcana: Seal of Rimsala, so
+make a backup just in case. Romhacking.net also has an option "Patch Online NOW"
+on the download page for Seal of Rimsala.
+
+If patched correctly, the in-game Color menu will show the version number.
+If you get a black screen or gibberish, you might have patched a headered ROM
+or one that was already patched with something.
+
+
+
+
+==========
+
+3. DISCORD
+
+==========
+
+https://discord.gg/GXrdd9Ar25
+Join the discussion on Discord! We're on the #arcana-seal-of-rimsala channel on FFIV Ultima discord.
+It's a quick way to get help or ask questions, and there's in-jokes and memes!
+
 
 
 
 ================
 
-3. STRATEGY TIPS
+4. STRATEGY TIPS
 
 ================
 Here are some tips on how the game mechanics work.
@@ -79,9 +116,10 @@ THE FOUR ATTRIBUTES
 ===================
 Every attribute, "element", has a strength and a weakness.
 Wind (yellow) beats Earth (green), beats Water (blue), beats Fire (red), beats Wind again.
-Opposite elements (Wind/Water, Earth/Fire) do about neutral damage to each other,
+Opposite elements (Wind<-->Water, Earth<-->Fire) do about neutral damage to each other,
 and each element slightly resists itself.
-(Fire attribute takes slightly less Fire damage.)
+(Fire attribute takes slightly less Fire damage, and Wind takes about the same Water damage
+as a human would.)
 
 People have the None attribute ("Man" in vanilla), represented by gray.
 They take slightly less damage from all elements, but don't resist or beat any.
@@ -176,6 +214,8 @@ they'll cast it instead of attacking. Beware that if they're reduced to half hea
 this casting chance will increase to 75%. So don't use area-of-effect spells on a
 large group of mages unless you're sure it'll kill them.
 
+Again, beware large groups of spellcasters.
+
 
 ==============
 STATUS EFFECTS
@@ -226,9 +266,10 @@ If you're fighting lots of giants, try getting your hands on a Morning Star.
 
 
 
+
 ========================
 
-4. BUGS AND KNOWN ISSUES
+5. BUGS AND KNOWN ISSUES
 
 ========================
 
@@ -249,9 +290,10 @@ The game might freeze, too.
 
 
 
+
 ==================
 
-5. VERSION HISTORY
+6. VERSION HISTORY
 
 ==================
 
@@ -267,10 +309,12 @@ v3.0
 - An extremely useful, improved dungeon map that shows treasure chests,
     exits, events and where bosses were fought.
 - Spell expand patch, shows spell power and accuracy along with room for larger descriptions.
-- A buff to the Confuse status (a sucky spell); it now also prevents enemy spellcasting.
+- A buff to the Confuse status effect; it now also prevents enemy spellcasting, which makes it
+    far more likely for enemies to attack each other.
 - Avoided an annoying trailing-space bug ("Rooks' attribute was changed to Wind .")
 - Shop overhaul, now there's more interesting and powerful items to save up gold for.
 - Treasure overhaul, money is more plentiful and going out of the way is rewarded.
+    This is the "Brick Road" philosophy to dungeons, if y'all have played Earthbound.
 - Treasure chests now alert you if you're at maximum GP.
 - Some powerful items are now gated behind bosses so the shop gear isn't immediately obsoleted.
 - Added a missing staff member to the credits, a Message Coordinator named Abeshin.
@@ -281,7 +325,7 @@ v3.0
 
 ==========
 
-6. CREDITS
+7. CREDITS
 
 ==========
 
