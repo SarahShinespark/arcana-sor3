@@ -1,6 +1,76 @@
+Arcana: Seal of Rimsala - README
 
-STRATEGY MEMO
-=============
+
+TABLE OF CONTENTS
+
+   0. Foreward
+   1. Game Rating
+   2. Installation
+   3. Strategy Tips
+   4. Bugs and Known Issues
+   5. Version History
+   6. Credits
+
+
+
+===========
+
+0. FOREWARD
+
+===========
+
+Arcana (Card Master in Japan) was the game that got me into Japanese role-playing games as a kid.
+It really meant a lot to me, so one day I decided to look at the game in a hex editor. I immediately
+tracked down and fixed the spelling error "a bold of lightning", and from there I looked for more.
+
+A GameFAQs walkthrough by Boco the Chokobo berated the English translation and offered the BEST name changes
+available by Babelfish. (I'm teasing, Babelfish is what we used before Google Translate). Actually the guide
+pointed out things I never would've thought of, like Gurgeon -> Chimera, Ariel -> Alan/Aaron, and Ramia -> Lamia.
+Anyway, there were some weird statements like "spirits are now just resurrectable party members instead
+of distant elementals" ...even though they're also resurrectable in Card Master? I checked.
+Stuff like that pushed me to investigate myself and dig deeper into what's really what.
+
+I guess I got carried away, because in the process I taught myself 65c816 assembly language and
+reverse engineered a majority of the game's code. Now there's a whole channel for SOR on
+FFIV Ultima's discord and on NGPlus discord, and a research thread on the GameFAQs message board.
+And a larger The Cutting Room Floor entry, and a Data Crystal page, and a Github for the disassembly
+and for the mod project... Well, it's fun to get carried away.
+
+Seal of Rimsala's namesake is the Japanese subtitle (Card Master: Rimusaria no Fuuin / Rimsala's Seal).
+In this way, I'm announcing my mod as a love letter to the Japanese version. From a more accurate story,
+to a faster level-up screen, to displaying the character job titles, I want to show off an authentic
+improvement that's just really fun.
+
+Thanks for giving it a shot.
+-Sarah, Autumn, Scylla Shinespark
+
+
+==============
+
+1. GAME RATING
+
+==============
+
+Arcana released before the ESRB/Ratings Board existed, so it doesn't have an official rating.
+Therefore, I have given Seal of Rimsala a content rating of "Everyone 10+".
+There's mild language, fantasy violence, and a bar where you can order beer.
+
+
+
+===============
+
+2. INSTALLATION
+
+===============
+
+
+
+
+================
+
+3. STRATEGY TIPS
+
+================
 Here are some tips on how the game mechanics work.
 
 
@@ -153,5 +223,67 @@ Giant race: Cyclops, Trolls, and Giants.
 So if you're fighting lots of undead, get an Anti-Undead weapon for extra damage
 and an Anti-Undead amulet to resist them. Mythril is a good bet for that.
 If you're fighting lots of giants, try getting your hands on a Morning Star.
+
+
+
+========================
+
+4. BUGS AND KNOWN ISSUES
+
+========================
+
+
+Unfixed bugs from vanilla
+=========================
+
+-If you open a treasure chest without having fought a single monster that chapter,
+and then use the Gate (Home) spell to warp back to town, the game will freeze.
+Return Rings are fine, though.
+(Probably only worth remembering in Bizance Castle, where there's no-encounter rooms.)
+
+-The Trade glitch is still in the game. It's not something you could find casually anyway,
+but a speedrunner or TAS runner might make use of it for extra money.
+
+-If you start the final fight with no spirit summoned, your spirits will be set to 0 HP.
+The game might freeze, too.
+
+
+
+==================
+
+5. VERSION HISTORY
+
+==================
+
+v3.0
+- Complete script retranslation; a clearer and more descriptive story
+    closer in line with the Japanese version. Emphasis was made on clear
+    and less-awkward text while keeping the spirit (or patterned spell names).
+- The game was overhauled from v2.1.15, and many experimental changes were reverted to vanilla
+    to give the game a more polished and professional quality.
+- New dialogue tricks from JP like variable text speed, a dramatic portrait change,
+    and characters don't move their mouths during ellipses.
+- The level-up screen now states your new LVL, and the text is right-aligned (prettier).
+- An extremely useful, improved dungeon map that shows treasure chests,
+    exits, events and where bosses were fought.
+- Spell expand patch, shows spell power and accuracy along with room for larger descriptions.
+- A buff to the Confuse status (a sucky spell); it now also prevents enemy spellcasting.
+- Avoided an annoying trailing-space bug ("Rooks' attribute was changed to Wind .")
+- Shop overhaul, now there's more interesting and powerful items to save up gold for.
+- Treasure overhaul, money is more plentiful and going out of the way is rewarded.
+- Treasure chests now alert you if you're at maximum GP.
+- Some powerful items are now gated behind bosses so the shop gear isn't immediately obsoleted.
+- Added a missing staff member to the credits, a Message Coordinator named Abeshin.
+- The documentation has improved to using ASM patches with Asar, and modifying
+    or debugging the game is much easier and more modular.
+
+
+
+==========
+
+6. CREDITS
+
+==========
+
 
 
