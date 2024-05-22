@@ -154,32 +154,32 @@ org $85A653
   db "Ice Mine 1F",      $00, $00, $00, $00, $00, $00
   db "Ice Mine B1F",     $00, $00, $00, $00, $00
   db "Ice Mine B2F",     $00, $00, $00, $00, $00
-  db "Limuros 1F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 2F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 3F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 4F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 5F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 6F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 7F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 8F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 9F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 10F",      $00, $00, $00, $00, $00, $00
-  db "Limuros 11F",      $00, $00, $00, $00, $00, $00
-  db "Limuros 12F",      $00, $00, $00, $00, $00, $00
+  db "Endless Tower1F",  $00, $00
+  db "Endless Tower2F",  $00, $00
+  db "Endless Tower3F",  $00, $00
+  db "Endless Tower4F",  $00, $00
+  db "Endless Tower5F",  $00, $00
+  db "Endless Tower6F",  $00, $00
+  db "Endless Tower7F",  $00, $00
+  db "Endless Tower8F",  $00, $00
+  db "Endless 9F",       $00, $00, $00, $00, $00, $00
+  db "Endless 10F",      $00, $00, $00, $00, $00
+  db "Endless 11F",      $00, $00, $00, $00, $00
+  db "Endless 12F",      $00, $00, $00, $00, $00
   db "Bizance Castle",   $00, $00, $00
   db "Secret Tunnel",    $00, $00, $00, $00
-  db "Limuros 1F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 2F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 3F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 4F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 5F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 6F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 7F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 8F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 9F",       $00, $00, $00, $00, $00, $00, $00
-  db "Limuros 10F",      $00, $00, $00, $00, $00, $00
-  db "Limuros 11F",      $00, $00, $00, $00, $00, $00
-  db "Limuros 12F",      $00, $00, $00, $00, $00, $00
+  db "Endless Tower1F",  $00, $00
+  db "Endless Tower2F",  $00, $00
+  db "Endless Tower3F",  $00, $00
+  db "Endless Tower4F",  $00, $00
+  db "Endless Tower5F",  $00, $00
+  db "Endless Tower6F",  $00, $00
+  db "Endless Tower7F",  $00, $00
+  db "Endless Tower8F",  $00, $00
+  db "Endless 9F",       $00, $00, $00, $00, $00, $00
+  db "Endless 10F",      $00, $00, $00, $00, $00
+  db "Endless 11F",      $00, $00, $00, $00, $00
+  db "Endless 12F",      $00, $00, $00, $00, $00
   
 ;Element names in the menu
 org $85A895
