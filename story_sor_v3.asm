@@ -1552,10 +1552,10 @@ SCRIPT_065: db $10 : dl PROMPT_ROOKS
             db $10 : dl DISPLAY_AXS
             db $22,"Like father, like son.",$0D
             db " They are probably in",$0D
-            db " Limuros Tower.",$22
+            db " the Endless Tower.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
-            db $22,"Limuros Tower...?",$22
+            db $22,"The Endless Tower...?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $0C
             db $1B,$01,$FF
@@ -1671,7 +1671,7 @@ SCRIPT_071: db $10 : dl PROMPT_ROOKS
 SCRIPT_072: db $10 : dl PROMPT_SALAH
             db $22,"I've heard that, in order",$0D
             db " to enter the inner part of",$0D
-            db " the Tower of Limuros,"
+            db " the Endless Tower,"
             db $10 : dl WAIT_NEWLINE
             db " you need to use royal",$0D
             db " blood.",$22
