@@ -123,7 +123,7 @@ Ch5_Bosses:
 !VampBee    = $2C
 !Ghost      = $2D
 !Lilith     = $2E
-!Dragonian  = $2F
+!Dragonewt  = $2F
 !Wight      = $30
 !Lich       = $31
 !Priest     = $32
@@ -393,7 +393,7 @@ Encounters_Ch4_tile12:
  db !Ghost              ;1891ED;  
  db !Bugbear            ;1891EE;  
  db !Lilith             ;1891EF;  
- db !Dragonian          ;1891F0;  
+ db !Dragonewt          ;1891F0;  
  db !Warlock            ;1891F1;  
 
 Encounters_Ch4_tile13:
@@ -411,7 +411,7 @@ Encounters_Ch4_tile14:
  db !Ghost              ;1891FB;  
  db !Lich               ;1891FC;  
  db !Alraune            ;1891FD;  
- db !Dragonian          ;1891FE;  
+ db !Dragonewt          ;1891FE;  
  db !Sorcerer           ;1891FF;  
 
 Encounters_Ch4_tile15:
@@ -429,7 +429,7 @@ Encounters_Ch4_tile16:
  db !Giant              ;189209;  
  db !Giant              ;18920A;  
  db !Lilith             ;18920B;  
- db !Dragonian          ;18920C;  
+ db !Dragonewt          ;18920C;  
  db !Warlock            ;18920D;  
 
 Encounters_Ch4_tile17:
