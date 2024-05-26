@@ -14,7 +14,7 @@ db $0C
 db $01, $00, $06
 db $03, $0E
 db $1C
-db "  Seal of Rimsala v3.0r5  "   ;seems v3.0.1 fits
+db "  Seal of Rimsala v3.0    "   ;seems v3.0.1 fits
 
 org $80FFC0
 RomHeaderName:
