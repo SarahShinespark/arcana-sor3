@@ -62,7 +62,7 @@ SCRIPT_003: db $10 : dl CLEAR
             db $05,$01,$06    ;Slow text
             db $22,"....Alan?    ",$0D
             db $05,$01,$01    ;Normal text speed
-            db "Is it really you?",$22
+            db " Is it really you?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_ARIEL
             db $22,"I haven't seen you since",$0D
