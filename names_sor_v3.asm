@@ -162,10 +162,10 @@ org $85A653
   db "Endless Tower6F",  $00, $00
   db "Endless Tower7F",  $00, $00
   db "Endless Tower8F",  $00, $00
-  db "Endless 9F",       $00, $00, $00, $00, $00, $00
-  db "Endless 10F",      $00, $00, $00, $00, $00
-  db "Endless 11F",      $00, $00, $00, $00, $00
-  db "Endless 12F",      $00, $00, $00, $00, $00
+  db "Endless 9F",       $00, $00, $00, $00, $00, $00, $00
+  db "Endless 10F",      $00, $00, $00, $00, $00, $00
+  db "Endless 11F",      $00, $00, $00, $00, $00, $00
+  db "Endless 12F",      $00, $00, $00, $00, $00, $00
   db "Bizance Castle",   $00, $00, $00
   db "Secret Tunnel",    $00, $00, $00, $00
   db "Endless Tower1F",  $00, $00
@@ -176,10 +176,10 @@ org $85A653
   db "Endless Tower6F",  $00, $00
   db "Endless Tower7F",  $00, $00
   db "Endless Tower8F",  $00, $00
-  db "Endless 9F",       $00, $00, $00, $00, $00, $00
-  db "Endless 10F",      $00, $00, $00, $00, $00
-  db "Endless 11F",      $00, $00, $00, $00, $00
-  db "Endless 12F",      $00, $00, $00, $00, $00
+  db "Endless 9F",       $00, $00, $00, $00, $00, $00, $00
+  db "Endless 10F",      $00, $00, $00, $00, $00, $00
+  db "Endless 11F",      $00, $00, $00, $00, $00, $00
+  db "Endless 12F",      $00, $00, $00, $00, $00, $00
   
 ;Element names in the menu
 org $85A895
