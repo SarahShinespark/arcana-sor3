@@ -130,7 +130,7 @@ SCRIPT_004: db $10 : dl DISPLAY_ARIEL
             db " a source."
             db $10 : dl CONTINUE_ARIEL
             db " There's an altar to an evil",$0D
-            db " religion at Balnea Temple."
+            db " religion at Balnia Temple."
             db $10 : dl CONTINUE_ARIEL
             db " It seems they're calling",$0D
             db " evil spirits there.",$22
