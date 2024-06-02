@@ -20,7 +20,7 @@ Opening_crawl:
   db "since ancient times. Many", $0D
   db "visited that land to achieve", $0D
   db "their dreams. Some brought", $0D
-  db "blood-lust... others searched", $0D
+  db "bloodlust... others searched", $0D
   db "for fame. "
   db $1B, $01, $FF, $00
 
