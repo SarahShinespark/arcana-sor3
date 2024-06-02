@@ -833,7 +833,7 @@ org $88A5FA
                        
               BroadSD: db $10 : dl Details_Text_Setup
                        db "A sword with a wide", $0D
-                       db "double-blade.", $01, $00, $34
+                       db "double-edged blade.", $01, $00, $34
                        db "    R    D  ", $06, $0E, "  A    S    T", $06, $0D, $00
                        
              Scimitar: db $10 : dl Details_Text_Setup
@@ -1005,7 +1005,7 @@ org $88A5FA
                        
                  Whip: db $10 : dl Details_Text_Setup
                        db "A two-meter long weapon", $0D
-                       db "made of joined, tanned", $0D
+                       db "made of braided, tanned", $0D
                        db "leather.", $06, $0E, $01, $00, $34
                        db "    R    D    A  ", $06, $0D, "  S    T", $00
 
@@ -1043,7 +1043,7 @@ org $88A5FA
                        
              RingMail: db $10 : dl Details_Text_Setup
                        db "A coat made from", $0D
-                       db "linking metal rings.", $01, $00, $34
+                       db "linked metal rings.", $01, $00, $34
                        db "    R  ", $06, $0E, "  D  ", $06, $0D, "  A    S  ", $06, $0E, "  T", $06, $0D, $00
                        
             ScaleMail: db $10 : dl Details_Text_Setup
