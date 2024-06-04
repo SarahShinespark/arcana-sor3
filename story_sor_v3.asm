@@ -693,8 +693,8 @@ SCRIPT_022: db $10 : dl PROMPT_ROOKS
             db " princess to you.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
-            db $05,$01,$06
-            db $22,". . ."
+            db $05,$01,$0C
+            db $22,"..."
             db $05,$01,$01
             db "I understand.",$0D
             db " Leave it to me!",$22
@@ -901,8 +901,8 @@ SCRIPT_031: db $10 : dl PROMPT_ROOKS
 
 SCRIPT_032: db $10 : dl DISPLAY_DARWIN
             db $22,"Sorry to cut off the",$0D
-            db " conversation, but...",$22,$0D
-            db $22,"I have to go now.",$22
+            db " conversation, but...",$0D
+            db " I have to go now.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"Be careful.",$22
@@ -1023,13 +1023,13 @@ SCRIPT_037: db " The 3 Sacred Treasures",$0D
             db " and the Crystal Sword."
             db $10 : dl WAIT_NEWLINE
             db " They are all necessary",$0D
-            db " for the Seal of Rimsala.",$22
+            db " for the Seal of Rimsala."
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $1B,$01,$FF
             db $00
 
 ;Fade back to Reinoll's house
-SCRIPT_038: db $22,"Just as the legendary",$0D
+SCRIPT_038: db " Just as the legendary",$0D
             db " hero prevailed.",$22
             db $10 : dl WAIT_BIG_REINOLL
             db $10 : dl PROMPT_ROOKS
@@ -1041,7 +1041,7 @@ SCRIPT_038: db $22,"Just as the legendary",$0D
             db " who have the same",$0D
             db " ability as Fanas."
             db $10 : dl CONTINUE_BIG_REINOLL
-            db $22,"That's right, only a",$0D
+            db " That's right, only a",$0D
             db " Card Master can do it"
             db $1B,$00,$FE
             db ".....",$22
@@ -1142,7 +1142,7 @@ SCRIPT_043: db $10 : dl PROMPT_ROOKS
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $1B,$01,$02
             db $10 : dl DISPLAY_ZEREL
-            db $22,"Master Alan's first",$0D
+            db $22,"I am Alan's first",$0D
             db " subordinate, Zero."
             db $10 : dl CONTINUE_ZEREL
             db " I have come to take",$0D
@@ -1329,7 +1329,7 @@ SCRIPT_054: db $10 : dl PROMPT_ROOKS
 
 SCRIPT_055: db $10 : dl CLEAR
             db $10 : dl PROMPT_ROOKS
-            db $22,"(A room of lava?)",$22
+            db $22,"(A room full of lava?)",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_AXS
             db $22,"This is where she",$0D
@@ -1413,9 +1413,9 @@ SCRIPT_060: db $10 : dl DISPLAY_ARIEL
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"I'm not falling for",$0D
-            db " a trick like that!",$22
+            db " a trick like that!"
             db $10 : dl WAIT_NEWLINE
-            db $22,"You need to stop these",$0D
+            db " You need to stop these",$0D
             db " plans of yours right",$0D
             db " now!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
