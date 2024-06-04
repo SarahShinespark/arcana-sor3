@@ -346,7 +346,7 @@ org $889291
                        db "defense.", $0D, $00
                        
        Agi_Honey_desc: db $10 : dl Details_Text_Setup
-                       db "Increases your Agility",$0D
+                       db "Increases your Alertness",$0D
                        db "by 4, improving your", $0D
                        db "accuracy, evasion,", $0D
                        db "and initiative in battle.", $00
@@ -483,7 +483,8 @@ org $889652
 
            Attribute2: db $10 : dl Details_Text_Setup
                        db "A scythe of freezing",$0D
-                       db "wind attacks all. "
+                       db "wind attacks all.",$0D
+                       db "Neutral damage.",$0D
                        db $10 : dl SpellDetails : db $00
 
            Attribute3: db $10 : dl Details_Text_Setup
@@ -500,7 +501,8 @@ org $889652
 
            Attribute5: db $10 : dl Details_Text_Setup
                        db "Summons a wave of molten",$0D
-                       db "rock out of Hell itself."
+                       db "rock out of Hell itself.",$0D
+                       db "Neutral damage.",$0D
                        db $10 : dl SpellDetails : db $00
 
            Attribute6: db $10 : dl Details_Text_Setup
@@ -536,7 +538,7 @@ org $889652
           Attribute11: db $10 : dl Details_Text_Setup
                        db "Destruction of heaven",$0D
                        db "and earth, the strongest",$0D
-                       db "of all spells. ",!Wind, !Fire, !Water, !Earth, $0D
+                       db "spell. Neutral damage.",$0D
                        db $10 : dl SpellDetails : db $00
 
              CallWind: db $10 : dl Details_Text_Setup
@@ -925,9 +927,9 @@ org $88A5FA
                        db "    R  ", $06, $0E, "  D  ", $06, $0D, "  A  ", $06, $0E, "  S    T", $06, $0D, $00
                        
               GreatAx: db $10 : dl Details_Text_Setup
-                       db "A heavy greataxe that", $0D
-                       db "chops down enemies with", $0D
-                       db "its large blade.", $06, $0E, $01, $00, $34
+                       db "A heavy axe that chops", $0D
+                       db "down enemies with its", $0D
+                       db "large blade.", $06, $0E, $01, $00, $34
                        db "    R    D  ", $06, $0D, "  A  ", $06, $0E, "  S    T", $06, $0D, $00
                        
               DemonAx: db $10 : dl Details_Text_Setup
@@ -1066,9 +1068,9 @@ org $88A5FA
                        db "    R  ", $06, $0D, "  D  ", $06, $0E, "  A    S    T", $06, $0D, $00
                        
           BreastPlate: db $10 : dl Details_Text_Setup
-                       db "A breastplate made", $0D
-                       db "from sheet metal to", $0D
-                       db "protect the chest.", $01, $00, $34
+                       db "Armor made from sheet", $0D
+                       db "metal to protect the", $0D
+                       db "chest.", $01, $00, $34
                        db "    R    D  ", $06, $0E, "  A  ", $06, $0D, "  S  ", $06, $0E, "  T", $06, $0D, $00
                        
              SeamMail: db $10 : dl Details_Text_Setup
