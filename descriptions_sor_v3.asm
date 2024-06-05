@@ -398,8 +398,8 @@ pad $889652
 !Earth   = $EF
 !Sword   = $F0
 !Crit    = $F1
-!PDef    = $5B
-!MDef    = $5F
+!Shield  = $5B
+!MShield = $5F
 !Percent = $25
 
 ;Spell descriptions, uses RAM values loaded by ExpandSpell in detail_expand_v9.asm
@@ -565,13 +565,11 @@ org $889652
                        db "to all enemies."
                        db $10 : dl SpellDetails : db $00
 
-                Drain: db $00
-;                       db $10 : dl Details_Text_Setup
+                Drain: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Takes Hit Points from", $0D, "enemy."
 ;                       db $10 : dl SpellDetails : db $00
 
-                Psych: db $00
-;                       db $10 : dl Details_Text_Setup
+                Psych: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Takes Magic Points from", $0D, "enemy."
 ;                       db $10 : dl SpellDetails : db $00
 
@@ -626,8 +624,7 @@ org $889652
                        db "Petrifies all enemies."
                        db $10 : dl SpellAccMP : db $00
 
-                StopA: db $00
-;                       db $10 : dl Details_Text_Setup
+                StopA: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Silences all of your", $0D, "enemies."
 ;                       db $10 : dl SpellAccMP : db $00
 
@@ -647,8 +644,7 @@ org $889652
                        db "Petrifies one enemy."
                        db $10 : dl SpellAccMP : db $00
 
-                 Stop: db $00
-;                       db $10 : dl Details_Text_Setup
+                 Stop: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Silences the selected", $0D, "enemy."
 ;                       db $10 : dl SpellAccMP : db $00
 
@@ -692,18 +688,15 @@ org $889652
                        db "Weakens all enemies'", $0D, "physical attack."
                        db $10 : dl SpellAccMP : db $00
 
-              Requiem: db $00
-;                       db $10 : dl Details_Text_Setup
+              Requiem: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Liberates the selected", $0D, "Undead from this plane."
 ;                       db $10 : dl SpellAccMP : db $00
 
-         Emancipation: db $00
-;                       db $10 : dl Details_Text_Setup
+         Emancipation: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Liberates all Undead from", $0D, "the Earthly plane."
 ;                       db $10 : dl SpellAccMP : db $00
 
-      FinalLiberation: db $00
-;                       db $10 : dl Details_Text_Setup
+      FinalLiberation: db $10 : dl Details_Text_Setup : db $00
 ;                       db "All Undead cease to exist", $0D, "in their present form."
 ;                       db $10 : dl SpellAccMP : db $00
 
@@ -761,13 +754,11 @@ org $889652
                        db "   Weak: ",!Water, "Water"
                        db $10 : dl SpellMP : db $00
 
-                Repel: db $00
-;                       db $10 : dl Details_Text_Setup
+                Repel: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Gives you the power to", $0D, "repel attacks."
 ;                       db $10 : dl SpellMP : db $00
 
-               Mirror: db $00
-;                       db $10 : dl Details_Text_Setup
+               Mirror: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Gives you the power to", $0D, "repel magic."
 ;                       db $10 : dl SpellMP : db $00
 
@@ -793,23 +784,19 @@ org $889652
                        db "Returns to town", $0D, "in an instant.",$0D,"Useful when lost."
                        db $10 : dl SpellMP : db $00
 
-             WayPoint: db $00
-;                       db $10 : dl Details_Text_Setup
+             WayPoint: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Mentally mark a spot on", $0D, "the map where you want to", $0D, "go."
 ;                       db $10 : dl SpellMP : db $00
 
-         WayPointWarp: db $00
-;                       db $10 : dl Details_Text_Setup
+         WayPointWarp: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Instantly warp to the Way", $0D, "Point selected."
 ;                       db $10 : dl SpellMP : db $00
 
-   DiminishEncounters: db $00
-;                       db $10 : dl Details_Text_Setup
+   DiminishEncounters: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Fewer enemies are", $0D, "encountered."
 ;                       db $10 : dl SpellMP : db $00
 
-  DiminishEncounters2: db $00
-;                       db $10 : dl Details_Text_Setup
+  DiminishEncounters2: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Fewer enemies are", $0D, "encountered."
 ;                       db $10 : dl SpellMP : db $00
 warnpc $88A5FA                 
@@ -845,25 +832,33 @@ org $88A5FA
                        
              IceBlade: db $10 : dl Details_Text_Setup
                        db "A magical sword that", $0D
-                       db "emits cold air.", $01, $00, $34
+                       db "emits cold air.", $0D
+                       db "(", !Sword, "Water)"
+                       db $01, $00, $34
                        db "    R    D  ", $06, $0E, "  A    S    T", $06, $0D, $00
                        
           UndeadBlade: db $10 : dl Details_Text_Setup
                        db "A sword that was forged", $0D
                        db "to defeat impure,", $0D
-                       db "undead monsters.", $01, $00, $34
+                       db "undead monsters.", $0D
+                       db "(", !Sword, "Undead)"
+                       db $01, $00, $34
                        db "    R  ", $06, $0E, "  D    A    S    T", $06, $0D, $00
                        
             FireBlade: db $10 : dl Details_Text_Setup
                        db "A sword with a white-hot", $0D
                        db "blade that scorches as", $0D
-                       db "it cuts.", $01, $00, $34
+                       db "it cuts.",$0D
+                       db "(", !Sword, "Fire)"
+                       db $01, $00, $34
                        db "    R  ", $06, $0E, "  D    A    S    T", $06, $0D, $00
                        
           DragonBlade: db $10 : dl Details_Text_Setup
                        db "A sword used by an", $0D
                        db "ancient hero to slay", $0D
-                       db "an evil dragon.", $01, $00, $34
+                       db "an evil dragon.",$0D
+                       db "(", !Sword, "Dragon)"
+                       db $01, $00, $34
                        db "    R    D  ", $06, $0E, "  A    S    T", $06, $0D, $00
                        
               MagicSD: db $10 : dl Details_Text_Setup
@@ -875,32 +870,39 @@ org $88A5FA
           LightningSD: db $10 : dl Details_Text_Setup
                        db "A magic sword with", $0D
                        db "lightning flowing from", $0D
-                       db "its blade.", $01, $00, $34
+                       db "its blade.",$0D
+                       db "(", !Sword, "Wind)"
+                       db $01, $00, $34
                        db "    R    D  ", $06, $0E, "  A    S    T", $06, $0D, $00
                        
               Desiree: db $10 : dl Details_Text_Setup
-                       
                        db "A legendary sword said", $0D
-                       db "to contain holy power.", $06, $0E, $01, $00, $34
+                       db "to contain holy power.",$0D
+                       db "(", !Sword, "Dragon, ", !Sword, "Giant)"
+                       db $06, $0E, $01, $00, $34
                        db "    R  ", $06, $0D, "  D  ", $06, $0E, "  A    S    T", $06, $0D, $00
                        
             CrystalSD: db $10 : dl Details_Text_Setup
                        db "A legendary sword said to", $0D
                        db "contain the radiance of", $0D
-                       db "crystal.", $01, $00, $34
+                       db "crystal. (", !Sword, "Undead,",$0D
+                       db "Dragon, Medusa, Giant)"
+                       db $01, $00, $34
                        db "    R  ", $06, $0E, "  D    A    S    T", $06, $0D, $00
                        
              SpiritSD: db $10 : dl Details_Text_Setup
                        db "A sword once used by", $0D
                        db "conquerors, in which it", $0D
                        db "is said the power of the", $0D
-                       db "spirits dwells.", $01, $00, $34
+                       db "spirits dwells. (",!Sword, "All)", $01, $00, $34
                        db "    R  ", $06, $0E, "  D    A    S    T", $06, $0D, $00
 
               GiantSD: db $10 : dl Details_Text_Setup
                        db "A powerful sword said to", $0D
                        db "have been used by the", $0D
-                       db "hero Fanas.", $01, $00, $34
+                       db "hero Fanas.",$0D
+                       db "(", !Sword, "All)"
+                       db $01, $00, $34
                        db "    R  ", $06, $0E, "  D    A    S    T", $06, $0D, $00
                        
              GoldenSD: db $10 : dl Details_Text_Setup
@@ -935,7 +937,9 @@ org $88A5FA
               DemonAx: db $10 : dl Details_Text_Setup
                        db "A black battleaxe sealed", $0D
                        db "with the power of a", $0D
-                       db "vile demon.", $06, $0E, $01, $00, $34
+                       db "vile demon.",$0D
+                       db "(", !Sword, "Earth, ", !Sword, "Medusa)"
+                       db $06, $0E, $01, $00, $34
                        db "    R    D  ", $06, $0D, "  A  ", $06, $0E, "  S    T", $06, $0D, $00
                        
                 Staff: db $10 : dl Details_Text_Setup
@@ -955,7 +959,9 @@ org $88A5FA
                        
             Firebrand: db $10 : dl Details_Text_Setup
                        db "A magic wand said to", $0D
-                       db "contain a fire spirit.", $06, $0E, $01, $00, $34
+                       db "contain a fire spirit.", $0D
+                       db "(", !Sword, "Fire)"
+                       db $06, $0E, $01, $00, $34
                        db "    R    D    A  ", $06, $0D, "  S  ", $06, $0E, "  T", $00
                        
            ElderStaff: db $10 : dl Details_Text_Setup
@@ -979,7 +985,9 @@ org $88A5FA
           SpiritStaff: db $10 : dl Details_Text_Setup
                        db "A staff said to be", $0D
                        db "imbued with the", $0D
-                       db "prayers of the spirits.", $06, $0E, $01, $00, $34
+                       db "prayers of the spirits.", $0D
+                       db "(", !Sword, !Wind, !Fire, !Water, !Earth, ")"
+                       db $06, $0E, $01, $00, $34
                        db "    R    D    A    S  ", $06, $0D, "  T", $00
                        
                  Mace: db $10 : dl Details_Text_Setup
@@ -1002,7 +1010,9 @@ org $88A5FA
           MorningStar: db $10 : dl Details_Text_Setup
                        db "A weapon that swings", $0D
                        db "around a heavy iron", $0D
-                       db "ball to damage enemies.", $06, $0E, $01, $00, $34
+                       db "ball to damage enemies.",$0D
+                       db "(", !Sword, "Giant)"
+                       db $06, $0E, $01, $00, $34
                        db "    R    D  ", $06, $0D, "  A  ", $06, $0E, "  S    T", $06, $0D, $00
                        
                  Whip: db $10 : dl Details_Text_Setup
@@ -1098,13 +1108,17 @@ org $88A5FA
           MithrilMail: db $10 : dl Details_Text_Setup
                        db "Suit of armor that", $0D
                        db "covers the body in a", $0D
-                       db "thick layer of mythril.", $01, $00, $34
+                       db "thick layer of mythril.",$0D
+                       db "(", !Shield, "Wind)"
+                       db $01, $00, $34
                        db "    R  ", $06, $0E, "  D  ", $06, $0D, "  A  ", $06, $0E, "  S    T", $06, $0D, $00
                        
             DemonMail: db $10 : dl Details_Text_Setup
                        db "Black armor said to", $0D
                        db "be the transmuted", $0D
-                       db "form of a devil.", $06, $0E, $01, $00, $34
+                       db "form of a devil.", $0D
+                       db "(", !Shield, "Earth)"
+                       db $06, $0E, $01, $00, $34
                        db "    R    D  ", $06, $0D, "  A  ", $06, $0E, "  S    T", $06, $0D, $00
                        
            DragonMail: db $10 : dl Details_Text_Setup
@@ -1129,7 +1143,9 @@ org $88A5FA
            EarthPlate: db $10 : dl Details_Text_Setup
                        db "Armor made by the", $0D
                        db "god of earth from a", $0D
-                       db "mysterious mineral.", $06, $0E, $01, $00, $34
+                       db "mysterious mineral.", $0D
+                       db "(", !Shield, "Earth)"
+                       db $06, $0E, $01, $00, $34
                        db "    R  ", $06, $0D, "  D  ", $06, $0E, "  A    S    T", $06, $0D, $00
                        
            GrandArmor: db $10 : dl Details_Text_Setup
@@ -1207,18 +1223,24 @@ org $88A5FA
                        
             MithrilSH: db $10 : dl Details_Text_Setup
                        db "A high-grade shield", $0D
-                       db "made of pure mythril.", $01, $00, $34
+                       db "made of pure mythril.", $0D
+                       db "(", !Shield, "Undead)"
+                       db $01, $00, $34
                        db "    R  ", $06, $0E, "  D  ", $06, $0D, "  A    S  ", $06, $0E, "  T", $06, $0D, $00
                        
              DragonSH: db $10 : dl Details_Text_Setup
                        db "A solid shield made", $0D
-                       db "from dragon scales.", $01, $00, $34
+                       db "from dragon scales.", $0D
+                       db "(", !Shield, "Dragon)"
+                       db $01, $00, $34
                        db "    R  ", $06, $0E, "  D    A    S    T", $06, $0D, $00
                        
               DemonSH: db $10 : dl Details_Text_Setup
                        db "A jet black shield", $0D
                        db "rumored to have been", $0D
-                       db "formed from pure evil.", $06, $0E, $01, $00, $34
+                       db "formed from pure evil.", $0D
+                       db "(", !Shield, "Medusa)"
+                       db $06, $0E, $01, $00, $34
                        db "    R    D  ", $06, $0D, "  A  ", $06, $0E, "  S    T", $06, $0D, $00
                        
               MagicSH: db $10 : dl Details_Text_Setup
@@ -1257,7 +1279,9 @@ org $88A5FA
                        
       MithrilGauntlet: db $10 : dl Details_Text_Setup
                        db "A bracelet made from", $0D
-                       db "magical silver.", $06, $0E, $01, $00, $34
+                       db "magical silver.", $0D
+                       db "(", !Shield, "Undead)"
+                       db $06, $0E, $01, $00, $34
                        db "    R  ", $06, $0D, "  D  ", $06, $0E, "  A    S  ", $06, $0D, "  T", $00
                        
         MagicGauntlet: db $10 : dl Details_Text_Setup
@@ -1275,7 +1299,9 @@ org $88A5FA
          MoonGauntlet: db $10 : dl Details_Text_Setup
                        db "A bracelet given to", $0D
                        db "a hero during the", $0D
-                       db "twilight of the gods.", $06, $0E, $01, $00, $34
+                       db "twilight of the gods.", $0D
+                       db "(", !Shield, "Giant)"
+                       db $06, $0E, $01, $00, $34
                        db "    R  ", $06, $0D, "  D  ", $06, $0E, "  A    S    T", $06, $0D, $00
                        
        CursedGauntlet: db $10 : dl Details_Text_Setup
