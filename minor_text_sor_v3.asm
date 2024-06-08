@@ -4,6 +4,10 @@
 ;Gratuitous Japanese freespace
 ;$88CC27-$88CCB9
 
+;Alchemist text: load FastROM bank
+org $83DE98
+lda #$0088
+
 ;Alchemist text: pointer tables
 org $83DEB3
 Tbl_Alchemist_Events:
