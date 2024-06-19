@@ -358,16 +358,16 @@ org $889291
                        db "Increases max MP by 6.", $0D, $00
                        
            Herbs_desc: db $10 : dl Details_Text_Setup
-                       db "Restores some HP.", $0D, $00
+                       db "Recovers some HP.", $0D, $00
                        
         Medicine_desc: db $10 : dl Details_Text_Setup
-                       db "Restores lots of HP.", $0D, $00
+                       db "Recovers lots of HP.", $0D, $00
                        
     Silver_Flask_desc: db $10 : dl Details_Text_Setup
-                       db "Restores some MP.", $0D, $00
+                       db "Recovers some MP.", $0D, $00
                        
       Gold_Flask_desc: db $10 : dl Details_Text_Setup
-                       db "Restores lots of MP.", $0D, $00
+                       db "Recovers lots of MP.", $0D, $00
                        
       Maid_Tears_desc: db $10 : dl Details_Text_Setup
                        db "Used for treating", $0D
@@ -414,66 +414,99 @@ SpellAccMP:
 SpellMP:
   db $01, $6B, $33, "MP",   $11, $00 : dl $0016DB : db $00         ;Spell MP
 
+;Spell descriptions (relocated before levelup and after That's The Best You Can Do)
+org $888D50
+            ChaosWind: db $10 : dl Details_Text_Setup
+                       db "Calls in a gust of wind",$0D
+                       db "to blow away all enemies.",$0D
+                       db $10 : dl SpellAccMP : db $00
+
+               Entomb: db $10 : dl Details_Text_Setup
+                       db "An earthquake occurs and",$0D
+                       db "fissures swallow enemies.",$0D
+                       db $10 : dl SpellAccMP : db $00
+                       
+              Destroy: db $10 : dl Details_Text_Setup
+                       db "Casts a death sentence on",$0D
+                       db "all enemies.",$0D
+                       db $10 : dl SpellAccMP : db $00
+
+warnpc $888E00  ;Don't overwrite the relocated levelup screen
+padbyte $FF
+pad $888E00
+
 ;Spell descriptions
 org $889652
                  Lit1: db $10 : dl Details_Text_Setup
-                       db "Level 1 ", !Wind, "Wind damage",$0D
-                       db "to all enemies."
+                       db "Strike all enemies with",$0D
+                       db "lightning bolts.",$0D
+                       db "Level 1 ", !Wind, "Wind."
                        db $10 : dl SpellDetails : db $00
 
                  Lit2: db $10 : dl Details_Text_Setup
-                       db "Level 2 ", !Wind, "Wind damage",$0D
-                       db "to all enemies."
+                       db "Strike all enemies with",$0D
+                       db "powerful lightning bolts.",$0D
+                       db "Level 2 ", !Wind, "Wind."
                        db $10 : dl SpellDetails : db $00
 
                  Lit3: db $10 : dl Details_Text_Setup
-                       db "Level 3 ", !Wind, "Wind damage",$0D
-                       db "to all enemies."
+                       db "Target all enemies with",$0D
+                       db "the strongest lightning.",$0D
+                       db "Level 3 ", !Wind, "Wind."
                        db $10 : dl SpellDetails : db $00
 
                Smash1: db $10 : dl Details_Text_Setup
-                       db "Level 1 ", !Earth, "Earth damage",$0D
-                       db "to all enemies."
+                       db "Throws stones at all",$0D
+                       db "enemies using telekinesis.",$0D
+                       db "Level 1 ", !Earth, "Earth."
                        db $10 : dl SpellDetails : db $00
 
                Smash2: db $10 : dl Details_Text_Setup
-                       db "Level 2 ", !Earth, "Earth damage",$0D
-                       db "to all enemies."
+                       db "Launches larger stones at",$0D
+                       db "all enemies.",$0D
+                       db "Level 2 ", !Earth, "Earth."
                        db $10 : dl SpellDetails : db $00
 
                Smash3: db $10 : dl Details_Text_Setup
-                       db "Level 3 ", !Earth, "Earth damage",$0D
-                       db "to all enemies."
+                       db "Overwhelms all enemies",$0D
+                       db "in a storm of boulders.",$0D
+                       db "Level 3 ", !Earth, "Earth."
                        db $10 : dl SpellDetails : db $00
 
                Water1: db $10 : dl Details_Text_Setup
-                       db "Level 1 ", !Water, "Water damage",$0D
-                       db "to all enemies."
+                       db "Sprays enemies with water",$0D
+                       db "drawn from the humidity.",$0D
+                       db "Level 1 ", !Water, "Water."
                        db $10 : dl SpellDetails : db $00
 
                Water2: db $10 : dl Details_Text_Setup
-                       db "Level 2 ", !Water, "Water damage",$0D
-                       db "to all enemies."
+                       db "Knock back enemies with a",$0D
+                       db "greater water current.",$0D
+                       db "Level 2 ", !Water, "Water."
                        db $10 : dl SpellDetails : db $00
 
                Water3: db $10 : dl Details_Text_Setup
-                       db "Level 3 ", !Water, "Water damage",$0D
-                       db "to all enemies."
+                       db "Blasts all enemies with a",$0D
+                       db "flood of water currents.",$0D
+                       db "Level 3 ", !Water, "Water."
                        db $10 : dl SpellDetails : db $00
 
                Flame1: db $10 : dl Details_Text_Setup
-                       db "Level 1 ", !Fire, "Fire damage",$0D
-                       db "to all enemies."
+                       db "Shoots fireballs from the",$0D
+                       db "fingertips at all enemies.",$0D
+                       db "Level 1 ", !Fire, "Fire."
                        db $10 : dl SpellDetails : db $00
 
                Flame2: db $10 : dl Details_Text_Setup
-                       db "Level 2 ", !Fire, "Fire damage",$0D
-                       db "to all enemies."
+                       db "Burn all enemies with a",$0D
+                       db "powerful blaze.",$0D
+                       db "Level 2 ", !Fire, "Fire."
                        db $10 : dl SpellDetails : db $00
 
                Flame3: db $10 : dl Details_Text_Setup
-                       db "Level 3 ", !Fire, "Fire damage",$0D
-                       db "to all enemies."
+                       db "Conjures a scorching sea",$0D
+                       db "of flame around enemies.",$0D
+                       db "Level 3 ", !Fire, "Fire."
                        db $10 : dl SpellDetails : db $00
 
            Attribute1: db $10 : dl Details_Text_Setup
@@ -542,80 +575,76 @@ org $889652
                        db $10 : dl SpellDetails : db $00
 
              CallWind: db $10 : dl Details_Text_Setup
-                       db "Summons a Wind Spirit.",$0D
-                       db "Level 4 ", !Wind, "Wind damage",$0D
-                       db "to all enemies."
+                       db "A wind spirit descends and",$0D
+                       db "unleashes a heavenly roar.",$0D
+                       db "Level 4 ", !Wind, "Wind."
                        db $10 : dl SpellDetails : db $00
 
             CallEarth: db $10 : dl Details_Text_Setup
-                       db "Summons an Earth Spirit.",$0D
-                       db "Level 4 ", !Earth, "Earth damage",$0D
-                       db "to all enemies."
+                       db "An earth spirit from the",$0D
+                       db "depths scatters earth's",$0D
+                       db "tears.",$0D
+                       db "Level 4 ", !Earth, "Earth."
                        db $10 : dl SpellDetails : db $00
 
             CallWater: db $10 : dl Details_Text_Setup
-                       db "Summons a Water Spirit.",$0D
-                       db "Level 4 ", !Water, "Water damage",$0D
-                       db "to all enemies."
+                       db "Summons a water witch",$0D
+                       db "to damage all enemies.",$0D
+                       db "Level 4 ", !Water, "Water."
                        db $10 : dl SpellDetails : db $00
 
              CallFire: db $10 : dl Details_Text_Setup
-                       db "Summons a Fire Spirit.",$0D
-                       db "Level 4 ", !Fire, "Fire damage",$0D
-                       db "to all enemies."
+                       db "A fire spirit descends and",$0D
+                       db "burns away all evil.",$0D
+                       db "Level 4 ", !Fire, "Fire."
                        db $10 : dl SpellDetails : db $00
 
                 Drain: db $10 : dl Details_Text_Setup : db $00
-;                       db "Takes Hit Points from", $0D, "enemy."
+;                       db "Single target. Takes an",$0D
+;                       db "opponent's HP. (Dummied)"
 ;                       db $10 : dl SpellDetails : db $00
 
                 Psych: db $10 : dl Details_Text_Setup : db $00
-;                       db "Takes Magic Points from", $0D, "enemy."
+;                       db "Single target. Takes an",$0D
+;                       db "opponent's MP. (Dummied)"
 ;                       db $10 : dl SpellDetails : db $00
 
            HPRestoreA: db $10 : dl Details_Text_Setup
-                       db "Slightly restores", $0D
+                       db "Slightly recovers", $0D
                        db "the party's HP."
                        db $10 : dl SpellMP : db $00
 
             HPRestore: db $10 : dl Details_Text_Setup
-                       db "Restores some HP."
+                       db "Recovers a small",$0D
+                       db "amount of HP."
                        db $10 : dl SpellMP : db $00
 
                 Heal1: db $10 : dl Details_Text_Setup
-                       db "Restores some HP."
+                       db "Recovers some HP."
                        db $10 : dl SpellMP : db $00
 
                 Heal2: db $10 : dl Details_Text_Setup
-                       db "Restores more HP."
+                       db "Significantly recovers",$0D
+                       db "your HP."
                        db $10 : dl SpellMP : db $00
 
                 Heal3: db $10 : dl Details_Text_Setup
-                       db "Completely restores HP."
+                       db "Completely recovers HP."
                        db $10 : dl SpellMP : db $00
 
                HealA1: db $10 : dl Details_Text_Setup
-                       db "Restores some of the", $0D
+                       db "Recovers some of the", $0D
                        db "party's HP."
                        db $10 : dl SpellMP : db $00
 
                HealA2: db $10 : dl Details_Text_Setup
-                       db "Restores more of the", $0D
-                       db "party's HP."
+                       db "Recovers more of the", $0D
+                       db "party's HP, making them",$0D
+                       db "more energetic."
                        db $10 : dl SpellMP : db $00
-
-            ChaosWind: db $10 : dl Details_Text_Setup
-                       db "Kills all enemies."
-                       db $10 : dl SpellAccMP : db $00
-
-               Entomb: db $10 : dl Details_Text_Setup
-                       db "Kills all enemies."
-                       db $10 : dl SpellAccMP : db $00
-                       
-              Destroy: db $10 : dl Details_Text_Setup
-                       db "Kills all enemies."
-                       db $10 : dl SpellAccMP : db $00
-
+;---
+;ChaosWind, Entomb, Destroy relocated to $888D50
+;---
             ParalyzeA: db $10 : dl Details_Text_Setup
                        db "Paralyzes all enemies."
                        db $10 : dl SpellAccMP : db $00
@@ -701,9 +730,9 @@ org $889652
 ;                       db $10 : dl SpellAccMP : db $00
 
        RuinousMission: db $10 : dl Details_Text_Setup
-                       db "Sacrifice a spirit to",$0D
-                       db "save yourself.",$0D
-                       db "Kills all enemies."
+                       db "Self-destruct a spirit",$0D
+                       db "and blast enemies with",$0D
+                       db "holy power. Doesn't miss."
                        db $10 : dl SpellMP : db $00
 
                  Flee: db $10 : dl Details_Text_Setup
@@ -711,7 +740,9 @@ org $889652
                        db $10 : dl SpellMP : db $00
 
                DodgeA: db $10 : dl Details_Text_Setup
-                       db "Improves everyone's", $0D, "physical evasion."
+                       db "Summons wind around allies,",$0D
+                       db "making them less likely to",$0D
+                       db "be hit by enemy attacks."
                        db $10 : dl SpellMP : db $00
 
                 WallA: db $10 : dl Details_Text_Setup
@@ -755,11 +786,11 @@ org $889652
                        db $10 : dl SpellMP : db $00
 
                 Repel: db $10 : dl Details_Text_Setup : db $00
-;                       db "Gives you the power to", $0D, "repel attacks."
+;                       db "Single target,", $0D, "repels attacks."
 ;                       db $10 : dl SpellMP : db $00
 
                Mirror: db $10 : dl Details_Text_Setup : db $00
-;                       db "Gives you the power to", $0D, "repel magic."
+;                       db "Single target,", $0D, "repels magic."
 ;                       db $10 : dl SpellMP : db $00
 
              RestoreA: db $10 : dl Details_Text_Setup
@@ -781,23 +812,25 @@ org $889652
                        db $10 : dl SpellMP : db $00
 
                  Home: db $10 : dl Details_Text_Setup
-                       db "Returns to town", $0D, "in an instant.",$0D,"Useful when lost."
+                       db "Returns to town", $0D, "in an instant."
                        db $10 : dl SpellMP : db $00
 
              WayPoint: db $10 : dl Details_Text_Setup : db $00
-;                       db "Mentally mark a spot on", $0D, "the map where you want to", $0D, "go."
+;                       db "Add a spot on the map."
 ;                       db $10 : dl SpellMP : db $00
 
          WayPointWarp: db $10 : dl Details_Text_Setup : db $00
-;                       db "Instantly warp to the Way", $0D, "Point selected."
+;                       db "Warp to the spot."
 ;                       db $10 : dl SpellMP : db $00
 
    DiminishEncounters: db $10 : dl Details_Text_Setup : db $00
-;                       db "Fewer enemies are", $0D, "encountered."
+;                       db "Reduce the rate of",$0D
+;                       db "enemy encounters."
 ;                       db $10 : dl SpellMP : db $00
 
   DiminishEncounters2: db $10 : dl Details_Text_Setup : db $00
-;                       db "Fewer enemies are", $0D, "encountered."
+;                       db "Reduce the rate of",$0D
+;                       db "enemy encounters."
 ;                       db $10 : dl SpellMP : db $00
 warnpc $88A5FA                 
 padbyte $FF     ; Clear unused original text, if necessary
@@ -1291,7 +1324,7 @@ org $88A5FA
                        db "    R  ", $06, $0D, "  D  ", $06, $0E, "  A    S  ", $06, $0D, "  T", $00
                        
        SpiritGauntlet: db $10 : dl Details_Text_Setup
-                       db "A bracelet possessed", $0D
+                       db "A bangle possessed", $0D
                        db "by a spirit who", $0D
                        db "helps the wearer.", $06, $0E, $01, $00, $34
                        db "    R    D    A    S  ", $06, $0D, "  T", $00
@@ -1305,7 +1338,7 @@ org $88A5FA
                        db "    R  ", $06, $0D, "  D  ", $06, $0E, "  A    S    T", $06, $0D, $00
                        
        CursedGauntlet: db $10 : dl Details_Text_Setup
-                       db "A bracelet said to", $0D
+                       db "A bangle said to", $0D
                        db "have been made by", $0D
                        db "gathering the souls", $0D
                        db "of the dying.", $06, $0E, $01, $00, $34
@@ -1428,4 +1461,4 @@ org $88A5FA
                        db "Hidden item", $00
 warnpc $88C9F4  ;88C93E: original Status/Ability screen (revert if fucked!)
 padbyte $FF     ; Clear unused original text, if necessary
-pad $88C9F4
+pad $88C9F4     ;88C9F4: don't overwrite the spirit status screen
