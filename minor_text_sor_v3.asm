@@ -909,9 +909,9 @@ db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598
 db $0D,$22,"Whoops! That was close.",$22,$0D,$7F,$00
 
-warnpc $888E00 ;Don't overwrite new levelup location
+warnpc $888D50 ;Don't overwrite new levelup location or relocated spell descriptions
 padbyte $FF
-pad $888E00
+pad $888D50
 ;---------------------------------
 org $88CCBA
 Speaking_text_setup:    ;Used for shop dialogue
