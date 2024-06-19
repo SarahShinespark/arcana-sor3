@@ -507,13 +507,13 @@ Stage_Select_Ch3:
   dw $FF00              ;06E411;  
   dw $FF00              ;06E413;  
   dw $FF00              ;06E415;  
-  dw $0021              ;06E417; Rooks' spells (Chapter 3)
-  dw $0038              ;06E419;  
-  dw $004B              ;06E41B;  
-  dw $0034              ;06E41D;  
-  dw $004D              ;06E41F;  
-  dw $004C              ;06E421;  
-  dw $0022              ;06E423;  
+  dw $0021              ;06E417; Heal 2     -- Rooks' spells (Chapter 3)
+  dw $0038              ;06E419; Attack Down
+  dw $004B              ;06E41B; Unpetrify
+  dw $0034              ;06E41D; Defense Down
+  dw $004D              ;06E41F; Gate
+  dw $004C              ;06E421; Spirit Revival
+  dw $0022              ;06E423; Heal Max 
   dw $0000              ;06E425;  
   dw $0000              ;06E427;  
   dw $0000              ;06E429;  
@@ -1162,17 +1162,17 @@ Stage_Select_Ch5:
   dw $0038              ;06EE19;  Attack Down
   dw $004B              ;06EE1B;  Unpetrify
   dw $0034              ;06EE1D;  Defense Down
-  dw $004D              ;06EE1F;  Gate
-  dw $004C              ;06EE21;  Revive Spirit
-  dw $0022              ;06EE23;  Heal Max
-  dw $0031              ;06EE25;  Confuse Flame
-  dw $003D              ;06EE27;  Last Resort
-  dw $0018              ;06EE29;  Summon Wind Spirit
-  dw $001B              ;06EE2B;  Summon Fire Spirit
-  dw $001A              ;06EE2D;  Summon Water Spirit
-  dw $0019              ;06EE2F;  Summon Earth Spirit
-  dw $004A              ;06EE31;  Unparalyze (new)
-  dw $0000              ;06EE33;  
+  dw $004A              ;06EE1F;  Unparalyze (new)
+  dw $004D              ;06EE21;  Gate
+  dw $002E              ;06EE23;  Petrify (new)
+  dw $004C              ;06EE25;  Revive Spirit
+  dw $0022              ;06EE27;  Heal Max
+  dw $0031              ;06EE29;  Confuse Flame
+  dw $003D              ;06EE2B;  Last Resort
+  dw $0018              ;06EE2D;  Summon Wind Spirit
+  dw $001B              ;06EE2F;  Summon Fire Spirit
+  dw $001A              ;06EE31;  Summon Water Spirit
+  dw $0019              ;06EE33;  Summon Earth Spirit
   dw $0000              ;06EE35;  
   dw $0000              ;06EE37;  
   dw $0000              ;06EE39;  
