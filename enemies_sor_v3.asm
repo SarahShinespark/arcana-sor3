@@ -127,7 +127,7 @@ Enemy_Affinity:
   dw !Earth_None                       ;05C94D|        |      ;  Treant
   dw !Water_None                       ;05C94F|        |      ;  Dryad
   dw !Fire_None                        ;05C951|        |      ;  Dire Lizard
-  dw !Water                            ;05C953|        |      ;  Assassin
+  dw !Water_None                       ;05C953|        |      ;  Assassin
   dw !Fire_GiantBoss                   ;05C955|        |      ;  Cyclops
   dw !Fire_Boss                        ;05C957|        |      ;  Ifrit
   dw !None_Boss                        ;05C959|        |      ;  Zero
