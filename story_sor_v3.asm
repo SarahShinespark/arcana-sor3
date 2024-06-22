@@ -1353,7 +1353,7 @@ SCRIPT_056: db $10 : dl PROMPT_ROOKS
 
 SCRIPT_057: db $10 : dl DISPLAY_ARIEL
             db $22,"You're a persistent",$0D
-            db " one, aren't you!",$22
+            db " one, aren't you?!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"You!",$22
