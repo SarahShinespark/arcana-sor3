@@ -8,9 +8,9 @@ The code language is 65c816 ASM, based on 6502 (NES).
 Patch sor_v3.ips to an unheadered Arcana ROM. That's it!\
 \
 To compile the game yourself:\
-Use an IPS patcher to patch an unheadered Arcana ROM with sor_v2.1.15_a12.\
+Use an IPS patcher to patch an unheadered Arcana ROM with sor_v2.1.15_a13.\
 Change the extension to SFC.\
-Then use Asar (asar main.asm sor_a12.sfc) to patch all of the files at once to create sor_v3.sfc.
+Then use Asar (asar main.asm sor_a13.sfc) to patch all of the files at once to create sor_v3.sfc.
 
 
 ## Contents
@@ -22,12 +22,13 @@ encounters_sor_v3.asm		- Determines the possible random encounters. Some variety
 enemies_sor_v3.asm			- Enemy stats. About 4 enemies were given different spells, and boss EXP was doubled.\
 epilogue_sor_v3.asm			- Localized epilogue text with faster transitions.\
 equipment_sor_v3.asm		- Editable equipment stats.\
+events.asm              - Edits to the event code.\
 intro_sor_v3.asm			  - Localized intro crawl with better pacing, and chapter titles.\
 main_sor_v3.asm         - Patches all of the ASM files at once.\
 minor_text_sor_v3.asm   - Town dialogue, dungeon and battle text. Adds a message for "can't carry more GP."\
 miscellaneous.asm			  - Has some miscellaneous global mods like the ROM header or editing the encounter rate.\
 names_sor_v3.asm			  - Localized names. Enemies, Equipment, Spells, Towns... everything.\
-smart_shops.asm         - Speeds up shop purchases.\
+smart_shops.asm         - Speeds up buying drinks at the bar.\
 spells_sor_v3.asm			  - Spell statistics like their SFX. Unpatches 2.2's glitchy spell palettes.\
 stage_select.asm        - Edits the save files for the 4 stage selects.\
 story_sor_v3.asm			  - Localized main story. The meat and potatoes of this mod. (Mmm, meat and potatoes.)\
