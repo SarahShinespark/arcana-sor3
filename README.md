@@ -5,9 +5,9 @@ The modular nature of these ASM files makes it much easier to edit and troublesh
 The code language is 65c816 ASM, based on 6502 (NES).
 
 ## Patching instructions
-Patch sor_v3.ips to an unheadered Arcana ROM. That's it!\
+To play the official release, patch sor_v3.ips to an unheadered Arcana ROM. That's it!\
 \
-To compile the game yourself:\
+To play the latest version, compile the game yourself:\
 Use an IPS patcher to patch an unheadered Arcana ROM with sor_v2.1.15_a13.\
 Change the extension to SFC.\
 Then use Asar (asar main.asm sor_a13.sfc) to patch all of the files at once to create sor_v3.sfc.
