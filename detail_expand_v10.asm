@@ -106,7 +106,7 @@ fillbyte $FF
 fill align 16
 
 ;org $88E490
-StatusScreen:   ;Status screen for Rooks, Teefa, Sarah, Darwin and Axs
+StatusScreen:   ;Status screen for Rooks, Teefa, Sarah, Arwin and Axs
 db $06,$0D,$0C
 db $01,$04,$04
 db $03,$0D
@@ -185,27 +185,36 @@ db $00
 fillbyte $FF
 fill align 16
 
+!Wi  = $EC  ;Wind
+!Fi  = $ED  ;Fire
+!Wa  = $EE  ;Water
+!Ea  = $EF  ;Earth
+
 ElementIcons:
-!SP = $20  ;Space
 db "None",$00
-db $EC,!SP,!SP,!SP, $00   ;Wind
-db $EF,!SP,!SP,!SP, $00   ;Earth
-db $EC,$EF,!SP,!SP, $00   ;Wind, Earth
-db $EE,!SP,!SP,!SP, $00   ;Water
-db $EC,$EE,!SP,!SP, $00   ;Wind, Water
-db $EE,$EF,!SP,!SP, $00   ;Water, Earth
-db $EC,$EE,$EF,!SP, $00   ;Wind, Water, Earth
-db $ED,!SP,!SP,!SP, $00   ;Fire
-db $EC,$ED,!SP,!SP, $00   ;Wind, Fire
-db $ED,$EF,!SP,!SP, $00   ;Fire, Earth
-db $EC,$ED,$EF,!SP, $00   ;Wind, Fire, Earth
-db $ED,$EE,!SP,!SP, $00   ;Fire, Water
-db $EC,$EE,$EF,!SP, $00   ;Wind, Water, Earth
-db $ED,$EE,$EF,!SP, $00   ;Fire, Water, Earth
-db $EC,$ED,$EE,$EF, $00   ;Wind, Fire, Water, Earth
+db !Wi, $20, $20, $20, $00   ;Wind
+db !Ea, $20, $20, $20, $00   ;Earth
+db !Wi, !Ea, $20, $20, $00   ;Wind, Earth
+db !Wa, $20, $20, $20, $00   ;Water
+db !Wi, !Wa, $20, $20, $00   ;Wind, Water
+db !Wa, !Ea, $20, $20, $00   ;Water, Earth
+db !Wi, !Wa, !Ea, $20, $00   ;Wind, Water, Earth
+db !Fi, $20, $20, $20, $00   ;Fire
+db !Wi, !Fi, $20, $20, $00   ;Wind, Fire
+db !Fi, !Ea, $20, $20, $00   ;Fire, Earth
+db !Wi, !Fi, !Ea, $20, $00   ;Wind, Fire, Earth
+db !Fi, !Wa, $20, $20, $00   ;Fire, Water
+db !Wi, !Wa, !Ea, $20, $00   ;Wind, Water, Earth
+db !Fi, !Wa, !Ea, $20, $00   ;Fire, Water, Earth
+db !Wi, !Fi, !Wa, !Ea, $00   ;Wind, Fire, Water, Earth
 
 fillbyte $FF
 fill align 16
+
+!Sword   = $F0
+!Crit    = $F1
+!Shield  = $5B
+!MShield = $5F
 
 ;org $88E640
 WeaponSubscreen:    ;Weapon minibox expand (icons, crit rate etc)
@@ -214,31 +223,31 @@ db $01,$00,$06  ;X,Y to (0,6)
 db $03,$0E,$1C  ;Normal vertical spacing, no text delay
 
 db " ", $10 : dl $001697  ;Weapon name (temp var)
-db $08,$68,$F0  ;Xpos 68, Draw Sword icon
-db $08,$72      ;Xpos 72
+db $08,$68,!Sword  ;Xpos 68, Draw Sword icon
+db $08,$72         ;Xpos 72
 db $11,$02 : dl $0016DB   ;Base attack stat (temp var)
-db $0D          ;Newline
+db $0D             ;Newline
 
 db " ", $10 : dl $0016A8  ;Armor name (temp var)
-db $08,$68,$5B  ;Xpos 68, Draw Shield icon
-db $08,$72      ;Xpos 72
+db $08,$68,!Shield  ;Xpos 68, Draw Shield icon
+db $08,$72          ;Xpos 72
 db $11,$02 : dl $0016DD   ;Base defense stat (temp var)
-db $0D          ;Newline
+db $0D              ;Newline
 
 db " ", $10 : dl $0016B9  ;Amulet name (temp var)
-db $08,$68,$5F  ;Xpos 68, Draw MagicShield icon
-db $08,$71      ;Xpos 71
+db $08,$68,!MShield  ;Xpos 68, Draw MagicShield icon
+db $08,$71           ;Xpos 71
 db $11,$02 : dl $0016E3   ;Magic defense stat (temp var)
-db $0D          ;Newline
+db $0D               ;Newline
 
 ;db " ", $10 : dl $0016CA  ;Ring name (temp var)
 db "                "
-db $08,$68,$F1  ;Xpos 68, Draw "x2" icon for critical hit chance
-db $08,$72      ;Xpos 72
+db $08,$68,!Crit  ;Xpos 68, Draw "x2" icon for critical hit chance
+db $08,$72        ;Xpos 72
 db $11,$01 : dl $0016E1   ;Critical hit% (temp var)
-db $25,$00      ;Draw % sign
+db "%",$00        ;Draw % sign
 
-warnpc $88E6B0  ;Don't overwrite SpellDetails in minor_text_sor_v3
+assert pc() <= $88E6B0  ;Don't overwrite SpellDetails in minor_text_sor_v3
 padbyte $FF
 pad $88E6B0
 
@@ -304,7 +313,7 @@ db "Endur" : db $08,$68 : db $06,$0E : db $11,$01 : dl $0016DF : db $0D : db $06
 db "Int"   : db $08,$1C : db $06,$0E : db $11,$01 : dl $0016E1 : db $06,$0D : db $08,$40
 db "Alert" : db $08,$68 : db $06,$0E : db $11,$01 : dl $0016E3 : db $06,$06 : db $0D,$7F,$00
 
-warnpc $888E8E
+assert pc() <= $888E8E
 padbyte $FF
 pad $888E8E
 
@@ -328,7 +337,7 @@ db $10 : dl $0015DF : db $06, $0D, $7F, $00
 LearnedSpellEnd:
 db ".", $7F, $00
 
-warnpc $888EC7 ;Don't overwrite Card/Item menu
+assert pc() <= $888EC7 ;Don't overwrite Card/Item menu
 ;padbyte $FF     ; Clear unused original text, if necessary
 ;pad $888EC7
 
