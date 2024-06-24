@@ -295,7 +295,7 @@ org $8890D6
                        
      Mirror_Card_desc: db $10 : dl Details_Text_Setup
                        db "Mirror cards mimic other cards.", $00
-warnpc $889291
+assert pc() <= $889291
 padbyte $FF     ; Clear unused original text, if necessary
 pad $889291
 
@@ -387,13 +387,13 @@ org $889291
       Select_a_Player: db $10 : dl Details_Text_Setup
                        db "Please select a member.", $0D, $00
 
-warnpc $889652
+assert pc() <= $889652
 padbyte $FF     ; Clear unused original text, if necessary
 pad $889652
 
 ;Custom font tiles
 !Wind    = $EC
-!Fire    = $ED
+!Fire    = $ED0
 !Water   = $EE
 !Earth   = $EF
 !Sword   = $F0
@@ -431,7 +431,7 @@ org $888D50
                        db "all enemies.",$0D
                        db $10 : dl SpellAccMP : db $00
 
-warnpc $888E00  ;Don't overwrite the relocated levelup screen
+assert pc() <= $888E00  ;Don't overwrite the relocated levelup screen
 padbyte $FF
 pad $888E00
 
@@ -832,7 +832,7 @@ org $889652
 ;                       db "Reduce the rate of",$0D
 ;                       db "enemy encounters."
 ;                       db $10 : dl SpellMP : db $00
-warnpc $88A5FA                 
+assert pc() <= $88A5FA                 
 padbyte $FF     ; Clear unused original text, if necessary
 pad $88A5FA
 
@@ -1459,6 +1459,6 @@ org $88A5FA
 
              RingNone: db $10 : dl Details_Text_Setup
                        db "Hidden item", $00
-warnpc $88C9F4  ;88C93E: original Status/Ability screen (revert if fucked!)
+assert pc() <= $88C9F4  ;88C93E: original Status/Ability screen (revert if fucked!)
 padbyte $FF     ; Clear unused original text, if necessary
 pad $88C9F4     ;88C9F4: don't overwrite the spirit status screen

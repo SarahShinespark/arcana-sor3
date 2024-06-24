@@ -31,7 +31,7 @@ Opening_crawl2:
   db "in the fields.",$0D
   db "People call that land Elemen."
   db $1B, $01, $FF, $00
-warnpc $97826D
+assert pc() <= $97826D
 
 
 org $978726
@@ -148,7 +148,7 @@ Intro_crawl_7:
   db $7F          ;Pause
   db $00
 
-;warnpc $978B27
+;assert pc() <= $978B27
 ;org $978B27
 Ten_years:
   db $06,$0D      ;White text
@@ -159,7 +159,7 @@ Ten_years:
   db $08,$14,"This was about",$0D
   db $08,$2A,"10 years ago."
   db $00
-warnpc $978B5C
+assert pc() <= $978B5C
 padbyte $FF
 pad $978B5C
 
@@ -203,4 +203,4 @@ Ch5_Splash:
   db "         Toward a",$0D
   db "     Bright New Era", $00
 
-warnpc $97918E
+assert pc() <= $97918E

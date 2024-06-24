@@ -236,7 +236,7 @@ db $00,$02,$01,$44,$3E  ;S
 db $00,$0A,$01,$0E,$3E  ;H
 db $02,$11,$01,$20,$3E  ;I
 
-warnpc $16EDF0  ; Don't overwrite Mr. Sakurai, he's worked too hard for that
+assert pc() <= $16EDF0  ; Don't overwrite Mr. Sakurai, he's worked too hard for that
 
 
 ;;;;;;;;;;;;;;;

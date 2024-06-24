@@ -122,6 +122,6 @@ Epilogue_8:
   db $08,$46,$22,"Seal of Rimsala",$22,"!",$00
 
 ;Don't overwrite the CLC that starts the credits
-warnpc $98D281
+assert pc() <= $98D281
 padbyte $FF     ; Clear unused original text, if necessary
 pad $98D281
