@@ -13,12 +13,12 @@ org $83DEB3
 Tbl_Alchemist_Events:
 ;If your progress is LESS than that number, use that convo set. i.e. Chapter 1 is less than 4, so it uses Set 1.
 ;1=Start Ch1, 2=Spoke to Ariel,     3=Ready to leave town,  4=Entered Crystal Sword room
-;5=Start Ch2, 6=Met Darwin,         7=Recruited Darwin,     8=Got the Fire Spirit      9=Found Reinoll
+;5=Start Ch2, 6=Met Arwin,          7=Recruited Arwin,      8=Got the Fire Spirit      9=Found Reinoll
 ;A=Start Ch3; B=Finding Axs stoned  C=Beating the Hydra     D=Entering the Lava Room
-;E=Start Ch4; F=Finding Darah       10=The door won't open  11=Sarah wakes up   12=Sarah opens a door   13=DarahBarah   14=Ariel  15=Darwin   16=Teefa  17=Galneon
+;E=Start Ch4; F=Finding Darah       10=The door won't open  11=Sarah wakes up   12=Sarah opens a door   13=DarahBarah   14=Ariel  15=Arwin   16=Teefa  17=Galneon
 ;18=Start Ch5; 19=Met Karul         1A=Met Galneon          1B=RedBlue Guardian   1C=Tiamat   1D=Entered final door   1E=Credits
   dw $0004  ;Before Ch2
-  dw $0007  ;Before getting Darwin
+  dw $0007  ;Before getting Arwin
   dw $000A  ;Before Ch3
   dw $000B  ;Before getting Axs
   dw $000E  ;Before Ch4
@@ -45,13 +45,13 @@ Convo_Set_1:
   dw Conversation_2                    ;03DED9|        |08D413;  
   dw Conversation_3                    ;03DEDB|        |08D44D;  
 
-;Chapter 2 before recruiting Darwin (event 4-6)
+;Chapter 2 before recruiting Arwin (event 4-6)
 Convo_Set_2:
   dw Conversation_4                    ;03DEDD|        |08D482;  
   dw Conversation_5                    ;03DEDF|        |08D4DF;  
   dw Conversation_6                    ;03DEE1|        |08D538;  
 
-;Chapter 2 after recruiting Darwin (event 7-9)
+;Chapter 2 after recruiting Arwin (event 7-9)
 Convo_Set_3:
   dw Conversation_7                    ;03DEE3|        |08D571;  
   dw Conversation_8                    ;03DEE5|        |08D5CC;  
@@ -131,7 +131,7 @@ TooMuchGold:
   db "Found ",$11,$00 : dl $0016DB : db " GP.",$0D
   db "But, I can't hold more."
   db $7F,$00
-warnpc $888F9F  ;Don't overwrite Dungeon_TextSetup
+assert pc() <= $888F9F  ;Don't overwrite Dungeon_TextSetup
 
 
 org $888F9F
@@ -187,7 +187,7 @@ db "But, I can't carry", $0D, "any more equipment.",$7F,$00
 MonsterInABox:
 db $10 : dl Dungeon_TextSetup : db $1C
 db "Rooks", $0D, $22, "AAAAAAHHH!", $22, $00
-warnpc $8890D6 ;Don't overwrite Item_Text_Setup
+assert pc() <= $8890D6 ;Don't overwrite Item_Text_Setup
 ;---------------------------------
 ;Attack effects: pointers
 org $888492 : dl X_Attacks
@@ -318,7 +318,7 @@ db $05, $01, $24, " "
 db $7F                               ;088584|      ;
 db $00                               ;088585|      ;
 
-warnpc $888586
+assert pc() <= $888586
 padbyte $FF
 pad $888586
 
@@ -365,7 +365,7 @@ db $00                               ;088600|      ;
 ;db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $03, $0E, $1D, $00;088601|      ;
 ;Dungeon_TextSetup:  ;There are 6 copies of this subroutine, we only need one
 
-warnpc $888610
+assert pc() <= $888610
 padbyte $FF
 pad $888610
 
@@ -420,7 +420,7 @@ db $06,$0D," HP.", $0D
 db $7F                               ;0886B8|      ;
 db $00                               ;0886B9|      ;
 
-warnpc $8886BA
+assert pc() <= $8886BA
 padbyte $FF
 pad $8886BA
 
@@ -598,7 +598,7 @@ db " HP.",$0D
 db $7F                               ;0888E2|      ;
 db $00                               ;0888E3|      ;
 
-warnpc $8888E4
+assert pc() <= $8888E4
 padbyte $FF
 pad $8888E4
 
@@ -633,7 +633,7 @@ db $00                               ;088926|      ;
 ;Statused_Text_Setup:
 ;db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $03, $0E, $1D, $00;088927|      ; Subroutine for X is statused
 
-warnpc $888936
+assert pc() <= $888936
 padbyte $FF
 pad $888936
 
@@ -739,7 +739,7 @@ dw Take_That_Marid
 dw Take_That_Ifrit
 dw Take_That_Teefa 
 dw Take_That_Sarah 
-dw Take_That_Darwin
+dw Take_That_Arwin
 dw Take_That_Axs   
 
 org $87B782
@@ -751,7 +751,7 @@ dw Ouch_Marid
 dw Ouch_Ifrit
 dw Ouch_Teefa 
 dw Ouch_Sarah 
-dw Ouch_Darwin
+dw Ouch_Arwin
 dw Ouch_Axs   
 
 org $87B7CE
@@ -763,7 +763,7 @@ dw Dodge_Marid
 dw Dodge_Ifrit
 dw Dodge_Teefa 
 dw Dodge_Sarah 
-dw Dodge_Darwin
+dw Dodge_Arwin
 dw Dodge_Axs   
 
 ;Custom font tiles
@@ -809,7 +809,7 @@ db $10 : dl Dungeon_TextSetup
 db $10 : dl $001581   ;Character name
 db $0D,$22,"Take that!",$22,$0D,$7F,$00
 
-Take_That_Darwin:
+Take_That_Arwin:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001581   ;Character name
 db $0D,$22,"Let's go!",$22,$0D,$7F,$00
@@ -854,7 +854,7 @@ db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598   ;Character name
 db $0D,$22,"Eyaaaa!",$22,$0D,$7F,$00
 
-Ouch_Darwin:
+Ouch_Arwin:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598   ;Character name
 db $0D,$22,"Oof!",$22,$0D,$7F,$00
@@ -899,7 +899,7 @@ db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598
 db $0D,$22,"Missed me!",$22,$0D,$7F,$00
 
-Dodge_Darwin:
+Dodge_Arwin:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598
 db $0D,$22,"Almost had me!",$22,$0D,$7F,$00
@@ -909,7 +909,7 @@ db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598
 db $0D,$22,"Whoops! That was close.",$22,$0D,$7F,$00
 
-warnpc $888D50 ;Don't overwrite new levelup location or relocated spell descriptions
+assert pc() <= $888D50 ;Don't overwrite new levelup location or relocated spell descriptions
 padbyte $FF
 pad $888D50
 ;---------------------------------
@@ -984,7 +984,7 @@ db $10 : dl Speaking_text_setup
 db "Okay, saving in "
 db $06,$0E, "File ", $11,$00 : dl $0016DB : db $06,$0D    ;File name in yellow
 db ".",$7F,$00
-warnpc $88CE1B
+assert pc() <= $88CE1B
 padbyte $FF     ; Clear unused original text, if necessary
 pad $88CE1B
 
@@ -996,7 +996,7 @@ db "The game was saved in",$0D
 db $06,$0E, "File ",$11,$00 : dl $0016DB : db $06,$0D   ;File name in yellow
 db ".     ",$7F,$00
 
-warnpc $88CE4C
+assert pc() <= $88CE4C
 padbyte $FF
 pad $88CE4C
 
@@ -1037,7 +1037,7 @@ db "are tired.",$7F,$00
 ;Inn_Not_Enough:
 ;(Moved to free space after Alchemist Conversation_27)
 
-warnpc $88CF2E  ;Don't overwrite Inn_Good_night
+assert pc() <= $88CF2E  ;Don't overwrite Inn_Good_night
 padbyte $FF
 pad $88CF2E
 
@@ -1132,7 +1132,7 @@ db $1C
 db $01,$20,$30
 db "Yes       No",$7F,$00
 
-warnpc $88D111
+assert pc() <= $88D111
 padbyte $FF
 pad $88D111
 
@@ -1265,7 +1265,7 @@ db $1D      ;Display one line at a time
 db $10 : dl $0015AF 
 db " recovers",$0D
 db "HP and MP.",$0D,$7F,$00
-warnpc $88D3C4
+assert pc() <= $88D3C4
 
 org $88D3C4
 Conversation_1:
@@ -1506,7 +1506,7 @@ Conversation_26:
   db " off fer somewhere far",$0D 
   db " away.",$22
   db $7F,$00
-warnpc $88DBE0
+assert pc() <= $88DBE0
 padbyte $FF     ; Clear unused original text, if necessary
 pad $88DBE0
 
@@ -1526,7 +1526,7 @@ db $10 : dl Speaking_text_setup
 db "I'm sorry, you don't",$0D
 db "have enough.",$7F,$00
 
-warnpc $88CCBA  ; Don't overwrite Speaking_text_setup
+assert pc() <= $88CCBA  ; Don't overwrite Speaking_text_setup
 padbyte $FF     ; Clear unused original text, if necessary
 pad $88CCBA
 ;-------------------------------------
@@ -1694,7 +1694,7 @@ db ".",$0D
 db $1C
 db $01,$20,$22, "Sell", $08,$52, "Refuse ",$7F,$00
 
-warnpc $88DF03  ;Don't overwrite Outfitter_Trade_6_Weapons:
+assert pc() <= $88DF03  ;Don't overwrite Outfitter_Trade_6_Weapons:
 padbyte $FF
 pad $88DF03
 ;------------------------------
@@ -1740,7 +1740,7 @@ db $10 : dl Speak_Rooks
 db $22, "Leave it to me.", $22,$7F,$00
 
 ;org $88E257
-Text_Axs_isnt_here:   ;After getting Darwin in Chapter 2
+Text_Axs_isnt_here:   ;After getting Arwin in Chapter 2
 db $10 : dl Speaking_text_setup
 db $10 : dl Speak_Rooks
 db $22, "What...?",$0D
@@ -1805,6 +1805,6 @@ db $01,$4C,$10
 db $06,$0D
 db $11,$01 : dl $00119F : db $00
 
-warnpc $88E3FF  ;Don't overwrite RaceTypes in detail_expand_v10
+assert pc() <= $88E3FF  ;Don't overwrite RaceTypes in detail_expand_v10
 padbyte $FF
 pad $88E3FF
