@@ -16,7 +16,7 @@
 !Rooks  = $01   ;Equip flags
 !Teefa  = $02
 !Sarah  = $04
-!Darwn  = $08
+!Arwin  = $08
 !Axs    = $10
 
 !Lit1   = $01   ;Spells
@@ -92,7 +92,7 @@
 
 org $85D67D : EquipNames:     ;Equipment names (16b + /00)
 org $85DE86 : EquipPrices:    ;Equipment prices (2b)
-org $85DF78 : EquipFlags:     ;Equip flags (1b): xxxADSTR  (Binary xxx00001 = Rooks only, xxxx01000 = Sarah only etc)
+org $85DF78 : EquipFlags:     ;Equip flags (1b): xxxXASTR  (Binary xxx00001 = Rooks only, xxxx01000 = Sarah only etc)
 org $85DFF1 : EquipPower:     ;Equip power/defense (2b)
 org $85E0E3 : EquipAffinity:  ;Equip race/element (2b): (Binary FAEWxxxx xxxxGMDU, Element FAEW Fire/Water/Earth/Wind, Race GMDU Giant/Medusa/Dragon/Undead)
 org $85E1D5 : EquipSpecial:   ;Equip special (1b) (crit%/magic defense)
@@ -123,7 +123,7 @@ endmacro
 %equipment(9, 7500, %01001, 180, !Dragon, 0, 10, 108, 0)        ;Dragon Blade
 %equipment(10, 10000, %01001, 200, 0, 0, 10, 92, !Sleep)        ;Magic Sword
 %equipment(11, 13500, %01001, 220, 0, !AWind, 10, 92, 0)        ;Lightning Sword
-%equipment(12, 20000, !Darwn, 240, %1010, 0, 10, 77, !Confu)    ;Desiree
+%equipment(12, 20000, !Arwin, 240, %1010, 0, 10, 77, !Confu)    ;Desiree
 %equipment(13, 2, !Rooks, 230, !R_All, 0, 15, 82, !HPRes)       ;Crystal Sword
 %equipment(14, 2, !Rooks, 260, 0, !A_All, 10, 77, !HealA1)      ;Spirit Sword
 %equipment(15, 2, !Rooks, 280, 0, !A_All, 20, 77, !HPResA)      ;Giant Sword
@@ -158,7 +158,7 @@ endmacro
 %equipment(43, 500, %10101, 40, 0, 0, 0, 0, 0)                  ;Ring Mail
 %equipment(44, 700, %11101, 60, 0, 0, 0, 0, 0)                  ;Scale Mail
 %equipment(45, 1000, %10101, 80, 0, 0, 0, 0, 0)                 ;Chain Mail
-%equipment(46, 1500, !Darwn, 85, 0, 0, 0, 0, 0)                 ;Breast Mail
+%equipment(46, 1500, !Arwin, 85, 0, 0, 0, 0, 0)                 ;Breast Mail
 %equipment(47, 2000, %01101, 100, 0, 0, 0, 0, 0)                ;Breast Plate
 %equipment(48, 3000, %10101, 120, 0, 0, 0, 0, 0)                ;Seam Mail
 %equipment(49, 4500, %10001, 145, 0, 0, 0, 0, 0)                ;Plate Mail
@@ -169,7 +169,7 @@ endmacro
 %equipment(54, 20000, !Rooks, 190, 0, 0, 0, 0, 0)               ;Dragon Mail
 %equipment(55, 25000, %01001, 200, 0, 0, 0, 0, 0)               ;Magic Plate
 %equipment(56, 30000, %01001, 215, 0, 0, 0, 0, 0)               ;Magic Mail
-%equipment(57, 20000, !Darwn, 230, 0, !AEarth, 0, 0, 0)         ;Earth Plate
+%equipment(57, 20000, !Arwin, 230, 0, !AEarth, 0, 0, 0)         ;Earth Plate
 %equipment(58, 30000, !Rooks, 240, 0, 0, 0, 0, 0)               ;Grand Armor
 %equipment(59, 50000, %11111, 35, 0, 0, 0, 0, 0)                ;Rococo Armor
 %equipment(60, 150, %00110, 25, 0, 0, 0, 0, 0)                  ;Robe
@@ -210,7 +210,7 @@ endmacro
 %equipment(94, 3000, %01010, 160, !Undead, 0, 30, 0, 0)         ;Mithril Gauntlet
 %equipment(95, 10000, %01010, 180, 0, 0, 40, 0, !WallA)         ;Magic Gauntlet
 %equipment(96, 2, %01010, 200, 0, 0, 50, 0, !AccUpA)            ;Spirit Gauntlet
-%equipment(97, 4000, !Darwn, 220, !Giant, 0, 60, 0, !StompA)    ;Moon Gauntlet
+%equipment(97, 4000, !Arwin, 220, !Giant, 0, 60, 0, !StompA)    ;Moon Gauntlet
 %equipment(98, 2, %01010, 10, 0, 0, 0, 0, 0)                    ;Cursed Gauntlet
 %equipment(99, 2, 0, 0, 0, 0, 0, 0, 0)                          ;Amulet 1
 %equipment(100, 2, 0, 0, 0, 0, 0, 0, 0)                         ;Amulet 2

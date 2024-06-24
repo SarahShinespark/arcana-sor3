@@ -782,7 +782,7 @@ SCRIPT_025: db $1B,$01,$14
             db $22,"Entering the",$0D
             db " Lost Forest is too",$0D
             db " dangerous for novices."
-            db $10 : dl CONTINUE_DARWIN
+            db $10 : dl CONTINUE_ARWIN
             db " You should turn back.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
@@ -811,20 +811,20 @@ SCRIPT_026: db $10 : dl CLEAR
             db " passed earlier?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_THE_MAN
-            db $22,"I'm Darwin.",$22
+            db $22,"I'm Arwin.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,".....?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl DISPLAY_DARWIN
+            db $10 : dl DISPLAY_ARWIN
             db $22,"There's someone quite",$0D
             db " strong up ahead."
-            db $10 : dl CONTINUE_DARWIN
+            db $10 : dl CONTINUE_ARWIN
             db " I would have been okay",$0D
             db " on my own, but I'm in",$0D
             db " a hurry and it'd take",$0D
             db " too long by myself."
-            db $10 : dl CONTINUE_DARWIN
+            db $10 : dl CONTINUE_ARWIN
             db " What do you think?",$0D
             db " Until then, why don't",$0D
             db " we work together?",$22
@@ -849,7 +849,7 @@ SCRIPT_028: db $10 : dl CLEAR
             db " why don't you go by",$0D
             db " yourself?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl DISPLAY_DARWIN
+            db $10 : dl DISPLAY_ARWIN
             db $22,"We can help each",$0D
             db " other.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
@@ -861,7 +861,7 @@ SCRIPT_028: db $10 : dl CLEAR
             db " choice, but that's as",$0D
             db " far as we'll go together.",$22
             db $7F
-            db $10 : dl DISPLAY_DARWIN
+            db $10 : dl DISPLAY_ARWIN
             db $22,"I'm indebted to you.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $1B,$01,$FF
@@ -869,7 +869,7 @@ SCRIPT_028: db $10 : dl CLEAR
 
 SCRIPT_029: db $10 : dl MACRO_119
             db $1C
-            db "Darwin",$0D
+            db "Arwin",$0D
             db "joins the party."
             db $00
 
@@ -899,7 +899,7 @@ SCRIPT_031: db $10 : dl PROMPT_ROOKS
             db $1B,$01,$FF
             db $00
 
-SCRIPT_032: db $10 : dl DISPLAY_DARWIN
+SCRIPT_032: db $10 : dl DISPLAY_ARWIN
             db $22,"Sorry to cut off the",$0D
             db " conversation, but...",$0D
             db " I have to go now.",$22
@@ -907,7 +907,7 @@ SCRIPT_032: db $10 : dl DISPLAY_DARWIN
             db $10 : dl PROMPT_ROOKS
             db $22,"Be careful.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl DISPLAY_DARWIN
+            db $10 : dl DISPLAY_ARWIN
             db $22,"I hope we meet again",$0D
             db " if we have the chance.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
@@ -1958,20 +1958,20 @@ SCRIPT_085: db $10 : dl PROMPT_GALNEON
             db $1B,$01,$FF
             db $00
 
-SCRIPT_086: db $10 : dl DISPLAY_DARWIN
+SCRIPT_086: db $10 : dl DISPLAY_ARWIN
             db $22,"Looks like we share",$0D
             db " the same destination.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"Why are you here?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl DISPLAY_DARWIN
+            db $10 : dl DISPLAY_ARWIN
             db $22,"Let me lend you",$0D
             db " a hand!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl MACRO_119
             db $1C
-            db "Darwin",$0D
+            db "Arwin",$0D
             db "joins the party."
             db $1B,$01,$FF
             db $00
@@ -1985,13 +1985,13 @@ SCRIPT_087: db $10 : dl CLEAR
             db " same elf swordsman",$0D
             db " from before?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl PROMPT_DARWIN
+            db $10 : dl PROMPT_ARWIN
             db $22,"Princess Teefa!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"You know Teefa?!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl PROMPT_DARWIN
+            db $10 : dl PROMPT_ARWIN
             db $22,"Teefa!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_TEEFA_RED
@@ -2016,8 +2016,8 @@ SCRIPT_087: db $10 : dl CLEAR
             db $1B,$01,$FF
             db $00
 
-SCRIPT_088: db $10 : dl PROMPT_DARWIN
-            db $22,"Teefa, it's me Darwin.",$22,$0D
+SCRIPT_088: db $10 : dl PROMPT_ARWIN
+            db $22,"Teefa, it's me Arwin.",$22,$0D
             db $22,"Are you sure you don't",$0D
             db " recognize me?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
@@ -2054,7 +2054,7 @@ SCRIPT_089: db $10 : dl DISPLAY_TEEFA_CROUCH
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_TEEFA_CROUCH
             db $05,$01,$04
-            db $22,"Darwin"
+            db $22,"Arwin"
             db $1B,$00,$FE
             db "...?!",$0D
             db $1B,$00,$06
@@ -2070,7 +2070,7 @@ SCRIPT_089: db $10 : dl DISPLAY_TEEFA_CROUCH
             db $1B,$01,$FF
             db $00
 
-SCRIPT_090: db $10 : dl DISPLAY_DARWIN
+SCRIPT_090: db $10 : dl DISPLAY_ARWIN
             db $22,"You don't need to",$0D
             db " think about it right now.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
@@ -2084,7 +2084,7 @@ SCRIPT_090: db $10 : dl DISPLAY_DARWIN
             db $10 : dl WAIT_NEWLINE
             db " I'm going on ahead.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl DISPLAY_DARWIN
+            db $10 : dl DISPLAY_ARWIN
             db $05,$01,$06
             db $1B,$00,$FE
             db $22,"....."
@@ -2213,7 +2213,7 @@ SCRIPT_095: db $10 : dl CLEAR
             db " passed away."
             db $10 : dl CONTINUE_TEEFA2
             db " I was put in the care",$0D
-            db " of Darwin."
+            db " of Arwin."
             db $10 : dl CONTINUE_TEEFA2
             db " But one day many years",$0D
             db " ago, Galneon"
@@ -2236,7 +2236,7 @@ SCRIPT_095: db $10 : dl CLEAR
 SCRIPT_096: db $10 : dl PROMPT_ROOKS
             db $22,"How was it out there?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl DISPLAY_DARWIN
+            db $10 : dl DISPLAY_ARWIN
             db $22,"It's fine. There",$0D
             db " was no sign of Rimsala's",$0D
             db " influence on the city.",$22
@@ -2263,7 +2263,7 @@ SCRIPT_096: db $10 : dl PROMPT_ROOKS
             db " do anything, it'll be",$0D
             db " all over for sure...",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl DISPLAY_DARWIN
+            db $10 : dl DISPLAY_ARWIN
             db $22,"Is there a way to",$0D
             db " stop her?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
@@ -2276,7 +2276,7 @@ SCRIPT_096: db $10 : dl PROMPT_ROOKS
             db " back from Galneon, we",$0D
             db " might have a chance.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl DISPLAY_DARWIN
+            db $10 : dl DISPLAY_ARWIN
             db $22,"There should be a",$0D
             db " connection from the",$0D
             db " castle to the tower!",$22
@@ -2313,7 +2313,7 @@ SCRIPT_097: db $10 : dl CLEAR
             db " I don't really care",$0D
             db " what you do to Galneon.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl PROMPT_DARWIN
+            db $10 : dl PROMPT_ARWIN
             db $22,"Rooks, don't worry",$0D
             db " about them. Let's",$0D
             db " move on.",$22
@@ -2401,7 +2401,7 @@ SCRIPT_102: db $10 : dl MACRO_119
 SCRIPT_103: db $10 : dl PROMPT_ROOKS
             db $22,".....",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl PROMPT_DARWIN
+            db $10 : dl PROMPT_ARWIN
             db $22,"...Let's go.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl MACRO_119
@@ -2430,7 +2430,7 @@ SCRIPT_104: db $10 : dl MACRO_119
             db $1B,$01,$FF
             db $00
 
-SCRIPT_105: db $10 : dl PROMPT_DARWIN
+SCRIPT_105: db $10 : dl PROMPT_ARWIN
             db $22,"What a miserable way",$0D
             db " to go.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
@@ -2495,7 +2495,7 @@ SCRIPT_108: db $10 : dl CLEAR
             db $1D
             db "Tiamat",$08,$64,"*1"
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl PROMPT_DARWIN
+            db $10 : dl PROMPT_ARWIN
             db $22,"Looks like we're saying",$0D
             db " goodbye here.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
@@ -2507,14 +2507,14 @@ SCRIPT_108: db $10 : dl CLEAR
             db " Rimsala will begin to",$0D
             db " act!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl PROMPT_DARWIN
+            db $10 : dl PROMPT_ARWIN
             db $22,"Be sure to defeat her!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
-            db $22,"Darwin.....",$0D
+            db $22,"Arwin.....",$0D
             db " Teefa.....",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
-            db $10 : dl PROMPT_DARWIN
+            db $10 : dl PROMPT_ARWIN
             db $22,"Go, Rooks!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $1B,$01,$FF
@@ -2786,22 +2786,22 @@ DISPLAY_THE_MAN: db $1B,$00,$15
                  db $1B,$00,$14
                  db $00
 
-DISPLAY_DARWIN: db $1B,$00,$15
+DISPLAY_ARWIN: db $1B,$00,$15
                 db $05,$FF,$14
                 db $0C
                 db $0D
                 db $01,$00,$06
-                db "Darwin"
+                db "Arwin"
                 db $05,$01,$01
                 db $0D
                 db $1B,$00,$14
                 db $00
 
-PROMPT_DARWIN: db $05,$FF,$14
+PROMPT_ARWIN: db $05,$FF,$14
                db $0C
                db $0D
                db $01,$00,$06
-               db "Darwin"
+               db "Arwin"
                db $05,$01,$01
                db $0D
                db $00
@@ -2952,11 +2952,11 @@ CONTINUE_SALAH2: db $1B,$00,$FE      ;Salah with hat
             db $1B,$00,$12
             db $00
 
-CONTINUE_DARWIN: db $1B,$00,$FE
-                 db $7F
-                 db $0D
-                 db $1B,$00,$14
-                 db $00
+CONTINUE_ARWIN: db $1B,$00,$FE
+                db $7F
+                db $0D
+                db $1B,$00,$14
+                db $00
 
 CONTINUE_REINOLL: db $1B,$00,$FE
                   db $7F
@@ -3043,7 +3043,7 @@ Tbl_Who_Hits_Rooks: dw Ariel_Attacks
  Wind_Spirit_break: db "Sylph has been broken."
                     db $00
 ;Don't overwrite the code for cutscene damage
-warnpc $989F30
+assert pc() <= $989F30
 
 ; List: Everywhere in bank $18 that the scripts are called
 org $9896DF : dl SCRIPT_001                        ;

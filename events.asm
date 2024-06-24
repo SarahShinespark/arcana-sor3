@@ -7,8 +7,8 @@
 
 
 ;Reorders two commands, so the check for dungeon BGM comes after Darwin rejoins in Chapter 4.
-org $98BB95 : Rejoin_Darwin_theme:
-db $1B : dw $D33D   ;Subroutine Darwin_joins
+org $98BB95 : Rejoin_Arwin_theme:
+db $1B : dw $D33D   ;Subroutine Arwin_joins
 db $07 : dl $83A520 ;Sub_Default_BGM
 
 

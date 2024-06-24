@@ -9,7 +9,7 @@ org $859F7B
   db "Ifrit     ", $00
   db "Teefa     ", $00
   db "Sarah     ", $00
-  db "Darwin    ", $00
+  db "Arwin     ", $00
   db "Axs       ", $00
   db "          ", $00
 
@@ -118,7 +118,7 @@ org $85A554
   db "Fire Spirit     ", $00  ;Efrite
   db "Mage            ", $00  ;Teefa
   db "Cleric          ", $00  ;Salah
-  db "Spellsword      ", $00  ;Darwin
+  db "Spellsword      ", $00  ;Arwin
   db "Knight          ", $00  ;Axs
   db "----------------", $00  ;Empty slot
 
@@ -209,7 +209,7 @@ org $85D62D
   db "       ", $00
   db "Teefa  ", $00
   db "Sarah  ", $00
-  db "Darwin ", $00
+  db "Arwin  ", $00
   db "Axs    ", $00
   db "       ", $00
 
