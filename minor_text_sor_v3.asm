@@ -767,10 +767,15 @@ dw Dodge_Arwin
 dw Dodge_Axs   
 
 ;Custom font tiles
-;!Wind    = $EC
-;!Fire    = $ED
-;!Water   = $EE
-;!Earth   = $EF
+!Wind    = $80
+!Fire    = $81
+!Water   = $82
+!Earth   = $83
+!SylphScrem = $90,$91,$92   ;90 Star filled in, 91 Triangle empty, 92 Square empty
+!DaoScrem   = $93,$94,$95   ;93 The flower thing, 94 @, 95 %
+!MaridScrem = $96,$97,$98   ;96 The greek letter rho?, 97 infinity, 98 Star
+!IfritScrem = $99,$9A,$97   ;99 double circle, 9A Diamond empty, 97 infinity
+
 
 ;Battle quotes: text
 org $888A3F
@@ -782,22 +787,22 @@ db $0D,$22,"HA!",$22,$0D,$7F,$00
 Take_That_Sylph:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001581   ;Character name
-db $0D,$22,$EC,"!",$22,$0D,$7F,$00
+db $0D,$22, !Wind, "!",$22,$0D,$7F,$00
 
 Take_That_Dao:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001581   ;Character name
-db $0D,$22,$EF,"!",$22,$0D,$7F,$00
+db $0D,$22, !Earth, "!",$22,$0D,$7F,$00
 
 Take_That_Marid:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001581   ;Character name
-db $0D,$22,$EE,"!",$22,$0D,$7F,$00
+db $0D,$22, !Water, "!",$22,$0D,$7F,$00
 
 Take_That_Ifrit:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001581   ;Character name
-db $0D,$22,$ED,"!",$22,$0D,$7F,$00
+db $0D,$22, !Fire, "!",$22,$0D,$7F,$00
 
 Take_That_Teefa:
 db $10 : dl Dungeon_TextSetup
@@ -827,22 +832,22 @@ db $0D,$22,"Ow!",$22,$0D,$7F,$00
 Ouch_Sylph:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598   ;Character name
-db $0D,"took a direct hit!",$0D,$7F,$00
+db $0D,$22, !SylphScrem, $22,$0D,$7F,$00
 
 Ouch_Dao:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598   ;Character name
-db $0D,"took a direct hit!",$0D,$7F,$00
+db $0D,$22, !DaoScrem, $22,$0D,$7F,$00
 
 Ouch_Marid:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598   ;Character name
-db $0D,"took a direct hit!",$0D,$7F,$00
+db $0D,$22, !MaridScrem, $22,$0D,$7F,$00
 
 Ouch_Ifrit:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598   ;Character name
-db $0D,"took a direct hit!",$0D,$7F,$00
+db $0D,$22, !IfritScrem, $22,$0D,$7F,$00
 
 Ouch_Teefa:
 db $10 : dl Dungeon_TextSetup
