@@ -401,8 +401,8 @@ org $85E340
   db "Attack Down          ", $00
   db "Attack Down All      ", $00
   db "Requiem              ", $00
-  db "Emancipation         ", $00
-  db "Final Liberation     ", $00
+  db "Final Repose         ", $00
+  db "Heavenly Strike      ", $00
   db "Last Resort          ", $00
   db "Escape               ", $00
   db "Evasion Up All       ", $00
@@ -423,15 +423,15 @@ org $85E340
   db "Set Magic Mark       ", $00
   db "Activate Magic Mark  ", $00
   db "Requiem 2            ", $00
-  db "Emancipation 2       ", $00
+  db "Final Repose 2       ", $00
 
 ;Item use text
-;"Agility" used for Agility Honey, "HP" for Restore Honey
+;"Alertness" used for Quick Honey, "HP" for Life Honey
 org $85EE10
   db "Strength    ", $00
   db "Intelligence", $00
   db "Endurance   ", $00
-  db "Agility     ", $00
+  db "Alertness   ", $00
   db "HP          ", $00
   db "MP          ", $00
   db "Dead     ", $00
