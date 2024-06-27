@@ -185,10 +185,10 @@ db $00
 fillbyte $FF
 fill align 16
 
-!Wi  = $EC  ;Wind
-!Fi  = $ED  ;Fire
-!Wa  = $EE  ;Water
-!Ea  = $EF  ;Earth
+!Wi  = $80  ;Wind
+!Fi  = $81  ;Fire
+!Wa  = $82  ;Water
+!Ea  = $83  ;Earth
 
 ElementIcons:
 db "None",$00
@@ -211,10 +211,11 @@ db !Wi, !Fi, !Wa, !Ea, $00   ;Wind, Fire, Water, Earth
 fillbyte $FF
 fill align 16
 
-!Sword   = $F0
-!Crit    = $F1
-!Shield  = $5B
-!MShield = $5F
+!Sword   = $84
+!Shield  = $85
+!MShield = $86
+!Crit    = $87
+
 
 ;org $88E640
 WeaponSubscreen:    ;Weapon minibox expand (icons, crit rate etc)
