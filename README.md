@@ -23,6 +23,7 @@ enemies_sor_v3.asm			- Enemy stats. About 4 enemies were given different spells,
 epilogue_sor_v3.asm			- Localized epilogue text with faster transitions.\
 equipment_sor_v3.asm		- Editable equipment stats.\
 events.asm              - Edits to the event code.\
+font_relo.asm						- Editable VWF sizes (font pixel width). Relocates the font to a larger area.\
 intro_sor_v3.asm			  - Localized intro crawl with better pacing, and chapter titles.\
 main_sor_v3.asm         - Patches all of the ASM files at once.\
 minor_text_sor_v3.asm   - Town dialogue, dungeon and battle text. Adds a message for "can't carry more GP."\
