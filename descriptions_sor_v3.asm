@@ -653,7 +653,7 @@ org $889652
                        db $10 : dl SpellAccMP : db $00
 
                 StopA: db $10 : dl Details_Text_Setup : db $00
-;                       db "Silences all of your", $0D, "enemies."
+;                       db "Silences all of your", $0D, "enemies. (Dummied)"
 ;                       db $10 : dl SpellAccMP : db $00
 
                SleepA: db $10 : dl Details_Text_Setup
@@ -673,7 +673,7 @@ org $889652
                        db $10 : dl SpellAccMP : db $00
 
                  Stop: db $10 : dl Details_Text_Setup : db $00
-;                       db "Silences the selected", $0D, "enemy."
+;                       db "Silences the selected", $0D, "enemy. (Dummied)"
 ;                       db $10 : dl SpellAccMP : db $00
 
                 Sleep: db $10 : dl Details_Text_Setup
@@ -717,15 +717,15 @@ org $889652
                        db $10 : dl SpellAccMP : db $00
 
               Requiem: db $10 : dl Details_Text_Setup : db $00
-;                       db "Reduce the rate of",$0D, "enemy encounters."
+;                       db "Reduce the rate of",$0D, "enemy encounters. (Dummied)"
 ;                       db $10 : dl SpellAccMP : db $00
 
           FinalRepose: db $10 : dl Details_Text_Setup : db $00
-;                       db "Target all, effective", $0D, "against Undead enemies."
+;                       db "Target all, effective", $0D, "against Undead enemies. (Dummied)"
 ;                       db $10 : dl SpellAccMP : db $00
 
          HeavenStrike: db $10 : dl Details_Text_Setup : db $00
-;                       db "God's judgement is",$0D, "handed down upon all."
+;                       db "God's judgement is",$0D, "handed down upon all. (Dummied)"
 ;                       db $10 : dl SpellAccMP : db $00
 
        RuinousMission: db $10 : dl Details_Text_Setup
@@ -785,11 +785,11 @@ org $889652
                        db $10 : dl SpellMP : db $00
 
                 Repel: db $10 : dl Details_Text_Setup : db $00
-;                       db "Single target,", $0D, "repels attacks."
+;                       db "Single target,", $0D, "repels attacks. (Dummied)"
 ;                       db $10 : dl SpellMP : db $00
 
                Mirror: db $10 : dl Details_Text_Setup : db $00
-;                       db "Single target,", $0D, "repels magic."
+;                       db "Single target,", $0D, "repels magic. (Dummied)"
 ;                       db $10 : dl SpellMP : db $00
 
              RestoreA: db $10 : dl Details_Text_Setup
@@ -815,29 +815,46 @@ org $889652
                        db $10 : dl SpellMP : db $00
 
              WayPoint: db $10 : dl Details_Text_Setup : db $00
-;                       db "Add a spot on the map."
+;                       db "Add a spot on the map. (Dummied)"
 ;                       db $10 : dl SpellMP : db $00
 
          WayPointWarp: db $10 : dl Details_Text_Setup : db $00
-;                       db "Warp to the spot."
+;                       db "Warp to the spot. (Dummied)"
 ;                       db $10 : dl SpellMP : db $00
 
              Requiem2: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Reduce the rate of",$0D
-;                       db "enemy encounters."
+;                       db "enemy encounters. (Dummied)"
 ;                       db $10 : dl SpellMP : db $00
 
          FinalRepose2: db $10 : dl Details_Text_Setup : db $00
 ;                       db "Reduce the rate of",$0D
-;                       db "enemy encounters."
+;                       db "enemy encounters. (Dummied)"
 ;                       db $10 : dl SpellMP : db $00
-assert pc() <= $88A5FA                 
+assert pc() <= $88A5FA
 padbyte $FF     ; Clear unused original text, if necessary
 pad $88A5FA
 
-!Gray  = $06,$0E          ;Makes the next text gray
-!White = $06,$0D          ;Makes the next text white
+;!Gray  = $06,$0E          ;Makes the next text gray
+;!White = $06,$0D          ;Makes the next text white
 !BtmCursor = $01,$00,$34  ;Sets the cursor to position (00, 34) the bottom left
+
+;Equip macros: Writes the 5 initials at X positions $0C, $26, $3F, $59, $73.
+!EquipAll             = $08,$0C,"Ro",$08,$26,"Te",$08,$3F,"Sa",$08,$59,"Ar",$08,$73,"Ax"
+!EquipRooks           = $08,$0C,"Ro"
+!EquipRooksArwin      = $08,$0C,"Ro",                          $08,$59,"Ar",$08,$73
+!EquipRooksAxs        = $08,$0C,"Ro",                                       $08,$73,"Ax"
+!EquipRooksArwinAxs   = $08,$0C,"Ro",                          $08,$59,"Ar",$08,$73,"Ax"
+!EquipRooksSarahArwin = $08,$0C,"Ro",             $08,$3F,"Sa",$08,$59,"Ar",$08,$73
+!EquipRooksSarahAxs   = $08,$0C,"Ro",             $08,$3F,"Sa",             $08,$73,"Ax"
+!EquipNotTeefa        = $08,$0C,"Ro",             $08,$3F,"Sa",$08,$59,"Ar",$08,$73,"Ax"
+!EquipArwin           =                                        $08,$59,"Ar"
+!EquipAxs             =                                                     $08,$73,"Ax"
+!EquipTeefa           =              $08,$26,"Te"
+!EquipTeefaArwin      =              $08,$26,"Te",             $08,$59,"Ar"
+!EquipSarah           =                           $08,$3F,"Sa"
+!EquipTeefaSarah      =              $08,$26,"Te",$08,$3F,"Sa"
+!EquipSarahAxs        =                           $08,$3F,"Sa",             $08,$73,"Ax"
 
 ;Equipment descriptions
 ;Equip by: bit depth xxxXASTR   (R T S A X)
@@ -845,60 +862,55 @@ org $88A5FA
                Dagger: db $10 : dl Details_Text_Setup
                        db "A small dagger."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
               ShortSD: db $10 : dl Details_Text_Setup
                        db "A light, short sword that", $0D
                        db "even an amateur can", $0D
                        db "handle."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
 
                LongSD: db $10 : dl Details_Text_Setup
                        db "A conventional sword", $0D
                        db "preferred by knights."
                        db !BtmCursor
-                       db "   Ro   ",  !Gray, "Te   Sa   ", !White, "Ar", !Gray, "   Ax", $00
+                       db !EquipRooksArwin, $00
                        
               BroadSD: db $10 : dl Details_Text_Setup
                        db "A sword with a wide", $0D
                        db "double-edged blade."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipRooksArwin, $00
                        
              Scimitar: db $10 : dl Details_Text_Setup
                        db "A magnificent sword of", $0D
                        db "unusual size."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !Gray, "  S    T", !White, $00
+                       db !EquipRooksArwinAxs, $00
                        
              IceBlade: db $10 : dl Details_Text_Setup
                        db "A magical sword that", $0D
                        db "emits cold air.", $0D
-                       db "(", !Sword, "Water)"
+                       db "(", !Sword, "Attr Water)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !Gray, "  A    S    T", !White, $00
-                       
+                       db !EquipRooksArwin, $00
+                      
           UndeadBlade: db $10 : dl Details_Text_Setup
                        db "A sword that was forged", $0D
                        db "to defeat impure,", $0D
                        db "undead monsters.", $0D
-                       db "(", !Sword, "Undead)"
+                       db "(", !Sword, " vs Undead)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D    A    S    T", !White, $00
+                       db !EquipRooks, $00
                        
             FireBlade: db $10 : dl Details_Text_Setup
                        db "A sword with a white-hot", $0D
                        db "blade that scorches as", $0D
                        db "it cuts.",$0D
-                       db "(", !Sword, "Fire)"
+                       db "(", !Sword, "Attr Fire)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D    A    S    T", !White, $00
+                       db !EquipRooks, $00
                        
           DragonBlade: db $10 : dl Details_Text_Setup
                        db "A sword used by an", $0D
@@ -906,16 +918,14 @@ org $88A5FA
                        db "an evil dragon.",$0D
                        db "(", !Sword, "Dragon)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipRooksArwin, $00
                        
               MagicSD: db $10 : dl Details_Text_Setup
                        db "A silver sword made of", $0D
                        db "mythril that contains", $0D
                        db "magical power."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipRooksArwin, $00
                        
           LightningSD: db $10 : dl Details_Text_Setup
                        db "A magic sword with", $0D
@@ -923,222 +933,190 @@ org $88A5FA
                        db "its blade.",$0D
                        db "(", !Sword, "Wind)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipRooksArwin, $00
                        
               Desiree: db $10 : dl Details_Text_Setup
                        db "A legendary sword said", $0D
                        db "to contain holy power.",$0D
-                       db "(", !Sword, "Dragon, ", !Sword, "Giant)"
-                       db !Gray
+                       db "(", !Sword, "vs Dragon, Giant)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !White, "  D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipArwin, $00
                        
             CrystalSD: db $10 : dl Details_Text_Setup
                        db "A legendary sword said to", $0D
                        db "contain the radiance of", $0D
-                       db "crystal. (", !Sword, "Undead,",$0D
+                       db "crystal. (", !Sword, "vs Undead,",$0D
                        db "Dragon, Medusa, Giant)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D    A    S    T", !White, $00
+                       db !EquipRooks, $00
                        
              SpiritSD: db $10 : dl Details_Text_Setup
                        db "A sword once used by", $0D
                        db "conquerors, in which it", $0D
                        db "is said the power of the", $0D
-                       db "spirits dwells. (",!Sword, "All)"
+                       db "spirits dwells. (",!Sword, "Attr All)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D    A    S    T", !White, $00
+                       db !EquipRooks, $00
 
               GiantSD: db $10 : dl Details_Text_Setup
                        db "A powerful sword said to", $0D
                        db "have been used by the", $0D
                        db "hero Fanas.",$0D
-                       db "(", !Sword, "All)"
+                       db "(", !Sword, "Attr All)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D    A    S    T", !White, $00
+                       db !EquipRooks, $00
                        
              GoldenSD: db $10 : dl Details_Text_Setup
                        db "A sword of pure gold", $0D
                        db "that glitters gorgeously."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S    T", $00
+                       db !EquipAll, $00
 
              CursedSD: db $10 : dl Details_Text_Setup
                        db "A sword said to contain", $0D
                        db "powers of darkness that", $0D
                        db "consume the wielder."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S    T", $00
+                       db !EquipAll, $00
 
              FlyingAx: db $10 : dl Details_Text_Setup
                        db "A throwing axe favored", $0D
                        db "by warriors since ancient", $0D
                        db "times."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !Gray, "  S    T", !White, $00
+                       db !EquipRooksArwinAxs, $00
 
              BattleAx: db $10 : dl Details_Text_Setup
                        db "A double-bladed,", $0D
                        db "two-handed axe forged", $0D
                        db "for battle."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A  ", !Gray, "  S    T", !White, $00
+                       db !EquipRooksAxs, $00
                        
               GreatAx: db $10 : dl Details_Text_Setup
                        db "A heavy axe that chops", $0D
                        db "down enemies with its", $0D
-                       db "large blade.", !Gray
+                       db "large blade."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !White, "  A  ", !Gray, "  S    T", !White, $00
+                       db !EquipAxs, $00
                        
               DemonAx: db $10 : dl Details_Text_Setup
                        db "A black battleaxe sealed", $0D
                        db "with the power of a", $0D
                        db "vile demon.",$0D
-                       db "(", !Sword, "Earth, ", !Sword, "Medusa)"
-                       db !Gray
+                       db "(", !Sword, "Attr Earth, vs Medusa)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !White, "  A  ", !Gray, "  S    T", !White, $00
+                       db !EquipAxs, $00
                        
                 Staff: db $10 : dl Details_Text_Setup
                        db "A long, thick, sturdy", $0D
-                       db "staff.", !Gray
+                       db "staff."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S    T", $00  
+                       db !EquipTeefaSarah, $00
                        
                MageST: db $10 : dl Details_Text_Setup
                        db "A staff intricately carved", $0D
-                       db "for use by wizards.", !Gray
+                       db "for use by wizards."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S    T", $00
+                       db !EquipTeefaSarah, $00
                        
            MemoryWand: db $10 : dl Details_Text_Setup
                        db "A thin, conventional wand", $0D
-                       db "preferred by wizards.", !Gray
+                       db "preferred by wizards."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S    T", $00
+                       db !EquipTeefaSarah, $00
                        
             Firebrand: db $10 : dl Details_Text_Setup
                        db "A magic wand said to", $0D
                        db "contain a fire spirit.", $0D
-                       db "(", !Sword, "Fire)"
-                       db !Gray
+                       db "(", !Sword, "Attr Fire)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S  ", !Gray, "  T", $00
+                       db !EquipSarah, $00
                        
            ElderStaff: db $10 : dl Details_Text_Setup
                        db "A staff infused with", $0D
                        db "magic power by a great", $0D
-                       db "sage in ancient times.", !Gray
+                       db "sage in ancient times."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S    T", $00
+                       db !EquipTeefaSarah, $00
 
              WishWand: db $10 : dl Details_Text_Setup
                        db "A mysterious staff that", $0D
                        db "contains the prayers of", $0D
-                       db "the ancients.", !Gray
+                       db "the ancients."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S  ", !Gray, "  T", !White, $00
+                       db !EquipSarah, $00
                        
           StaffWisdom: db $10 : dl Details_Text_Setup
                        db "A staff that holds the", $0D
                        db "power to convert", $0D
                        db "willpower into magical", $0D
-                       db "power.", !Gray
+                       db "power."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S  ", !White, "  T", $00
+                       db !EquipTeefa, $00
                        
           SpiritStaff: db $10 : dl Details_Text_Setup
                        db "A staff said to be", $0D
                        db "imbued with the", $0D
                        db "prayers of the spirits.", $0D
-                       db "(", !Sword, !Wind, !Fire, !Water, !Earth, ")"
-                       db !Gray
+                       db "(", !Sword, "Attr ", !Wind, !Fire, !Water, !Earth, ")"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S  ", !White, "  T", $00
+                       db !EquipTeefa, $00
                        
                  Mace: db $10 : dl Details_Text_Setup
                        db "A weighted stone club", $0D
-                       db "resembling a spear.", !Gray
+                       db "resembling a spear."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !White, "  A    S  ", !Gray, "  T", !White, $00
+                       db !EquipSarahAxs, $00
                        
                 Flail: db $10 : dl Details_Text_Setup
                        db "A pole with a weight", $0D
                        db "on the end that can", $0D
-                       db "be swung around.", !Gray
+                       db "be swung around."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !White, "  A    S  ", !Gray, "  T", !White, $00
+                       db !EquipSarahAxs, $00
                        
          BattleHammer: db $10 : dl Details_Text_Setup
                        db "A golden hammer", $0D
                        db "manufactured for use", $0D
-                       db "in battle.", !Gray
+                       db "in battle."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !White, "  A  ", !Gray, "  S    T", !White, $00
+                       db !EquipAxs, $00
                        
           MorningStar: db $10 : dl Details_Text_Setup
                        db "A weapon that swings", $0D
                        db "around a heavy iron", $0D
                        db "ball to damage enemies.",$0D
-                       db "(", !Sword, "Giant)"
-                       db !Gray
+                       db "(", !Sword, "vs Giants)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !White, "  A  ", !Gray, "  S    T", !White, $00
+                       db !EquipAxs, $00
                        
                  Whip: db $10 : dl Details_Text_Setup
                        db "A two-meter long weapon", $0D
                        db "made of braided, tanned", $0D
-                       db "leather.", !Gray
+                       db "leather."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S    T", $00
+                       db !EquipTeefaSarah, $00
 
             ChainWhip: db $10 : dl Details_Text_Setup
                        db "A whip made with a thick,", $0D
                        db "heavy chain instead of", $0D
-                       db "leather.", !Gray
+                       db "leather."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S    T", $00
+                       db !EquipTeefaSarah, $00
                        
       BlackthorneWhip: db $10 : dl Details_Text_Setup
                        db "A whip inlaid with", $0D
                        db "iron thorns for a", $0D
-                       db "more powerful attack.", !Gray
+                       db "more powerful attack."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S    T", $00
+                       db !EquipTeefaSarah, $00
 
            NoHornyBat: db $10 : dl Details_Text_Setup
                        db "This is why we can't", $0D
-                       db "have nice things...", !Gray
+                       db "have nice things..."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S    T", $00
+                       db !EquipTeefaSarah, $00
 
             SwordNone: db $10 : dl Details_Text_Setup
                        db "Hidden item", $00
@@ -1148,31 +1126,27 @@ org $88A5FA
                        db "made from tanned", $0D
                        db "leather."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S    T", $00
+                       db !EquipAll, $00
                        
           HardLeather: db $10 : dl Details_Text_Setup
                        db "Sturdy armor made", $0D
                        db "from thick layers of", $0D
                        db "leather."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S    T", $00
+                       db !EquipAll, $00
                        
              RingMail: db $10 : dl Details_Text_Setup
                        db "A coat made from", $0D
                        db "linked metal rings."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A    S  ", !Gray, "  T", !White, $00
+                       db !EquipRooksSarahAxs, $00
                        
             ScaleMail: db $10 : dl Details_Text_Setup
                        db "Armor made of small", $0D
                        db "metallic scales sewn", $0D
                        db "together."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S  ", !Gray, "  T", !White, $00
+                       db !EquipNotTeefa, $00
                        
             ChainMail: db $10 : dl Details_Text_Setup
                        db "Armor made of strong", $0D
@@ -1180,81 +1154,70 @@ org $88A5FA
                        db "together in a chain-", $0D
                        db "like fashion."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A    S  ", !Gray, "  T", !White, $00
+                       db !EquipRooksSarahAxs, $00
                        
            BreastMail: db $10 : dl Details_Text_Setup
                        db "Chainmail with a", $0D
                        db "breastplate worn", $0D
-                       db "on top.", !Gray
+                       db "on top."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !White, "  D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipArwin, $00
                        
           BreastPlate: db $10 : dl Details_Text_Setup
                        db "Armor made from sheet", $0D
                        db "metal to protect the", $0D
                        db "chest."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !Gray, "  A  ", !White, "  S  ", !Gray, "  T", !White, $00
+                       db !EquipRooksSarahArwin, $00
                        
              SeamMail: db $10 : dl Details_Text_Setup
                        db "Chainmail fastened", $0D
                        db "with metal splints."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A    S  ", !Gray, "  T", !White, $00
+                       db !EquipRooksSarahAxs, $00
                        
             PlateMail: db $10 : dl Details_Text_Setup
                        db "Extravagant armor", $0D
                        db "that covers the wearer", $0D
                        db "in sheet metal plates."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A  ", !Gray, "  S    T", !White, $00
+                       db !EquipRooksAxs, $00
                        
          MithrilChain: db $10 : dl Details_Text_Setup
                        db "Chainmail made of", $0D
                        db "magical silver."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A  ", !Gray, "  S    T", !White, $00
+                       db !EquipRooksAxs, $00
                        
          MithrilPlate: db $10 : dl Details_Text_Setup
                        db "Chainmail with a", $0D
                        db "mythril breastplate", $0D
                        db "for increased defense."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipRooksArwin, $00
                        
           MithrilMail: db $10 : dl Details_Text_Setup
                        db "Suit of armor that", $0D
                        db "covers the body in a", $0D
                        db "thick layer of mythril.",$0D
-                       db "(", !Shield, "Wind)"
+                       db "(", !Shield, "Attr Wind)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A  ", !Gray, "  S    T", !White, $00
+                       db !EquipRooksAxs, $00
                        
             DemonMail: db $10 : dl Details_Text_Setup
                        db "Black armor said to", $0D
                        db "be the transmuted", $0D
                        db "form of a devil.", $0D
-                       db "(", !Shield, "Earth)"
-                       db !Gray
+                       db "(", !Shield, "Attr Earth)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !White, "  A  ", !Gray, "  S    T", !White, $00
+                       db !EquipAxs, $00
                        
            DragonMail: db $10 : dl Details_Text_Setup
                        db "Leather armor made with", $0D
                        db "dragon scales said to", $0D
                        db "be stronger than steel."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D    A    S    T", !White, $00
+                       db !EquipRooks, $00
                        
            MagicPlate: db $10 : dl Details_Text_Setup
                        db "A breastplate imbued", $0D
@@ -1262,90 +1225,78 @@ org $88A5FA
                        db "exceptionally improved", $0D
                        db "defense."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipRooksArwin, $00
                        
             MagicMail: db $10 : dl Details_Text_Setup
                        db "Full body armor infused", $0D
                        db "with magic to", $0D
                        db "maximize defense."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipRooksArwin, $00
                        
            EarthPlate: db $10 : dl Details_Text_Setup
                        db "Armor made by the", $0D
                        db "god of earth from a", $0D
                        db "mysterious mineral.", $0D
-                       db "(", !Shield, "Earth)"
-                       db !Gray
+                       db "(", !Shield, "Attr Earth)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !White, "  D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipArwin, $00
                        
            GrandArmor: db $10 : dl Details_Text_Setup
                        db "The legendary hero's", $0D
                        db "strongest armor."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D    A    S    T", !White, $00
+                       db !EquipRooks, $00
                        
           RococoArmor: db $10 : dl Details_Text_Setup
                        db "Expensive armor adorned", $0D
                        db "with diamonds, gold,", $0D
                        db "silver, pearls and such."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S    T", $00
+                       db !EquipAll, $00
                        
                  Robe: db $10 : dl Details_Text_Setup
                        db "A priest's robe worn", $0D
-                       db "by magic-users.", !Gray
+                       db "by magic-users."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S    T", $00
+                       db !EquipTeefaSarah, $00
                        
            SilverRobe: db $10 : dl Details_Text_Setup
                        db "A thick priest's robe", $0D
                        db "made from magic silver", $0D
-                       db "filament.", !Gray
+                       db "filament."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S    T", $00
+                       db !EquipTeefaSarah, $00
                        
             WhiteRobe: db $10 : dl Details_Text_Setup
                        db "A vestment worn only", $0D
                        db "by the purest of", $0D
                        db "heart and strongest", $0D
-                       db "of faith.", !Gray
+                       db "of faith."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S  ", !Gray, "  T", !White, $00
+                       db !EquipSarah, $00
                        
            ShamanRobe: db $10 : dl Details_Text_Setup
                        db "A vestment imbued with", $0D
                        db "holy power that protects", $0D
                        db "the wearer from wicked", $0D
-                       db "thoughts.", !Gray
+                       db "thoughts."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S  ", !Gray, "  T", !White, $00
+                       db !EquipSarah, $00
                        
             MagicRobe: db $10 : dl Details_Text_Setup
                        db "A vestment enchanted", $0D
                        db "with a powerful spell", $0D
-                       db "of protection.", !Gray
+                       db "of protection."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S  ", !White, "  T", $00
+                       db !EquipTeefa, $00
                        
           RobeOfValor: db $10 : dl Details_Text_Setup
                        db "The strongest vestment", $0D
                        db "that protects magic-", $0D
-                       db "users.", !Gray
+                       db "users."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S  ", !White, "  T", $00
+                       db !EquipTeefa, $00
                        
             ArmorNone: db $10 : dl Details_Text_Setup
                        db "Hidden item", $00
@@ -1354,147 +1305,126 @@ org $88A5FA
                        db "A small shield used for", $0D
                        db "reassurance."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A    S  ", !Gray, "  T", !White, $00
+                       db !EquipRooksSarahAxs, $00
                        
               LargeSH: db $10 : dl Details_Text_Setup
                        db "A large shield made of", $0D
                        db "wood and leather."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A    S  ", !Gray, "  T", !White, $00
+                       db !EquipRooksSarahAxs, $00
                        
               SpikeSH: db $10 : dl Details_Text_Setup
                        db "A small, round shield", $0D
                        db "primarily for deflecting", $0D
                        db "enemy attacks."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A    S  ", !Gray, "  T", !White, $00
+                       db !EquipRooksSarahAxs, $00
                        
                IronSH: db $10 : dl Details_Text_Setup
                        db "A very sturdy shield", $0D
                        db "made from a thick", $0D
                        db "iron plate."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A    S  ", !Gray, "  T", !White, $00
+                       db !EquipRooksSarahAxs, $00
                        
             MithrilSH: db $10 : dl Details_Text_Setup
                        db "A high-grade shield", $0D
                        db "made of pure mythril.", $0D
-                       db "(", !Shield, "Undead)"
+                       db "(", !Shield, "vs Undead)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D  ", !White, "  A    S  ", !Gray, "  T", !White, $00
+                       db !EquipRooksSarahAxs, $00
                        
              DragonSH: db $10 : dl Details_Text_Setup
                        db "A solid shield made", $0D
                        db "from dragon scales.", $0D
-                       db "(", !Shield, "Dragon)"
+                       db "(", !Shield, " vs Dragons)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D    A    S    T", !White, $00
+                       db !EquipRooks, $00
                        
               DemonSH: db $10 : dl Details_Text_Setup
                        db "A jet black shield", $0D
                        db "rumored to have been", $0D
                        db "formed from pure evil.", $0D
-                       db "(", !Shield, "Medusa)"
-                       db !Gray
+                       db "(", !Shield, "vs Medusa)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D  ", !White, "  A  ", !Gray, "  S    T", !White, $00
+                       db !EquipAxs, $00
                        
               MagicSH: db $10 : dl Details_Text_Setup
                        db "A powerful shield", $0D
                        db "imbued with magical", $0D
-                       db "strength.", !Gray
+                       db "strength."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A  ", !White, "  S  ", !Gray, "  T", !White, $00
+                       db !EquipSarah, $00
                        
              CaesarSH: db $10 : dl Details_Text_Setup
                        db "A legendary shield", $0D
                        db "said to conceal a", $0D
                        db "great power."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D    A    S    T", !White, $00
+                       db !EquipRooks, $00
                        
           GrandShield: db $10 : dl Details_Text_Setup
                        db "The legendary hero's", $0D
                        db "strongest shield."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !Gray, "  D    A    S    T", !White, $00
+                       db !EquipRooks, $00
                        
              CursedSH: db $10 : dl Details_Text_Setup
                        db "A fearsome shield that", $0D
                        db "contains the resentment", $0D
                        db "of the dead."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S    T", $00
+                       db !EquipAll, $00
                        
              Talisman: db $10 : dl Details_Text_Setup
                        db "A simple protective", $0D
-                       db "bracelet.", !Gray
+                       db "bracelet."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !White, "  D  ", !Gray, "  A    S  ", !White, "  T", $00
+                       db !EquipTeefaArwin, $00
                        
          RuneGauntlet: db $10 : dl Details_Text_Setup
                        db "A metal bracelet", $0D
                        db "engraved with runes", $0D
-                       db "of protection.", !Gray
+                       db "of protection."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !White, "  D  ", !Gray, "  A    S  ", !White, "  T", $00
+                       db !EquipTeefaArwin, $00
                        
       MithrilGauntlet: db $10 : dl Details_Text_Setup
                        db "A bracelet made from", $0D
                        db "magical silver.", $0D
-                       db "(", !Shield, "Undead)"
-                       db !Gray
+                       db "(", !Shield, "vs Undead)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !White, "  D  ", !Gray, "  A    S  ", !White, "  T", $00
+                       db !EquipTeefaArwin, $00
                        
         MagicGauntlet: db $10 : dl Details_Text_Setup
                        db "A bracelet sealed with", $0D
                        db "magical power that", $0D
-                       db "protects the wearer.", !Gray
+                       db "protects the wearer."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !White, "  D  ", !Gray, "  A    S  ", !White, "  T", $00
+                       db !EquipTeefaArwin, $00
                        
        SpiritGauntlet: db $10 : dl Details_Text_Setup
                        db "A bangle possessed", $0D
                        db "by a spirit who", $0D
-                       db "helps the wearer.", !Gray
+                       db "helps the wearer."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R    D    A    S  ", !White, "  T", $00
+                       db !EquipTeefa, $00
                        
          MoonGauntlet: db $10 : dl Details_Text_Setup
                        db "A bracelet given to", $0D
                        db "a hero during the", $0D
                        db "twilight of the gods.", $0D
-                       db "(", !Shield, "Giant)"
-                       db !Gray
+                       db "(", !Shield, "vs Giants)"
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !White, "  D  ", !Gray, "  A    S    T", !White, $00
+                       db !EquipArwin, $00
                        
        CursedGauntlet: db $10 : dl Details_Text_Setup
                        db "A bangle said to", $0D
                        db "have been made by", $0D
                        db "gathering the souls", $0D
-                       db "of the dying.", !Gray
+                       db "of the dying."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
-;                       db "    R  ", !White, "  D  ", !Gray, "  A    S  ", !White, "  T", $00
+                       db !EquipTeefaArwin, $00
                        
            AmuletNone: db $10 : dl Details_Text_Setup
                        db "Hidden item", $00
@@ -1504,41 +1434,41 @@ org $88A5FA
                        db "feel at ease the more", $0D
                        db "you travel."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
              LifeRing: db $10 : dl Details_Text_Setup
                        db "A ring that relieves", $0D
                        db "fatigue and helps you", $0D
                        db "feel refreshed while", $0D, "traveling."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
          EuhancerRing: db $10 : dl Details_Text_Setup
                        db "A ring said to improve", $0D
                        db "the wearer's thinking."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
       RingInspiration: db $10 : dl Details_Text_Setup
                        db "A ring rumored to", $0D
                        db "improve your morale", $0D
                        db "every time you fight."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
             PeaceRing: db $10 : dl Details_Text_Setup
                        db "A ring that calms the", $0D
                        db "wearer so they will no", $0D
                        db "longer tremble in fear."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
           AncientRing: db $10 : dl Details_Text_Setup
                        db "A ring imbued with an", $0D
                        db "ancient power that", $0D
                        db "resists petrification."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
            RingOfLife: db $10 : dl Details_Text_Setup
                        db "A ring infused with", $0D
@@ -1546,7 +1476,7 @@ org $88A5FA
                        db "protects the wearer", $0D
                        db "from disaster."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
           RingOfValor: db $10 : dl Details_Text_Setup
                        db "A ring that gives", $0D
@@ -1554,21 +1484,21 @@ org $88A5FA
                        db "you less afraid of", $0D
                        db "some attacks."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
            RingOfHope: db $10 : dl Details_Text_Setup
                        db "A ring said to bring", $0D
                        db "its wearer a surge of", $0D
                        db "self-confidence."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
         SparklingRing: db $10 : dl Details_Text_Setup
                        db "A ring that brings", $0D
                        db "its wearer great", $0D
                        db "wisdom."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
           ShiningRing: db $10 : dl Details_Text_Setup
                        db "A ring said to bring", $0D
@@ -1576,41 +1506,41 @@ org $88A5FA
                        db "knowledge and", $0D
                        db "understanding."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
         RingAmazement: db $10 : dl Details_Text_Setup
                        db "A ring that will cause", $0D
                        db "your body to move", $0D
                        db "unconsciously."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
      RingAstonishment: db $10 : dl Details_Text_Setup
                        db "A ring that allows you", $0D
                        db "to spot enemy movements", $0D
                        db "remarkably well."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
           CrookedRing: db $10 : dl Details_Text_Setup
                        db "A ring that strengthens", $0D
                        db "the wearer's body."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
           TwistedRing: db $10 : dl Details_Text_Setup
                        db "A ring that brings forth", $0D
                        db "power from deep within", $0D
                        db "the wearer."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
             GrandRing: db $10 : dl Details_Text_Setup
                        db "A ring that awakens the", $0D
                        db "power to surpass one's", $0D
                        db "limits."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
                        
             CharmRing: db $10 : dl Details_Text_Setup
                        db "A ring that is said to", $0D
@@ -1618,17 +1548,18 @@ org $88A5FA
                        db "draw anyone into", $0D
                        db "obsession."
                        db !BtmCursor
-                       db "   Ro   Te   Sa   Ar   Ax", $00
+                       db !EquipAll, $00
 
       TiamatRepellent: db $10 : dl Details_Text_Setup
                        db "Tiamats hate this smell!", $0D
                        db "Wear this to keep your", $0D
                        db "final party."
                        db !BtmCursor
-                       db "   Ro   ", !Gray, "Te   Sa   Ar   Ax", !White, $00
+                       db !EquipRooks, $00
 
              RingNone: db $10 : dl Details_Text_Setup
                        db "Hidden item", $00
+
 assert pc() <= $88C9F4  ;88C93E: original Status/Ability screen (revert if fucked!)
 padbyte $FF     ; Clear unused original text, if necessary
 pad $88C9F4     ;88C9F4: don't overwrite the spirit status screen
