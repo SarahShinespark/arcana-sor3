@@ -110,7 +110,7 @@ macro equipment(idno, price, flags, power, race, element, special, penalty, spel
   org EquipSpellcast+(1*<idno>)   : db <spell>
 endmacro
 
-;ID  PRICE  [ADSTR]  PWR  RACE  ELEMENT  CRIT/MDEF  NERF  SPELL
+;ID  PRICE  [XASTR]  PWR  RACE  ELEMENT  CRIT/MDEF  NERF  SPELL
 %equipment(0, 0, 0, 0, 0, 0, 0, 205, 0)                         ;unarmed
 %equipment(1, 100, %11111, 20, 0, 0, 5, 128, 0)                 ;Dagger
 %equipment(2, 200, %11111, 40, 0, 0, 10, 128, 0)                ;Short Sword
@@ -152,7 +152,7 @@ endmacro
 %equipment(38, 2, 0, 0, 0, 0, 0, 128, 0)                        ;Sword 2
 %equipment(39, 2, 0, 0, 0, 0, 0, 128, 0)                        ;Sword 3
 %equipment(40, 2, 0, 0, 0, 0, 0, 128, 0)                        ;Sword 4
-;ID  PRICE  [ADSTR]  PWR  RACE  ELEMENT  CRIT/MDEF  NERF  SPELL
+;ID  PRICE  [XASTR]  PWR  RACE  ELEMENT  CRIT/MDEF  NERF  SPELL
 %equipment(41, 100, %11111, 20, 0, 0, 0, 0, 0)                  ;Soft Leather
 %equipment(42, 300, %11111, 30, 0, 0, 0, 0, 0)                  ;Hard Leather
 %equipment(43, 500, %10101, 40, 0, 0, 0, 0, 0)                  ;Ring Mail
@@ -193,7 +193,7 @@ endmacro
 %equipment(78, 0, 0, 0, 0, 0, 0, 0, 0)                          ;Armor 13
 %equipment(79, 0, 0, 0, 0, 0, 0, 0, 0)                          ;Armor 14
 %equipment(80, 0, 0, 0, 0, 0, 0, 0, 0)                          ;Armor 15
-;ID  PRICE  [ADSTR]  PWR  RACE  ELEMENT  CRIT/MDEF  NERF  SPELL
+;ID  PRICE  [XASTR]  PWR  RACE  ELEMENT  CRIT/MDEF  NERF  SPELL
 %equipment(81, 180, %10101, 20, 0, 0, 0, 0, 0)                  ;Small Shield
 %equipment(82, 300, %10101, 40, 0, 0, 5, 0, 0)                  ;Large Shield
 %equipment(83, 750, %10101, 80, 0, 0, 10, 0, 0)                 ;Spike Shield
@@ -214,7 +214,7 @@ endmacro
 %equipment(98, 2, %01010, 10, 0, 0, 0, 0, 0)                    ;Cursed Gauntlet
 %equipment(99, 2, 0, 0, 0, 0, 0, 0, 0)                          ;Amulet 1
 %equipment(100, 2, 0, 0, 0, 0, 0, 0, 0)                         ;Amulet 2
-;ID  PRICE  [ADSTR]  PWR  RACE  ELEMENT  CRIT/MDEF  NERF  SPELL
+;ID  PRICE  [XASTR]  PWR  RACE  ELEMENT  CRIT/MDEF  NERF  SPELL
 %equipment(101, 0, %11111, 0, 0, 0, 0, 0, 0)                    ;Secret Ring
 %equipment(102, 0, %11111, 0, 0, 0, 0, 0, 0)                    ;Life Ring
 %equipment(103, 0, %11111, 0, 0, 0, 0, 0, 0)                    ;Enhance Ring
