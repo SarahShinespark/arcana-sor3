@@ -832,22 +832,22 @@ db $0D,$22,"Ow!",$22,$0D,$7F,$00
 Ouch_Sylph:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598   ;Character name
-db $0D,$22, !SylphScrem, $22,$0D,$7F,$00
+db $0D,$22, !SylphScrem, "!", $22,$0D,$7F,$00
 
 Ouch_Dao:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598   ;Character name
-db $0D,$22, !DaoScrem, $22,$0D,$7F,$00
+db $0D,$22, !DaoScrem, "!", $22,$0D,$7F,$00
 
 Ouch_Marid:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598   ;Character name
-db $0D,$22, !MaridScrem, $22,$0D,$7F,$00
+db $0D,$22, !MaridScrem, "!", $22,$0D,$7F,$00
 
 Ouch_Ifrit:
 db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598   ;Character name
-db $0D,$22, !IfritScrem, $22,$0D,$7F,$00
+db $0D,$22, !IfritScrem, "!", $22,$0D,$7F,$00
 
 Ouch_Teefa:
 db $10 : dl Dungeon_TextSetup
