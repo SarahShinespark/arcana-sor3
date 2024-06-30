@@ -509,68 +509,68 @@ org $889652
                        db $10 : dl SpellDetails : db $00
 
            Attribute1: db $10 : dl Details_Text_Setup
-                       db "A vacuum blade.",$0D, $0D
-                       db "Anti ",!Earth, "Earth, ",!Water, "Water"
+                       db !Wind, !Earth, ": A vacuum blade.",$0D, $0D
+                       db "Anti ",!Water, "Water, ",!Earth, "Earth"
                        db $10 : dl SpellDetails : db $00
 
            Attribute2: db $10 : dl Details_Text_Setup
-                       db "A scythe of freezing",$0D
-                       db "wind attacks all.",$0D
+                       db !Wind, !Water, ": A scythe of",$0D
+                       db "freezing wind attacks all.",$0D
                        db "Neutral damage.",$0D
                        db $10 : dl SpellDetails : db $00
 
            Attribute3: db $10 : dl Details_Text_Setup
-                       db "Twin dragons of earth",$0D
+                       db !Water, !Earth, ": Twin dragons of earth",$0D
                        db "and sea attack all.",$0D
-                       db "Anti ",!Water, "Water, ",!Fire, "Fire"
+                       db "Anti ",!Fire, "Fire, ",!Water, "Water"
                        db $10 : dl SpellDetails : db $00
                        
            Attribute4: db $10 : dl Details_Text_Setup
-                       db "Calls up a cruel storm",$0D
+                       db !Wind, !Fire, ": Calls up a cruel storm",$0D
                        db "that ignites the air.",$0D
                        db "Anti ",!Wind, "Wind, ",!Earth, "Earth"
                        db $10 : dl SpellDetails : db $00
 
            Attribute5: db $10 : dl Details_Text_Setup
-                       db "Summons a wave of molten",$0D
-                       db "rock out of Hell itself.",$0D
+                       db !Fire, !Earth, ": Summons an infernal",$0D
+                       db "wave of molten rock.",$0D
                        db "Neutral damage.",$0D
                        db $10 : dl SpellDetails : db $00
 
            Attribute6: db $10 : dl Details_Text_Setup
-                       db "Blades of fire and ice",$0D
+                       db !Fire, !Water, ": Blades of ice and fire",$0D
                        db "slash all enemies.",$0D
                        db "Anti ",!Wind, "Wind, ",!Fire, "Fire"
                        db $10 : dl SpellDetails : db $00
 
            Attribute7: db $10 : dl Details_Text_Setup
-                       db "A terrible storm that",$0D
+                       db !Wind, !Water, !Earth, ": A terrible storm",$0D
                        db "smashes apart all enemies.",$0D
                        db "Anti ",!Fire, "Fire, ",!Water, "Water"
                        db $10 : dl SpellDetails : db $00
 
            Attribute8: db $10 : dl Details_Text_Setup
-                       db "Creates a suffocating",$0D
+                       db !Earth, !Wind, !Fire, ": Calls a suffocating",$0D
                        db "cloud of molten ash.",$0D
-                       db "Anti ",!Earth, "Earth"
+                       db "Anti ", !Water, "Water, ", !Earth, "Earth"
                        db $10 : dl SpellDetails : db $00
 
            Attribute9: db $10 : dl Details_Text_Setup
-                       db "Summons a disaster to",$0D
-                       db "overwhelm all enemies.",$0D
-                       db "Anti ",!Wind, "Wind"
+                       db !Wind, !Fire, !Water, ": Summons a disaster",$0D
+                       db "to overwhelm all enemies.",$0D
+                       db "Anti ",!Wind, "Wind, ",!Earth, "Earth"
                        db $10 : dl SpellDetails : db $00
                        
           Attribute10: db $10 : dl Details_Text_Setup
-                       db "A sudden blast of",$0D
+                       db !Fire, !Water, !Earth, ": A sudden blast of",$0D
                        db "incredible energy.",$0D
-                       db "Anti ",!Fire, "Fire"
+                       db "Anti ",!Wind, "Wind, ", !Fire, "Fire"
                        db $10 : dl SpellDetails : db $00
 
           Attribute11: db $10 : dl Details_Text_Setup
-                       db "Destruction of heaven",$0D
-                       db "and earth, the strongest",$0D
-                       db "spell. Neutral damage.",$0D
+                       db !Wind, !Fire, !Water, !Earth, ": Destruction of",$0D
+                       db "heaven and earth.",$0D
+                       db "Neutral damage."
                        db $10 : dl SpellDetails : db $00
 
              CallWind: db $10 : dl Details_Text_Setup
@@ -580,15 +580,14 @@ org $889652
                        db $10 : dl SpellDetails : db $00
 
             CallEarth: db $10 : dl Details_Text_Setup
-                       db "An earth spirit from the",$0D
-                       db "depths scatters earth's",$0D
-                       db "tears.",$0D
+                       db "An abyssal spirit",$0D
+                       db "scatters earth's tears.",$0D
                        db "Level 4 ", !Earth, "Earth."
                        db $10 : dl SpellDetails : db $00
 
             CallWater: db $10 : dl Details_Text_Setup
                        db "Summons a water witch",$0D
-                       db "to damage all enemies.",$0D
+                       db "to drown all enemies.",$0D
                        db "Level 4 ", !Water, "Water."
                        db $10 : dl SpellDetails : db $00
 
@@ -1024,7 +1023,7 @@ org $88A5FA
                        db "A thin, conventional wand", $0D
                        db "preferred by wizards."
                        db !BtmCursor
-                       db !EquipTeefaSarah, $00
+                       db !EquipSarah, $00
                        
             Firebrand: db $10 : dl Details_Text_Setup
                        db "A magic wand said to", $0D
@@ -1374,7 +1373,7 @@ org $88A5FA
                        db "contains the resentment", $0D
                        db "of the dead."
                        db !BtmCursor
-                       db !EquipAll, $00
+                       db !EquipRooksSarahAxs, $00
                        
              Talisman: db $10 : dl Details_Text_Setup
                        db "A simple protective", $0D
@@ -1408,7 +1407,7 @@ org $88A5FA
                        db "by a spirit who", $0D
                        db "helps the wearer."
                        db !BtmCursor
-                       db !EquipTeefa, $00
+                       db !EquipTeefaArwin, $00
                        
          MoonGauntlet: db $10 : dl Details_Text_Setup
                        db "A bracelet given to", $0D
