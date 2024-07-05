@@ -400,6 +400,10 @@ pad $889652
 !Shield  = $85
 !MShield = $86
 !Crit    = $87
+!FUndead = $88,$89
+!FDragon = $8A,$8B
+!FMedusa = $8C,$8D
+!FGiants = $8E,$8F
 
 ;Spell descriptions, uses RAM values loaded by ExpandSpell in detail_expand_v9.asm
 org $88E6B0
@@ -899,7 +903,7 @@ org $88A5FA
                        db "A sword that was forged", $0D
                        db "to defeat impure,", $0D
                        db "undead monsters.", $0D
-                       db "(", !Sword, " vs Undead)"
+                       db "(", !Sword, " vs ", !FUndead, ")"
                        db !BtmCursor
                        db !EquipRooks, $00
                        
@@ -915,7 +919,7 @@ org $88A5FA
                        db "A sword used by an", $0D
                        db "ancient hero to slay", $0D
                        db "an evil dragon.",$0D
-                       db "(", !Sword, "Dragon)"
+                       db "(", !Sword, " vs ", !FDragon, ")"
                        db !BtmCursor
                        db !EquipRooksArwin, $00
                        
@@ -930,22 +934,22 @@ org $88A5FA
                        db "A magic sword with", $0D
                        db "lightning flowing from", $0D
                        db "its blade.",$0D
-                       db "(", !Sword, "Wind)"
+                       db "(", !Sword, "Attr Wind)"
                        db !BtmCursor
                        db !EquipRooksArwin, $00
                        
               Desiree: db $10 : dl Details_Text_Setup
                        db "A legendary sword said", $0D
                        db "to contain holy power.",$0D
-                       db "(", !Sword, "vs Dragon, Giant)"
+                       db "(", !Sword, " vs ", !FDragon, ", ", !FGiants, ")"
                        db !BtmCursor
                        db !EquipArwin, $00
                        
             CrystalSD: db $10 : dl Details_Text_Setup
                        db "A legendary sword said to", $0D
                        db "contain the radiance of", $0D
-                       db "crystal. (", !Sword, "vs Undead,",$0D
-                       db "Dragon, Medusa, Giant)"
+                       db "crystal. (", !Sword, " vs ", !FUndead, ",",$0D
+                       db !FDragon, ", ", !FMedusa, ", ", !FGiants, ")"
                        db !BtmCursor
                        db !EquipRooks, $00
                        
@@ -961,7 +965,7 @@ org $88A5FA
                        db "A powerful sword said to", $0D
                        db "have been used by the", $0D
                        db "hero Fanas.",$0D
-                       db "(", !Sword, "Attr All)"
+                       db "(", !Sword, "Attr ", !Wind,!Fire,!Water,!Earth, ")"
                        db !BtmCursor
                        db !EquipRooks, $00
                        
@@ -1003,7 +1007,7 @@ org $88A5FA
                        db "A black battleaxe sealed", $0D
                        db "with the power of a", $0D
                        db "vile demon.",$0D
-                       db "(", !Sword, "Attr Earth, vs Medusa)"
+                       db "(", !Sword, "Attr Earth, vs ", !FMedusa, ")"
                        db !BtmCursor
                        db !EquipAxs, $00
                        
@@ -1086,7 +1090,7 @@ org $88A5FA
                        db "A weapon that swings", $0D
                        db "around a heavy iron", $0D
                        db "ball to damage enemies.",$0D
-                       db "(", !Sword, "vs Giants)"
+                       db "(", !Sword, " vs ", !FGiants, ")"
                        db !BtmCursor
                        db !EquipAxs, $00
                        
@@ -1113,7 +1117,9 @@ org $88A5FA
 
            NoHornyBat: db $10 : dl Details_Text_Setup
                        db "This is why we can't", $0D
-                       db "have nice things..."
+                       db "have nice things...", $0D
+                       db "(", !Sword, " vs ", !FUndead, ", ", !FDragon, ",",$0D
+                       db !FMedusa, ", ", !FGiants, ")"
                        db !BtmCursor
                        db !EquipTeefaSarah, $00
 
@@ -1329,14 +1335,14 @@ org $88A5FA
             MithrilSH: db $10 : dl Details_Text_Setup
                        db "A high-grade shield", $0D
                        db "made of pure mythril.", $0D
-                       db "(", !Shield, "vs Undead)"
+                       db "(", !Shield, " vs ", !FUndead, ")"
                        db !BtmCursor
                        db !EquipRooksSarahAxs, $00
                        
              DragonSH: db $10 : dl Details_Text_Setup
                        db "A solid shield made", $0D
                        db "from dragon scales.", $0D
-                       db "(", !Shield, " vs Dragons)"
+                       db "(", !Shield, " vs ", !FDragon, ")"
                        db !BtmCursor
                        db !EquipRooks, $00
                        
@@ -1344,7 +1350,7 @@ org $88A5FA
                        db "A jet black shield", $0D
                        db "rumored to have been", $0D
                        db "formed from pure evil.", $0D
-                       db "(", !Shield, "vs Medusa)"
+                       db "(", !Shield, " vs ", !FMedusa, ")"
                        db !BtmCursor
                        db !EquipAxs, $00
                        
@@ -1391,7 +1397,7 @@ org $88A5FA
       MithrilGauntlet: db $10 : dl Details_Text_Setup
                        db "A bracelet made from", $0D
                        db "magical silver.", $0D
-                       db "(", !Shield, "vs Undead)"
+                       db "(", !Shield, " vs ", !FUndead, ")"
                        db !BtmCursor
                        db !EquipTeefaArwin, $00
                        
@@ -1413,7 +1419,7 @@ org $88A5FA
                        db "A bracelet given to", $0D
                        db "a hero during the", $0D
                        db "twilight of the gods.", $0D
-                       db "(", !Shield, "vs Giants)"
+                       db "(", !Shield, " vs ", !FGiants, ")"
                        db !BtmCursor
                        db !EquipArwin, $00
                        
