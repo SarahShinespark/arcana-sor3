@@ -85,22 +85,48 @@ db $00
 ;End of bank 08: Race bonuses for the status screen
 org $88E3FF
 RaceTypes:
-db "None      ",$00
-db "Undead    ",$00
-db "Dragons   ",$00
-db "Undead/Dgn",$00
-db "Medusa    ",$00
-db "Undead/Med",$00
-db "Dragon/Med",$00
-db "Un/Dgn/Med",$00
-db "Giants    ",$00
-db "Unde/Giant",$00
-db "Drgn/Giant",$00
-db "UndDrgnGnt",$00
-db "MedsaGiant",$00
-db "Un/Mds/Gnt",$00
-db "Dgn/MdsGnt",$00
-db "All       ",$00
+;Each entry is 10 bytes plus a $00 delimiter
+!Und = $88
+!ead = $89
+!Dra = $8A
+!gon = $8B
+!Med = $8C
+!usa = $8D
+!Gia = $8E
+!nts = $8F
+!FiveSpaces = """     """
+!EightSpaces = """        """
+db "None ",   !FiveSpaces, $00
+db !Und,!ead, !EightSpaces, $00
+db !Dra,!gon, !EightSpaces, $00
+db !Und,!ead, " ", !Dra,!gon, !FiveSpaces, $00
+db !Med,!usa, !EightSpaces, $00
+db !Und,!ead, " ", !Med,!usa, !FiveSpaces, $00
+db !Dra,!gon, " ", !Med,!usa, !FiveSpaces, $00
+db !Und, " ", !Dra, " ",!Med, !FiveSpaces, $00
+db !Gia,!nts, !EightSpaces, $00
+db !Und,!ead, " ", !Gia,!nts, !FiveSpaces, $00
+db !Dra,!gon, " ", !Gia,!nts, !FiveSpaces, $00
+db !Und, " ", !Dra, " ",!Gia, !FiveSpaces, $00
+db !Med,!usa, " ", !Gia,!nts, !FiveSpaces, $00
+db !Und, " ", !Med, " ",!Gia, !FiveSpaces, $00
+db !Dra, " ", !Med, " ",!Gia, !FiveSpaces, $00
+db !Und, " ", !Dra, " ", !Med, " ", !Gia, "   ",$00
+;db "Undead    ",$00
+;db "Dragons   ",$00
+;db "Undead/Dgn",$00
+;db "Medusa    ",$00
+;db "Undead/Med",$00
+;db "Dragon/Med",$00
+;db "Un/Dgn/Med",$00
+;db "Giants    ",$00
+;db "Unde/Giant",$00
+;db "Drgn/Giant",$00
+;db "UndDrgnGnt",$00
+;db "MedsaGiant",$00
+;db "Un/Mds/Gnt",$00
+;db "Dgn/MdsGnt",$00
+;db "All       ",$00
 
 fillbyte $FF
 fill align 16
