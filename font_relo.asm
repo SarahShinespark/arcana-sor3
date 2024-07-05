@@ -95,7 +95,7 @@ db $0A     ;00AC6B; $57 W
 db $09     ;00AC6C; $58 X
 db $09     ;00AC6D; $59 Y
 db $08     ;00AC6E; $5A Z
-db $01     ;00AC6F; $5B []
+db $01     ;00AC6F; $5B [
 db $01     ;00AC70; $5C \
 db $01     ;00AC71; $5D ]
 db $01     ;00AC72; $5E ^
@@ -132,22 +132,22 @@ db $01     ;00AC90; $7C |
 db $01     ;00AC91; $7D }
 db $01     ;00AC92; $7E ~
 db $01     ;00AC93; $7F (reserved)
-db $09     ;00AC94; $80 (bolt)
-db $09     ;00AC95; $81 (fire)
-db $08     ;00AC96; $82 (water)
-db $09     ;00AC97; $83 (earth)
+db $08     ;00AC94; $80 (bolt)
+db $0A     ;00AC95; $81 (fire)
+db $0A     ;00AC96; $82 (water)
+db $0B     ;00AC97; $83 (earth)
 db $09     ;00AC98; $84 (sword)
-db $08     ;00AC99; $85 (shield)
+db $06     ;00AC99; $85 (shield)
 db $09     ;00AC9A; $86 (mshield)
 db $08     ;00AC9B; $87 (x2)
-db $09     ;00AC9C; $88 
-db $04     ;00AC9D; $89 
-db $08     ;00AC9E; $8A 
-db $09     ;00AC9F; $8B 
-db $08     ;00ACA0; $8C 
-db $0A     ;00ACA1; $8D 
-db $09     ;00ACA2; $8E 
-db $09     ;00ACA3; $8F 
+db $0C     ;00AC9C; $88 (UND)
+db $0C     ;00AC9D; $89 (EAD)
+db $0C     ;00AC9E; $8A (DRA)
+db $0C     ;00AC9F; $8B (GON)
+db $0C     ;00ACA0; $8C (MED)
+db $0C     ;00ACA1; $8D (USA)
+db $0C     ;00ACA2; $8E (GIA)
+db $0C     ;00ACA3; $8F (NTS)
 db $0B     ;00ACA4; $90 (star)
 db $0B     ;00ACA5; $91 (triangle)
 db $0B     ;00ACA6; $92 (square)
