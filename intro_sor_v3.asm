@@ -32,6 +32,8 @@ Opening_crawl2:
   db "People call that land Elemen."
   db $1B, $01, $FF, $00
 assert pc() <= $97826D
+padbyte $FF
+pad $97826D
 
 
 org $978726
@@ -204,3 +206,5 @@ Ch5_Splash:
   db "     Bright New Era", $00
 
 assert pc() <= $97918E
+padbyte $FF
+pad $97918E
