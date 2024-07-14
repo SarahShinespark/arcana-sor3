@@ -23,3 +23,8 @@ org $97FEC5
 db $07 : dl $809C3C : db $45  ;Set BGM to Crystal Sword
 db $09 : dl $97826D           ;Background subroutine A_press_intro_crawl
 db $05                        ;Return long
+
+;Update SFX for Arwin fighting the Chimeras (original uses Flame 1 sfx)
+org $98A211
+dl $809C44 ;GetSet_SFX               ;18A211|009C44;
+db $22     ;Skyblade Blast SFX       ;18A214|      ;
