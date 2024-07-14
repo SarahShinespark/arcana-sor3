@@ -186,7 +186,7 @@ db "But, I can't carry", $0D, "any more equipment.",$7F,$00
 ;org $8890C2
 MonsterInABox:
 db $10 : dl Dungeon_TextSetup : db $1C
-db "Rooks", $0D, $22, "AAAAAAHHH!", $22, $00
+db "Rooks", $0D, $22, "AAAAAAAHHH!", $22, $00
 assert pc() <= $8890D6 ;Don't overwrite Item_Text_Setup
 ;---------------------------------
 ;Attack effects: pointers
@@ -249,6 +249,151 @@ org $85F2C1 : dl ItemRecoveredStatus               ;05F2C1|088A08;
 org $85F2E6 : dl ItemNoEffect                      ;05F2E6|088A28;
 
 ;Battle text----------------------
+org $8880C9
+Text_Waiting:
+   db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $03, $0E, $1C;8880C9|        |      ;
+   db $10                               ;8880D7|        |      ;
+   dl $001581                           ;8880D8|        |001581;
+   db $0D, "is waiting.  ", $0D         ;8880DB|        |      ;
+   db $7F                               ;8880EA|        |      ;
+   db $00                               ;8880EB|        |      ;
+
+;Weapon sub menu: Relocated to end of bank 88. Now free space
+org $8880EC 
+Weapon_sub_menu:
+
+assert pc() <= $88812B
+padbyte $FF
+pad $88812B
+;   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C, " ";8880EC|        |      ;
+;   db $10                               ;8880F6|        |      ;
+;   dl $001697                           ;8880F7|        |001697;
+;   db $08,$68                           ;8880FA|        |      ;
+;   db "#"                               ;8880FC|        |      ;
+;   db $11,$02                           ;8880FD|        |      ;
+;   dl $0016DB                           ;8880FF|        |0016DB;
+;   db $0D, " "                          ;888102|        |      ;
+;   db $10                               ;888104|        |      ;
+;   dl $0016A8                           ;888105|        |0016A8;
+;   db $08,$70,$11,$02                   ;888108|        |      ;
+;   dl $0016DB                           ;88810C|        |0016DB;
+;   db $0D, " "                          ;88810F|        |      ;
+;   db $10                               ;888111|        |      ;
+;   dl $0016B9                           ;888112|        |0016B9;
+;   db $08,$68                           ;888115|        |      ;
+;   db "@     ", $0D, " "                ;888117|        |      ;
+;   db $10                               ;88811F|        |      ;
+;   dl $0016CA                           ;888120|        |0016CA;
+;   db $08,$70,$11,$02                   ;888123|        |      ;
+;   dl $0016DD                           ;888127|        |0016DD;
+;   db $00                               ;88812A|        |      ;
+ 
+org $88812B
+Town_menu:
+   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
+   db "  Open   Magic   Equipment", $0D
+   db "  Call"
+   db $08,$2E                           ;888155|        |      ;
+   db "Status "                         ;888157|        |      ;
+   db $08,$59                           ;88815E|        |      ;
+   db "Inventory", $0D
+   db $06, $0E, "  Map"
+   db $08,$2E                           ;888171|        |      ;
+   db $06, $0D, "Color"                 ;888173|        |      ;
+   db $08,$59                           ;88817A|        |      ;
+   db "Order    ", $0D
+   db "Money          "
+   db $11,$04                           ;888195|        |      ;
+   dl $001559                           ;888197|        |001559;
+   db "GP", $00                         ;88819A|        |      ;
+
+org $88819D 
+Dungeon_menu:
+   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
+   db "  Open   Magic   Equipment", $0D
+   db "  Call"
+   db $08,$2E                           ;8881C7|        |      ;
+   db "Status "                         ;8881C9|        |      ;
+   db $08,$59                           ;8881D0|        |      ;
+   db "Inventory", $0D, "  Map"         ;8881D2|        |      ;
+   db $08,$2E                           ;8881E1|        |      ;
+   db "Color"                           ;8881E3|        |      ;
+   db $08,$59                           ;8881E8|        |      ;
+   db "Order    ", $0D
+   db "Money          "
+   db $11,$04                           ;888203|        |      ;
+   dl $001559                           ;888205|        |001559;
+   db "GP", $00                         ;888208|        |      ;
+
+org $88820B 
+Text_Enemies_defeated:
+   db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $1D
+   db "All enemies defeated! ", $0D
+   db "Gained "
+   db $11,$00                           ;888235|        |      ;
+   dl $0013A3                           ;888237|        |0013A3;
+   db " EXP and ", $0D, "gained "       ;88823A|        |      ;
+   db $11,$00                           ;88824B|        |      ;
+   dl $0013A5                           ;88824D|        |0013A5;
+   db " GP.        ", $0D               ;888250|        |      ;
+   db $7F                               ;88825D|        |      ;
+   db $00                               ;88825E|        |      ;
+
+;Not sure where this one is used.
+org $88825F 
+Text_EXP_GP_gained:
+   db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $1C
+   db "Gained "
+   db $11,$00                           ;888272|        |      ;
+   dl $0013A3                           ;888274|        |0013A3;
+   db " EXP and gained "                ;888277|        |      ;
+   db $11,$00                           ;888287|        |      ;
+   dl $0013A5                           ;888289|        |0013A5;
+   db " GP.       ", $0D                ;88828C|        |      ;
+   db $7F                               ;888298|        |      ;
+   db $00                               ;888299|        |      ;
+
+org $88829A 
+Text_Ran_away:
+   db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $1D
+   db "Rooks' party has", $0D, "escaped.  "      ;8882AF|        |      ;
+   db $7F                               ;8882C1|        |      ;
+   db $00                               ;8882C2|        |      ;
+ 
+org $8882C3
+Text_No_escape:
+   db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $1D
+   db "There was no escape."            ;8882D8|        |      ;
+   db $7F                               ;8882E3|        |      ;
+   db $00                               ;8882E4|        |      ;
+
+org $8882E5 
+Text_Battle_menu_Rooks:
+   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
+   db "  Attack    Magic  Pass   ", $0D
+   db "  Weapons"
+   db $08,$3D                           ;888312|        |      ;
+   db "Item"                            ;888314|        |      ;
+   db $08,$64                           ;888318|        |      ;
+   db "Run   ", $0D, "  Arcana"         ;88831A|        |      ;
+   db $08,$64                           ;888329|        |      ;
+   db "Call", $00                       ;88832B|        |      ;
+
+org $888330 
+Text_Battle_menu_Spirit:
+   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
+   db "  Attack    Magic  Pass   ", $00
+
+org $888354 
+Text_Battle_menu_Guest:
+   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
+   db "  Attack    Magic  Pass   ", $0D
+   db "  Weapons"                       ;88837E|        |      ;
+   db $08,$3D                           ;888381|        |      ;
+   db "Item"
+   db $08,$64
+   db "Run    ", $00
+
 org $888492
 X_Attacks:
 db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $03, $0E, $1D;088492|      ;
@@ -729,6 +874,19 @@ db $7F                               ;088A3D|      ;
 db $00                               ;088A3E|      ;
 
 ;---------------------------------------------
+org $85FA70
+Text_Use_Num_Cards:
+   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
+   db "  How many cards", $0D
+   db "do you want to use? ", $0D
+   db "   1    2    3", $0D, $00
+ 
+org $85FAAF
+Text_Not_enough_cards:
+   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
+   db "Not enough cards  ", $0D
+   db "available.", $00
+;---------------------------------------------
 ;Battle quotes: pointer tables
 org $87B731
 Tbl_Critical_hit_text:
@@ -918,6 +1076,25 @@ assert pc() <= $888D50 ;Don't overwrite new levelup location or relocated spell 
 padbyte $FF
 pad $888D50
 ;---------------------------------
+;Inventory menu
+org $888ED0
+db "Cards   ",$08,$50,"Items",$0D,$00
+
+;Yikes
+org $888EF0
+Text_Yikes:
+db $10                               ;888EF0|        |      ;
+dl $888EE1 ;Text_Yikes_Setup         ;888EF1|        |888EE1;
+db $0D, "           "
+db $22, "Yikes!", $22, " "
+db $0D                               ;888F09|        |      ;
+db $7F                               ;888F0A|        |      ;
+db $00                               ;888F0B|        |      ;
+
+;---------------------------------
+org $88CBD6
+db "<  >  Discard  Unequip ", $0D
+
 org $88CCBA
 Speaking_text_setup:    ;Used for shop dialogue
 db $06, $0D, $0C, $03, $0E, $04, $06, $01, $00, $06, $1E, $00
