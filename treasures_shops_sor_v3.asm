@@ -405,10 +405,10 @@ Wpn_Shop_Ch3:
 
 Wpn_Shop_Ch4: 
   dw !UndeadBL
+  dw !IceBL
   dw !FireBL
   dw !DragonBL
   dw !ElderSF
-  dw !WishWD
   dw !BlackWP
   dw !BattleAX
   dw !GreatAX
