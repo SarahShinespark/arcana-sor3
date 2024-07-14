@@ -81,6 +81,9 @@ db $08,$44
 db $10 : dl $0015C2
 db $00
 
+assert pc() <= $88CA97  ;Don't overwrite Card_menu_inventory text
+padbyte $FF
+pad $88CA97
 ;----------------------------
 ;End of bank 08: Race bonuses for the status screen
 org $88E3FF
@@ -470,17 +473,25 @@ Multiply_far:         ;far routine since C88B is local
     rtl
 
     padbyte $FF       ;Remove old Spell Expand code
-    pad $80E17D
+    pad $80E190
 
+;FastROM read/write access for $877C decompressor
+;Not *entirely* sure if this is necessary any more
 ;org $80E180
 ;FastDecompress:
-;    ora #$80          ;FastROM read/write access for $877C decompressor
+;    ora #$80
 ;    sta $02
 ;    stx $00
 ;    rts
 
+;Interrupt the Condition and call our ExpandEquip function
+org $87A3A6
+JSL.L ExpandEquip                    ;87A3A6|2290E180|80E190;
+NOP                                  ;87A3AA|EA      |      ;
+NOP                                  ;87A3AB|EA      |      ;
+   
 ;Equipment Detail expand: loads Atk, Def, MDef, Crit values to RAM
-org $80E190
+org $80E190 : ExpandEquip:
     phy : phx
     ldx $103F
     lda $09C7,x       ;Get character ID
