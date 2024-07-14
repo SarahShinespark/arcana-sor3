@@ -15,6 +15,7 @@ incsrc "font_relo.asm"  ;New
 incsrc "intro_sor_v3.asm"
 incsrc "minor_text_sor_v3.asm"
 incsrc "miscellaneous.asm"
+incsrc "modifications_v3.asm"
 incsrc "names_sor_v3.asm"
 incsrc "smart_shops.asm"
 incsrc "spells_sor_v3.asm"
