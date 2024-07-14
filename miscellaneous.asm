@@ -22,9 +22,84 @@ RomHeaderName:
 db "ARCANA SOR V3.1B3   "
 ;  "ROM HEADER LENGTH---"
 
+;Include new font and title screen
+org $80E1D0 : incbin "new_font.bin"
+org $8D833F : incbin "new_font_cards.bin"
+org $979DD0 : incbin "title_screen.bin"
+
+;Change internal size to 2mb; Expand ROM to 2mb
+org $FFD7 : db $0B
+org $BFFFFF : db $00
+
 ;Include custom maps
 org $A08000
 incbin "sor_v3_maps.bin"
+
+;Calls our hack to load uncompressed maps. Makes it possible to edit maps easily.
+;Loads a dungeon map based on X=$1573 Current_Area.
+org $83801C : Redirect_Maps:
+LDA.L Tbl_Dungeon_Maps,X             ;83801C|BF808383|838380;
+TAX                                  ;838020|AA      |      ;
+LDA.W #$00A0   ;Source bank          ;838021|A9A000  |      ;
+LDY.W #$FC00   ;WRAM destination     ;838024|A000FC  |      ;
+JSL.L Decomp_Map_Hack                ;838027|22D0FF9C|9CFFD0;
+
+;Update pointers to custom dungeon maps (bank A0)
+org $838380 : Tbl_Dungeon_Maps:
+   dw $8000                    ;838380| Balnia 1F
+   dw $8400                    ;838382| Balnia 2F
+   dw $8800                    ;838384| Dwarven Pass
+   dw $8C00                    ;838386| Crimson Valley
+   dw $9000                    ;838388| Forest of Doubt
+   dw $9400                    ;83838A| Ice Mine 1F
+   dw $9800                    ;83838C| Ice Mine B1F
+   dw $9C00                    ;83838E| Ice Mine B2F
+   dw $A000                    ;838390| Endless Tower 1-4F
+   dw $A000                    ;838392| 
+   dw $A000                    ;838394| 
+   dw $A000                    ;838396| 
+   dw $A400                    ;838398| Endless Tower 5-8F
+   dw $A400                    ;83839A| 
+   dw $A400                    ;83839C| 
+   dw $A400                    ;83839E| 
+   dw $A800                    ;8383A0| Endless Tower 9-12F
+   dw $A800                    ;8383A2| 
+   dw $A800                    ;8383A4| 
+   dw $A800                    ;8383A6| 
+   dw $AC00                    ;8383A8| Bizance Castle
+   dw $B000                    ;8383AA| Secret Passage
+   dw $B400                    ;8383AC| Endless Tower 1-12F
+   dw $B400                    ;8383AE| 
+   dw $B400                    ;8383B0| 
+   dw $B400                    ;8383B2| 
+   dw $B400                    ;8383B4| 
+   dw $B400                    ;8383B6| 
+   dw $B400                    ;8383B8| 
+   dw $B400                    ;8383BA| 
+   dw $B400                    ;8383BC| 
+   dw $B400                    ;8383BE| 
+   dw $B400                    ;8383C0| 
+   dw $B400                    ;8383C2| 
+
+;Injection: Redirects compressed map function to load them uncompressed from elsewhere. 
+org $9CFFD0 : Decomp_Map_Hack:
+STA.L $804364                        ;9CFFD0|8F644380|804364;
+TXA                                  ;9CFFD4|8A      |      ;
+STA.L $804362                        ;9CFFD5|8F624380|804362;
+LDA.W #$0400                         ;9CFFD9|A90004  |      ;
+STA.L $804365                        ;9CFFDC|8F654380|804365;
+LDA.W #$8000                         ;9CFFE0|A90080  |      ;
+STA.L $804360                        ;9CFFE3|8F604380|804360;
+TYA                                  ;9CFFE7|98      |      ;
+STA.L $802181                        ;9CFFE8|8F812180|802181;
+SEP #$20                             ;9CFFEC|E220    |      ;
+PHB                                  ;9CFFEE|8B      |      ;
+PLA                                  ;9CFFEF|68      |      ;
+STA.L $802183                        ;9CFFF0|8F832180|802183;
+LDA.B #$40                           ;9CFFF4|A940    |      ;
+STA.L $80420B                        ;9CFFF6|8F0B4280|80420B;
+REP #$20                             ;9CFFFA|C220    |      ;
+RTL                                  ;9CFFFC|6B      |      ;
 
 ;Causes a game crash, hold off until DMA can be sped up
 ;Speed up final fight
