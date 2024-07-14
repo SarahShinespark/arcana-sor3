@@ -524,8 +524,8 @@ org $889652
                        db $10 : dl SpellDetails : db $00
 
            Attribute3: db $10 : dl Details_Text_Setup
-                       db !Water, !Earth, ": Twin dragons of earth",$0D
-                       db "and sea attack all.",$0D
+                       db !Water, !Earth, ": Twin dragons of",$0D
+                       db "earth and sea attack all.",$0D
                        db "Anti ",!Fire, "Fire, ",!Water, "Water"
                        db $10 : dl SpellDetails : db $00
                        
@@ -844,6 +844,7 @@ pad $88A5FA
 
 ;Equip macros: Writes the 5 initials at X positions $0C, $26, $3F, $59, $73.
 !EquipAll             = $08,$0C,"Ro",$08,$26,"Te",$08,$3F,"Sa",$08,$59,"Ar",$08,$73,"Ax"
+!EquipNotRooks        =              $08,$26,"Te",$08,$3F,"Sa",$08,$59,"Ar",$08,$73,"Ax"
 !EquipRooks           = $08,$0C,"Ro"
 !EquipRooksArwin      = $08,$0C,"Ro",                          $08,$59,"Ar",$08,$73
 !EquipRooksAxs        = $08,$0C,"Ro",                                       $08,$73,"Ax"
@@ -1545,7 +1546,7 @@ org $88A5FA
                        db "power to surpass one's", $0D
                        db "limits."
                        db !BtmCursor
-                       db !EquipAll, $00
+                       db !EquipNotRooks, $00
                        
             CharmRing: db $10 : dl Details_Text_Setup
                        db "A ring that is said to", $0D
