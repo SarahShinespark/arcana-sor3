@@ -1134,8 +1134,8 @@ SCRIPT_043: db $10 : dl PROMPT_ROOKS
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl MACRO_119
             db $0D
-            db $22,"Master Alan has already",$0D
-            db " left.",$22
+            db $22,"My master has",$0D
+            db " already left.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"Who are you?",$22
@@ -1145,8 +1145,9 @@ SCRIPT_043: db $10 : dl PROMPT_ROOKS
             db $22,"I am Alan's first",$0D
             db " subordinate, Zero."
             db $10 : dl CONTINUE_ZEREL
-            db " I have come to take",$0D
-            db " your life.",$22
+            db " Sir Rooks, I have",$0D
+            db " come to take your",$0D
+            db " life.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_ZEREL
             db "Zero",$0D
@@ -1447,20 +1448,24 @@ SCRIPT_060: db $10 : dl DISPLAY_ARIEL
             db $00
 
 SCRIPT_061: db $10 : dl DISPLAY_SAUZA
-            db $22,"Alan, leave this to",$0D
-            db " to me and hurry on.",$22
+            db $22,"Go forth, Master.",$0D
+            db " Please leave this",$0D
+            db " to me.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_ARIEL
-            db $22,"All right, I'll leave",$0D
-            db " this to you.",$22
+            db $22,"Okay, I'm counting",$0D
+            db " on you.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $1B,$01,$03
             db $0C
             db $05,$FF,$28
             db $0D
             db $10 : dl DISPLAY_SAUZA
-            db $22,"No problem, I owe you",$0D
-            db " my life!",$22
+            db $22,"Such a pity you",$0D
+            db " won't get past me."
+            db $10 : dl WAIT_NEWLINE
+            db " Sorry, but I'm taking",$0D
+            db " your lives!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $0C
             db $1B,$01,$FF
@@ -1983,7 +1988,7 @@ SCRIPT_087: db $10 : dl CLEAR
             db $10 : dl CONTINUE_GALNEON
             db " Oh? Isn't that the",$0D
             db " same elf swordsman",$0D
-            db " from before?",$22
+            db " from some time ago?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ARWIN
             db $22,"Princess Teefa!",$22
@@ -2294,11 +2299,11 @@ SCRIPT_097: db $10 : dl CLEAR
             db " with us?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_KARUL
-            db $22,"I'm Alan's subordinate,",$0D
-            db " Karul."
+            db $22,"I'm Master Alan's",$0D
+            db " subordinate, Karul."
             db $10 : dl CONTINUE_KARUL
-            db " Rooks, I thought I'd test",$0D
-            db " your strength.",$22
+            db " Sir Rooks, I thought I'd",$0D
+            db " test your strength.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"I'm in a hurry.",$0D
@@ -3044,6 +3049,8 @@ Tbl_Who_Hits_Rooks: dw Ariel_Attacks
                     db $00
 ;Don't overwrite the code for cutscene damage
 assert pc() <= $989F30
+padbyte $FF
+pad $989F30
 
 ; List: Everywhere in bank $18 that the scripts are called
 org $9896DF : dl SCRIPT_001                        ;
