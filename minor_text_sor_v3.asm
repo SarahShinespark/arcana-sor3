@@ -289,7 +289,7 @@ pad $88812B
 ;   db $00                               ;88812A|        |      ;
  
 org $88812B
-Town_menu:
+Town_menu:    ;Not sure where this is used actually
    db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
    db "  Open   Magic   Equipment", $0D
    db "  Call"
@@ -308,7 +308,7 @@ Town_menu:
    db "GP", $00                         ;88819A|        |      ;
 
 org $88819D 
-Dungeon_menu:
+Dungeon_menu:   ;I think this is used for both??
    db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
    db "  Open   Magic   Equipment", $0D
    db "  Call"
