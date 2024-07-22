@@ -8,8 +8,11 @@ The code language is 65c816 ASM, based on 6502 (NES).
 #### To play the official release ####
 * Patch `sor_v3.ips` to an unheadered Arcana ROM. That's it!
 
+#### To play the latest beta ####
+* Patch `sor_v3.1_b5.ips` to an unheadered Arcana ROM.
+
 #### To compile the game yourself ####
-* Use an IPS patcher to patch an unheadered Arcana ROM with `fastrom_kando_a13.ips`. Name the file `sor_v3.1` or something easy to find.
+* Use an IPS patcher to patch an unheadered Arcana ROM with `fastrom_kando_a15.ips`. Name the file `sor_v3.1` or something easy to find.
 * Change the extension to SFC.
 * Then use Asar: `asar main_sor_v3.asm sor_v3.1.sfc` to patch all of the files at once. That's it!
 

@@ -10,8 +10,8 @@ incsrc "encounters_sor_v3.asm"
 incsrc "enemies_sor_v3.asm"
 incsrc "epilogue_sor_v3.asm"
 incsrc "equipment_sor_v3.asm"
-incsrc "events.asm"     ;New
-incsrc "font_relo.asm"  ;New
+incsrc "events.asm"
+incsrc "font_relo.asm"
 incsrc "intro_sor_v3.asm"
 incsrc "minor_text_sor_v3.asm"
 incsrc "miscellaneous.asm"
