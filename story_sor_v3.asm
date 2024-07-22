@@ -1739,22 +1739,22 @@ SCRIPT_077: db $10 : dl CLEAR
 
 SCRIPT_078: db $10 : dl CLEAR
             db $10 : dl PROMPT_SALAH
-            db $22,"Wait! There is a door.",$22
+            db $22,"Wait! There's a door.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $0C
             db $1B,$01,$FF
             db $00
 
 SCRIPT_079: db $10 : dl PROMPT_ROOKS
-            db $22,"Can we get inside?",$22
+            db $22,"Can you get inside?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_AXS
-            db $22,"Be careful! There",$0D
+            db $22,"Be careful! It",$0D
             db " might be a trap.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
-            db $22,"If there's a trap,",$0D
-            db " I'll jump in from here!",$22
+            db $22,"If it's a trap, I'll",$0D
+            db " be right behind her!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $0C
             db $1B,$01,$FF
@@ -1764,36 +1764,36 @@ SCRIPT_080: db $10 : dl PROMPT_ROOKS
             db $22,"Alan!!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_ARIEL
-            db $22,"You're amazing, you",$0D
-            db " know that? Coming this",$0D
-            db " far",$1B,$00,$FE,".....",$22
+            db $22,"I've had enough of",$0D
+            db " you, following me all",$0D
+            db " the way here",$1B,$00,$FE,".....",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
-            db $22,"Give me the Crystal",$0D
-            db " Sword and the",$0D
+            db $22,"I'll be taking the",$0D
+            db " Crystal Sword and the",$0D
             db " Enchanted Jewel.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_ARIEL
-            db $22,"Heh, it's too late."
+            db $22,"Hah, it's too late."
             db $10 : dl CONTINUE_ARIEL
-            db " The preparations for the",$0D
-            db " resurrection have",$0D
-            db " already begun.",$22
+            db " We're already about",$0D
+            db " to start the",$0D
+            db " resurrection.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
-            db $22,"But I don't think you have",$0D
-            db " the Spirit Sword.",$22
+            db $22,"But, the Spirit",$0D
+            db " Sword is missing.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_ARIEL
-            db $22,"Teefa has arranged that",$0D
-            db " perfectly for me.",$22
+            db $22,"Teefa has already",$0D
+            db " taken care of that.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"What?!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_SALAH
-            db $22,"Teefa?!",$0D
-            db " Where is my sister?",$22
+            db $22,"Teefa?! Where is",$0D
+            db " my big sister?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
             db $22,"Huh? So the other",$0D
@@ -1801,14 +1801,14 @@ SCRIPT_080: db $10 : dl PROMPT_ROOKS
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_ARIEL
             db $22,"I expect she's at",$0D
-            db " the altar assisting with",$0D
+            db " the altar, assisting with",$0D
             db " Rimsala's revival.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_AXS
-            db $22,"I see, Teefa's blood",$0D
-            db " is being used."
+            db $22,"I see, you used",$0D
+            db " Teefa's blood..."
             db $10 : dl WAIT_NEWLINE
-            db " They used blood from the",$0D
+            db " The blood of the",$0D
             db " Royal Family of Lexford.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_ARIEL
@@ -1822,7 +1822,7 @@ SCRIPT_080: db $10 : dl PROMPT_ROOKS
             db $05,$01,$06
             db $22,"Alan...",$0D
             db $05,$01,$01
-            db " I can't let you do that.",$22
+            db " I can't forgive you.",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_ARIEL
             db $22,"In that case, how are",$0D
@@ -1948,14 +1948,15 @@ SCRIPT_084: db $10 : dl DISPLAY_GALNEON
             db $00
 
 SCRIPT_085: db $10 : dl PROMPT_GALNEON
-            db $22,"We will meet again!"
+            db $22,"We will meet again,",$0D
+            db " Rooks!"
             db $10 : dl WAIT_NEWLINE
-            db " If you're still alive!",$0D
-            db " Wahahaha!",$22
+            db " ...If you're still",$0D
+            db " alive! Wahahaha!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_ROOKS
-            db $22,".....",$22,$0D
-            db $22,"Galneon, you bastard!",$22
+            db $22,".....",$0D
+            db " Galneon, you bastard!",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl PROMPT_SALAH
             db $22,"Rooks!",$22,$0D
@@ -2022,8 +2023,8 @@ SCRIPT_087: db $10 : dl CLEAR
             db $00
 
 SCRIPT_088: db $10 : dl PROMPT_ARWIN
-            db $22,"Teefa, it's me Arwin.",$22,$0D
-            db $22,"Are you sure you don't",$0D
+            db $22,"Teefa, it's me Arwin.",$0D
+            db " Are you sure you don't",$0D
             db " recognize me?",$22
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_TEEFA_RED
