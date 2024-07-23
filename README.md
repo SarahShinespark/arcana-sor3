@@ -17,6 +17,12 @@ The code language is 65c816 ASM, based on 6502 (NES).
 * Then use Asar: `asar main_sor_v3.asm sor_v3.1.sfc` to patch all of the files at once. That's it!
 
 
+## Optional patches
+`encounter_none.ips`      - Permanently prevents random encounters. For challenge games or testing.\
+`fantasy_font v5.ips`     - An alternate font for a high fantasy feel. [(Preview)](https://github.com/SarahShinespark/arcana-sor3/blob/main/Patches/fantasy%20font%20demo.png)\
+`graphics_fix_snes9x.ips` - Shortens the pixellation when getting hit, to avoid a graphics bug in some emulators.
+
+
 ## Contents
 `cool_maps_sor_v3.asm`		- Draws more map icons, like exits and doors.\
 `descriptions_sor_v3.asm`	- Localized Item, Spell, Equipment descriptions.\
@@ -49,7 +55,7 @@ The code language is 65c816 ASM, based on 6502 (NES).
 ### Treasure_Checker.py
 A command-line python script for confirming the maps and treasures match up. If they don't match, you'll have treasure chests not appearing at all.\
 \
-Usage: Treasure_Checker.py -i "patched_rom.smc"\
+Usage: `Treasure_Checker.py` -i "patched_rom.smc"\
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Options: -m (Display maps), -? (Display help)\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
