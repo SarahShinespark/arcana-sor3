@@ -1,0 +1,88 @@
+Run chance based on highest party level.
+Match the enemy on the left with the highest level in your party.
+The column determines your current run chance.
+
+Name		  LVL	  12.5%		25%		50%		75%
+
+Barium            1	  		Lv 1-8  	Lv 9-15 	Lv 16+  
+Pickpocket        1	  		Lv 1-8  	Lv 9-15 	Lv 16+  
+Thief             2	  Lv 1    	Lv 2-9  	Lv 10-16	Lv 17+  
+Goblin            2	  Lv 1    	Lv 2-9  	Lv 10-16	Lv 17+  
+Orc               3	  Lv 1-2  	Lv 3-10 	Lv 11-17	Lv 18+  
+Dog               3	  Lv 1-2  	Lv 3-10 	Lv 11-17	Lv 18+  
+Wolf              4	  Lv 1-3  	Lv 4-11 	Lv 12-18	Lv 19+  
+Saurian           4	  Lv 1-3  	Lv 4-11 	Lv 12-18	Lv 19+  
+Lizardman         5	  Lv 1-4  	Lv 5-12 	Lv 13-19	Lv 20+  
+Chimera           8	  Lv 1-7  	Lv 8-15 	Lv 16-22	Lv 23+  
+Pudding           3	  Lv 1-2  	Lv 3-10 	Lv 11-17	Lv 18+  
+Stone Golem       10	  Lv 1-9  	Lv 10-17	Lv 18-24	Lv 25+  
+Iron Golem        15	  Lv 1-14 	Lv 15-22	Lv 23-29	Lv 30+  
+Bee               7	  Lv 1-6  	Lv 7-14 	Lv 15-21	Lv 22+  
+Flytrap           5	  Lv 1-4  	Lv 5-12 	Lv 13-19	Lv 20+  
+Wolfsbane         8	  Lv 1-7  	Lv 8-15 	Lv 16-22	Lv 23+  
+Treant            4	  Lv 1-3  	Lv 4-11 	Lv 12-18	Lv 19+  
+Dryad             6	  Lv 1-5  	Lv 6-13 	Lv 14-20	Lv 21+  
+Dire Lizard       10	  Lv 1-9  	Lv 10-17	Lv 18-24	Lv 25+  
+Assassin          12	  Lv 1-11 	Lv 12-19	Lv 20-26	Lv 27+  
+Cyclops           20	  Lv 1-19 	Lv 20-27	Lv 28-34	Lv 35+  
+Ifrit             25	  Lv 1-24 	Lv 25-32	Lv 33-39	Lv 40+  
+Zero              30	  Lv 1-29 	Lv 30-37	Lv 38-44	Lv 45+  
+Gel               6	  Lv 1-5  	Lv 6-13 	Lv 14-20	Lv 21+  
+Hobgoblin         6	  Lv 1-5  	Lv 6-13 	Lv 14-20	Lv 21+  
+Fighter           7	  Lv 1-6  	Lv 7-14 	Lv 15-21	Lv 22+  
+Lizardkin         6	  Lv 1-5  	Lv 6-13 	Lv 14-20	Lv 21+  
+Mage              8	  Lv 1-7  	Lv 8-15 	Lv 16-22	Lv 23+  
+Zombie            5	  Lv 1-4  	Lv 5-12 	Lv 13-19	Lv 20+  
+Skeleton          6	  Lv 1-5  	Lv 6-13 	Lv 14-20	Lv 21+  
+Witch             4	  Lv 1-3  	Lv 4-11 	Lv 12-18	Lv 19+  
+Basilisk          8	  Lv 1-7  	Lv 8-15 	Lv 16-22	Lv 23+  
+Manticore         12	  Lv 1-11 	Lv 12-19	Lv 20-26	Lv 27+  
+Bones             8	  Lv 1-7  	Lv 8-15 	Lv 16-22	Lv 23+  
+Lamia             14	  Lv 1-13 	Lv 14-21	Lv 22-28	Lv 29+  
+Crocodile         9	  Lv 1-8  	Lv 9-16 	Lv 17-23	Lv 24+  
+Warlock           12	  Lv 1-11 	Lv 12-19	Lv 20-26	Lv 27+  
+Troll             15	  Lv 1-14 	Lv 15-22	Lv 23-29	Lv 30+  
+Mimic             12	  Lv 1-11 	Lv 12-19	Lv 20-26	Lv 27+  
+Hydra             20	  Lv 1-19 	Lv 20-27	Lv 28-34	Lv 35+  
+Sauza             25	  Lv 1-24 	Lv 25-32	Lv 33-39	Lv 40+  
+Ghoul             16	  Lv 1-15 	Lv 16-23	Lv 24-30	Lv 31+  
+Bugbear           18	  Lv 1-17 	Lv 18-25	Lv 26-32	Lv 33+  
+Knight            20	  Lv 1-19 	Lv 20-27	Lv 28-34	Lv 35+  
+Vampire Bee       18	  Lv 1-17 	Lv 18-25	Lv 26-32	Lv 33+  
+Ghost             22	  Lv 1-21 	Lv 22-29	Lv 30-36	Lv 37+  
+Lilith            15	  Lv 1-14 	Lv 15-22	Lv 23-29	Lv 30+  
+Dragonnewt        24	  Lv 1-23 	Lv 24-31	Lv 32-38	Lv 39+  
+Wight             20	  Lv 1-19 	Lv 20-27	Lv 28-34	Lv 35+  
+Lich              18	  Lv 1-17 	Lv 18-25	Lv 26-32	Lv 33+  
+Priest            23	  Lv 1-22 	Lv 23-30	Lv 31-37	Lv 38+  
+Sorcerer          24	  Lv 1-23 	Lv 24-31	Lv 32-38	Lv 39+  
+Alraune           18	  Lv 1-17 	Lv 18-25	Lv 26-32	Lv 33+  
+Giant             16	  Lv 1-15 	Lv 16-23	Lv 24-30	Lv 31+  
+Sea Dragon        30	  Lv 1-29 	Lv 30-37	Lv 38-44	Lv 45+  
+Earth Dragon      35	  Lv 1-34 	Lv 35-42	Lv 43-49	Lv 50+  
+Darah             20	  Lv 1-19 	Lv 20-27	Lv 28-34	Lv 35+  
+Barah             21	  Lv 1-20 	Lv 21-28	Lv 29-35	Lv 36+  
+A***              30	  Lv 1-29 	Lv 30-37	Lv 38-44	Lv 45+  
+T****             30	  Lv 1-29 	Lv 30-37	Lv 38-44	Lv 45+  
+Flame Dragon      32	  Lv 1-31 	Lv 32-39	Lv 40-46	Lv 47+  
+Cloud Dragon      36	  Lv 1-35 	Lv 36-43	Lv 44-50	Lv 51+  
+Jotun             30	  Lv 1-29 	Lv 30-37	Lv 38-44	Lv 45+  
+Minotaur          25	  Lv 1-24 	Lv 25-32	Lv 33-39	Lv 40+  
+Sword Master      20	  Lv 1-19 	Lv 20-27	Lv 28-34	Lv 35+  
+Wizard            40	  Lv 1-39 	Lv 40-47	Lv 48-54	Lv 55+  
+Death Lich        20	  Lv 1-19 	Lv 20-27	Lv 28-34	Lv 35+  
+Bishop            30	  Lv 1-29 	Lv 30-37	Lv 38-44	Lv 45+  
+Sphinx            24	  Lv 1-23 	Lv 24-31	Lv 32-38	Lv 39+  
+Ba'al             22	  Lv 1-21 	Lv 22-29	Lv 30-36	Lv 37+  
+Medusa            25	  Lv 1-24 	Lv 25-32	Lv 33-39	Lv 40+  
+Wraith            28	  Lv 1-27 	Lv 28-35	Lv 36-42	Lv 43+  
+Phantom           36	  Lv 1-35 	Lv 36-43	Lv 44-50	Lv 51+  
+Giant Bee         25	  Lv 1-24 	Lv 25-32	Lv 33-39	Lv 40+  
+Killer Bee        30	  Lv 1-29 	Lv 30-37	Lv 38-44	Lv 45+  
+Karul             38	  Lv 1-37 	Lv 38-45	Lv 46-52	Lv 53+  
+Galneon           30	  Lv 1-29 	Lv 30-37	Lv 38-44	Lv 45+  
+Zombeon           40	  Lv 1-39 	Lv 40-47	Lv 48-54	Lv 55+  
+Rimsala           40	  Lv 1-39 	Lv 40-47	Lv 48-54	Lv 55+  
+Rimsala           50	  Lv 1-49 	Lv 50-57	Lv 58+  		
+
+(Bosses are unrunnable, so they're listed just for fun.)

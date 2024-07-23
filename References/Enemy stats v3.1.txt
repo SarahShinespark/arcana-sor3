@@ -1,0 +1,84 @@
+Race: U=Undead, D=Dragon, M=Medusa, G=Giant
+Name		Race	  Element  HP	 EXP	GP	Spell		    LV	STR	INT	ENDUR	ALERT
+Barium                     Earth   3	 1	4	                    1	1	40	50	0
+Pickpocket                         5	 3	2	                    1	32	40	50	10
+Thief                              8	 3	5	                    2	48	40	50	20
+Goblin                     Earth   4	 4	6	                    2	48	40	50	5
+Orc                        Earth   8	 5	12	                    3	79	40	50	10
+Dog                        Earth   10	 4	5	                    3	32	40	50	10
+Wolf                       Earth   20	 5	30	                    4	128	40	50	20
+Saurian                    Fire    15	 6	15	                    4	128	40	50	20
+Lizardman                  Fire    20	 5	5	                    5	208	40	50	15
+Chimera                    Wind    16	 7	6	Skyblade Blast      8	208	40	50	25
+Pudding                    Fire    6	 2	7	                    3	48	40	50	5
+Stone Golem                Earth   150	 30	100	                    10	208	40	50	10
+Iron Golem                 Earth   300	 60	100	                    15	250	40	50	15
+Bee                        Wind    22	 5	1	                    7	48	60	100	20
+Flytrap                    Earth   20	 9	5	                    5	96	60	100	5
+Wolfsbane                  Water   30	 12	6	                    8	160	60	100	10
+Treant                     Earth   25	 10	22	                    4	128	60	100	8
+Dryad                      Water   30	 20	30	                    6	224	60	100	16
+Dire Lizard                Fire    35	 10	21	                    10	208	60	100	15
+Assassin                   Water   25	 30	45	Water Shot          12	128	60	100	20
+Cyclops                G   Fire    200	 100	300	                    20	224	60	100	12
+Ifrit                      Fire    300	 140	2	Flame Volley        25	224	60	100	18
+Zero                               450	 200	400	                    30	250	60	100	30
+Gel                        Water   30	 7	17	Sleep Mist          6	115	80	150	12
+Hobgoblin                          37	 10	25	                    6	160	80	150	14
+Fighter                            34	 35	30	                    7	179	80	150	16
+Lizardkin                  Wind    40	 15	52	                    6	202	80	150	20
+Mage                               53	 20	40	Evasion Down        8	74	80	150	8
+Zombie           U         Earth   67	 18	13	                    5	138	80	150	4
+Skeleton         U         Earth   40	 15	34	                    6	115	80	150	15
+Witch                              28	 15	45	Water Shot          4	96	80	150	6
+Basilisk                   Earth   45	 15	30	                    8	147	80	150	24
+Manticore                  Wind    24	 15	30	Lightning Volley    12	67	80	150	20
+Bones            U         Earth   32	 10	19	                    8	128	80	150	16
+Lamia                M             36	 15	55	                    14	128	80	150	28
+Crocodile                  Water   56	 13	25	                    9	170	80	150	30
+Warlock                            40	 25	42	Defense Down        12	67	80	150	18
+Troll                  G           60	 100	220	                    15	208	80	150	7
+Mimic                              80	 40	50	                    12	106	80	150	60
+Hydra                      Fire    600	 600	500	Flame Barrage       20	128	80	150	12
+Sauza                              750	 1000	600	                    25	160	80	150	45
+Ghoul            U         Earth   50	 15	50	                    16	128	100	200	20
+Bugbear                            60	 50	100	                    18	147	100	200	18
+Knight                             80	 25	280	                    20	170	100	200	32
+Vampire Bee                Wind    70	 50	70	                    18	138	100	200	40
+Ghost            U         Wind    100	 60	80	Sleep Mist All      22	186	100	200	45
+Lilith               M             110	 32	120	                    15	186	100	200	26
+Dragonnewt                         120	 60	100	                    24	208	100	200	30
+Wight            U         Earth   72	 70	70	                    20	179	100	200	50
+Lich             U         Wind    84	 40	120	Sleep Mist          18	144	100	200	42
+Priest                             56	 40	100	Lightning Volley    23	96	100	200	32
+Sorcerer                           95	 30	90	Flame Volley        24	72	100	200	36
+Alraune              M     Water   100	 60	120	Water Barrage       18	192	100	200	28
+Giant                  G           180	 100	200	                    16	224	100	200	16
+Sea Dragon         D       Water   250	 400	300	Water Barrage       30	224	100	200	44
+Earth Dragon       D       Earth   250	 400	300	Rubble Barrage      35	224	100	200	45
+Darah                      Water   450	 1400	550	Rubble Shot         20	160	60	200	26
+Barah                      Fire    800	 1600	600	Rubble Volley       21	224	100	200	27
+A***                               750	 800	1	                    30	192	100	200	20
+T****                              400	 800	1	Paralyze Spark      30	96	100	200	20
+Flame Dragon       D       Fire    250	 400	300	Flame Barrage       32	128	120	250	46
+Cloud Dragon       D       Wind    250	 400	300	Lightning Barrage   36	128	120	250	47
+Jotun                  G           200	 90	100	                    30	128	120	250	30
+Minotaur               G           210	 100	100	                    25	128	120	250	35
+Sword Master                       180	 60	200	                    20	96	120	250	40
+Wizard                             110	 200	250	Atomic Blast        40	48	120	250	36
+Death Lich       U         Earth   160	 50	100	                    20	96	120	250	120
+Bishop                             180	 95	200	                    30	67	120	250	120
+Sphinx                     Earth   200	 50	210	Rubble Barrage      24	250	120	250	120
+Ba'al                      Fire    195	 150	120	Lightning Barrage   22	250	120	250	120
+Medusa               M     Earth   120	 230	59	Coldstone Tempest   25	192	120	250	120
+Wraith           U         Wind    160	 100	110	Skyblade Blast      28	160	120	250	120
+Phantom          U         Earth   180	 95	50	Volcanic Eruption   36	192	120	250	120
+Giant Bee                  Wind    90	 90	95	                    25	160	120	250	120
+Killer Bee                 Wind    150	 230	35	Sleep Mist All      30	224	120	250	120
+Karul                              750	 1980	872	                    38	191	120	250	120
+Galneon                            600	 1500	933	Confuse Flame       30	224	120	250	120
+Zombeon          U                 900	 1900	1	Frozen Firenado     40	128	200	250	120
+Rimsala                            1500	 1	1	                    40	96	100	250	100
+Rimsala                            3500	 1	621	Armageddon          50	250	200	250	200
+Name		Race	  Element  HP	 EXP	GP	Spell		    LV	STR	INT	ENDUR	ALERT
+Race: U=Undead, D=Dragon, M=Medusa, G=Giant

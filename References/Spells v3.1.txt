@@ -1,0 +1,83 @@
+Name			MP	Power	Acc	Element
+
+Lightning Shot       	8	10	80%	Wind       
+Lightning Volley     	14	40	90%	Wind       
+Lightning Barrage    	20	90	98%	Wind       
+Rubble Shot          	8	10	80%	Earth      
+Rubble Volley        	14	40	90%	Earth      
+Rubble Barrage       	20	90	98%	Earth      
+Water Shot           	8	10	80%	Water      
+Water Volley         	14	40	90%	Water      
+Water Barrage        	20	90	98%	Water      
+Flame Shot           	8	10	80%	Fire       
+Flame Volley         	14	40	90%	Fire       
+Flame Barrage        	20	90	98%	Fire       
+Skyblade Blast       	10	30	98%	Wind/Earth 
+Frozen Voidslash     	15	40	97%	Wind/Water 
+Land Sea Dragon      	20	60	97%	Earth/Water
+Blazing Cyclone      	15	65	98%	Wind/Fire  
+Magma Inferno        	20	75	98%	Earth/Fire 
+Icefire Slash        	23	70	94%	Water/Fire 
+Coldstone Tempest    	24	115	94%	Wi Ea Wa   
+Volcanic Eruption    	24	100	98%	Wi Ea    Fi
+Frozen Firenado      	30	110	91%	Wi    Wa Fi
+Atomic Blast         	30	120	98%	   Ea Wa Fi
+Armageddon           	40	200	85%	Wi Ea Wa Fi
+Summon Wind Spirit   	40	180	99%	Wind       
+Summon Earth Spirit  	40	180	99%	Earth      
+Summon Water Spirit  	40	180	99%	Water      
+Summon Fire Spirit   	40	180	99%	Fire       
+Drain Life           	1	  	85%	           
+Drain Mana           	0	  	90%	           
+Healing Water All    	30	60	      	           
+Healing Light        	30	100	      	           
+Heal 1               	16	80	      	           
+Heal 2               	24	180	      	           
+Heal Max             	42	999	      	           
+Heal All 1           	20	80	      	           
+Heal All 2           	40	120	      	           
+Disrupting Gale      	25	  	35%	Wind       
+Earth Chasm          	25	  	35%	Earth      
+Death                	25	  	35%	Fire       
+Paralyze Spark All   	23	  	43%	           
+Petrify All          	23	  	35%	           
+Silence Mirror All   	6	  	35%	           
+Sleep Mist All       	20	  	47%	           
+Confuse Flame All    	20	  	50%	           
+Paralyze Spark       	13	  	65%	           
+Petrify              	15	  	50%	           
+Silence Mirror       	6	  	85%	           
+Sleep Mist           	10	  	70%	           
+Confuse Flame        	10	  	70%	           
+Evasion Down         	4	  	85%	           
+Evasion Down All     	7	  	85%	           
+Defense Down         	4	  	85%	           
+Defense Down All     	7	  	85%	           
+Accuracy Down        	4	  	85%	           
+Accuracy Down All    	7	  	85%	           
+Attack Down          	4	  	85%	           
+Attack Down All      	7	  	85%	           
+Requiem              	4	  	60%	           
+Final Repose         	8	  	60%	           
+Heavenly Strike      	1	  	50%	           
+Last Resort          	50	  	      	           
+Escape               	10	  	      	           
+Evasion Up All       	5	  	      	           
+Defense Up All       	5	  	      	           
+Accuracy Up All      	5	  	      	           
+Attack Up All        	5	  	      	           
+Barrier of Wind      	4	  	      	           
+Barrier of Earth     	4	  	      	           
+Barrier of Water     	4	  	      	           
+Barrier of Fire      	4	  	      	           
+Reflect Pain         	4	  	      	           
+Reflect Magic        	6	  	      	           
+Purify All           	10	  	      	           
+Unparalyze           	6	  	      	           
+Unpetrify            	4	  	      	           
+Revive Spirit        	50	  	      	           
+Gate                 	8	  	      	           
+Set Magic Mark       	0	  	      	           
+Activate Magic Mark  	8	  	      	           
+Requiem 2            	4	  	      	           
+Final Repose 2       	8	  	      	           

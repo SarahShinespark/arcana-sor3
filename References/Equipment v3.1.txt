@@ -1,0 +1,134 @@
+Race: Z=Zombie, D=Dragon, M=Medusa, G=Giant
+Elements: W=Wind, E=Earth, Wa=Water, F=Fire
+Equipped by: Ro=Rooks, Te=Teefa, Sa=Sarah, Ar=Arwin, Ax=Axs
+
+AtkBonus boosts your weapon power; higher is better.
+
+Name		 Price	Equipped by	 Atk	Race	  Element	Crit	AtkBonus   Spell
+Unarmed          0	               	 0	      	          	0%	0	   
+Dagger           100	Ro Te Sa Ar Ax	 20	      	          	2%	77	   
+Short Sword      200	Ro Te Sa Ar Ax	 40	      	          	4%	77	   
+Long Sword       500	Ro       Ar    	 60	      	          	4%	77	   
+Broad Sword      1000	Ro       Ar    	 80	      	          	6%	87	   
+Bastard Sword    1500	Ro       Ar Ax	 100	      	          	8%	92	   
+Ice Blade        2000	Ro       Ar    	 120	      	      Wa  	6%	92	   
+Wightslayer      3000	Ro             	 140	Z	          	4%	97	   
+Fire Blade       5000	Ro             	 160	      	         F	4%	103	   
+Dragon Blade     7500	Ro       Ar    	 180	 D	          	4%	97	   
+Mythril Sword    10000	Ro       Ar    	 200	      	          	4%	113	   Sleep Mist           
+Thunder Blade    13500	Ro       Ar    	 220	      	  W       	4%	113	   
+Ragnarok         20000	         Ar    	 240	 D G	          	4%	128	   Confuse Flame        
+Crystal Sword    2	Ro             	 230	ZDMG	          	6%	123	   Healing Light        
+Spirit Sword     2	Ro             	 260	      	  W E Wa F	4%	128	   Heal All 1           
+Armageddon II    2	Ro             	 280	      	  W E Wa F	8%	128	   Healing Water All    
+Golden Sword     30000	Ro Te Sa Ar Ax	 10	      	          	0%	103	   
+Cursed Sword     0	Ro Te Sa Ar Ax	 100	      	          	2%	108	   
+Francisca        450	Ro       Ar Ax	 50	      	          	8%	113	   
+Battle Axe       1700	Ro          Ax	 70	      	          	12%	118	   
+Great Axe        4800	            Ax	 100	      	          	12%	123	   
+Devil Axe        0	            Ax	 160	  M	    E     	16%	128	   Rubble Barrage       
+Staff            150	   Te Sa       	 30	      	          	4%	97	   
+Mage Staff       400	   Te Sa       	 50	      	          	4%	97	   
+Wand             700	      Sa       	 60	      	          	4%	97	   
+Flare Wand       1000	      Sa       	 100	      	         F	4%	133	   Flame Shot           
+Sage's Staff     4500	   Te Sa       	 110	      	          	4%	138	   Sleep Mist All       
+Wand of Lords    10000	      Sa       	 120	      	          	4%	143	   Water Volley         
+Wisdom Staff     7500	   Te          	 140	      	          	4%	138	   Confuse Flame All    
+Spirit Staff     5000	   Te          	 160	      	  W E Wa F	4%	154	   Lightning Volley     
+Mace             1000	      Sa    Ax	 65	      	          	6%	154	   
+Flail            1300	      Sa    Ax	 90	      	          	8%	154	   
+War Hammer       1200	            Ax	 90	      	          	10%	164	   
+Morning Star     6000	            Ax	 120	G	          	12%	133	   
+Whip             170	   Te Sa       	 35	      	          	2%	128	   
+Chain Whip       850	   Te Sa       	 55	      	          	2%	128	   
+Thorn Whip       1500	   Te Sa       	 60	      	          	4%	128	   
+No-Horny Bat     2	   Te Sa       	 280	ZDMG	          	8%	128	   Flame Barrage        
+Sword 2          2	               	 0	      	          	0%	77	   
+Sword 3          2	               	 0	      	          	0%	77	   
+Sword 4          2	               	 0	      	          	0%	77	   
+
+Name		 Price	Equipped by	 Def	Element
+Soft Leather     100	Ro Te Sa Ar Ax	 20	        
+Hard Leather     300	Ro Te Sa Ar Ax	 30	        
+Ring Mail        500	Ro    Sa    Ax	 40	        
+Scale Mail       700	Ro    Sa Ar Ax	 60	        
+Chain Mail       1000	Ro    Sa    Ax	 80	        
+Breast Mail      1500	         Ar    	 85	        
+Breastplate      2000	Ro    Sa Ar    	 100	        
+Splint Mail      3000	Ro    Sa    Ax	 120	        
+Plate Mail       4500	Ro          Ax	 145	        
+Mythril Chain    5000	Ro          Ax	 150	        
+Mythril Plate    7500	Ro       Ar    	 160	        
+Mythril Mail     10000	Ro          Ax	 180	W       
+Devil Mail       20000	            Ax	 205	  E     
+Dragon Mail      20000	Ro             	 190	        
+Magic Plate      25000	Ro       Ar    	 200	        
+Magic Mail       30000	Ro       Ar    	 215	        
+Earth Plate      20000	         Ar    	 230	  E     
+Fanas' Armor     30000	Ro             	 240	        
+Gorgeous Mail    50000	Ro Te Sa Ar Ax	 35	        
+Robe             150	   Te Sa       	 25	        
+Mythril Robe     750	   Te Sa       	 100	        
+White Robe       1000	      Sa       	 145	        
+Priest Robe      20	      Sa       	 160	        
+Magic Robe       15000	   Te          	 180	        
+Garb of Mages    30	   Te          	 200	        
+Armor 1          0	               	 0	        
+Armor 2          0	               	 0	        
+Armor 3          0	               	 0	        
+Armor 4          0	               	 0	        
+Armor 5          0	               	 0	        
+Armor 6          0	               	 0	        
+Armor 7          0	               	 0	        
+Armor 8          0	               	 0	        
+Armor 9          0	               	 0	        
+Armor 10         0	               	 0	        
+Armor 11         0	               	 0	        
+Armor 12         0	               	 0	        
+Armor 13         0	               	 0	        
+Armor 14         0	               	 0	        
+Armor 15         0	               	 0	        
+
+Name		 Price	Equipped by	 Def	Resist	MDef	Spell
+Small Shield     180	Ro    Sa    Ax	 20	      	0	
+Large Shield     300	Ro    Sa    Ax	 40	      	5	
+Buckler          750	Ro    Sa    Ax	 80	      	10	
+Iron Shield      1000	Ro    Sa    Ax	 120	      	15	
+Mythril Shield   1500	Ro    Sa    Ax	 140	Z	20	
+Dragon Shield    2500	Ro             	 170	 D	25	
+Devil Shield     2480	            Ax	 180	  M	30	Skyblade Blast       
+Magic Shield     4000	      Sa       	 160	      	35	Sleep Mist           
+Kaiser Shield    45000	Ro             	 200	      	90	Defense Down All     
+Fanas' Shield    24800	Ro             	 220	      	100	Volcanic Eruption    
+Cursed Shield    2	Ro    Sa    Ax	 10	      	0	
+Metal Bracelet   300	   Te    Ar    	 20	      	10	
+Rune Bracelet    500	   Te    Ar    	 40	      	20	
+Mythril Bracelet 3000	   Te    Ar    	 160	Z	30	
+Magic Bracelet   10000	   Te    Ar    	 180	      	40	Defense Up All       
+Spirit Bangle    2	   Te    Ar    	 200	      	50	Accuracy Up All      
+Dusk Bracelet    4000	         Ar    	 220	G	60	Attack Up All        
+Cursed Bangle    2	   Te    Ar    	 10	      	0	
+Amulet 1         2	               	 0	      	0	
+Amulet 2         2	               	 0	      	0	
+
+Name		 Price	Equipped by
+Secret Ring      0	Ro Te Sa Ar Ax
+Lifeforce Ring   0	Ro Te Sa Ar Ax
+Hearsay Ring     0	Ro Te Sa Ar Ax
+Inspiring Ring   0	Ro Te Sa Ar Ax
+Tranquil Ring    0	Ro Te Sa Ar Ax
+Ancient Ring     0	Ro Te Sa Ar Ax
+Sacred Ring      0	Ro Te Sa Ar Ax
+Bravery Ring     0	Ro Te Sa Ar Ax
+Hope Ring        0	Ro Te Sa Ar Ax
+Glittery Ring    0	Ro Te Sa Ar Ax
+Radiant Ring     0	Ro Te Sa Ar Ax
+Wondrous Ring    0	Ro Te Sa Ar Ax
+Marvelous Ring   0	Ro Te Sa Ar Ax
+Curved Ring      0	Ro Te Sa Ar Ax
+Twisted Ring     0	Ro Te Sa Ar Ax
+Ultimate Ring    0	   Te Sa Ar Ax
+Fascination Ring 0	Ro Te Sa Ar Ax
+Tiamat Repellent 0	Ro             
+Ring 2           0	               
+Ring 3           0	               
