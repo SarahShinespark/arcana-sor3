@@ -14,12 +14,12 @@ db $0C
 db $01, $00, $06
 db $03, $0E
 db $1C
-db "  Seal of Rimsala v3.1b5  "
+db "  Seal of Rimsala v3.1b6  "
 ;  " GAME HEADER LENGTH-----  "
 
 org $80FFC0
 RomHeaderName:
-db "ARCANA SOR V3.1B5   "
+db "ARCANA SOR V3.1B6   "
 ;  "ROM HEADER LENGTH---"
 
 ;Include new font and title screen
@@ -120,6 +120,9 @@ File_saved:
   db $1F                ;use Heal SFX
   db $06,$0A            ;Delay 10 frames
   
+
+;
+LDA.W #$0007                         ;07C09A|      ;
 
 ;Turn off encounters if !EncountersOff == 1
 org $98802E
