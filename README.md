@@ -9,7 +9,7 @@ The code language is 65c816 ASM, based on 6502 (NES).
 * Patch `sor_v3.ips` to an unheadered Arcana ROM. That's it!
 
 #### To play the latest beta ####
-* Patch `sor_v3.1_b6.ips` to an unheadered Arcana ROM.
+* Patch `sor_v3.1_b7.ips` to an unheadered Arcana ROM.
 
 #### To compile the game yourself ####
 * Use an IPS patcher to patch an unheadered Arcana ROM with `fastrom_kando_a16.ips`. Name the file `sor_v3.1` or something easy to find.
@@ -19,8 +19,9 @@ The code language is 65c816 ASM, based on 6502 (NES).
 
 ## Optional patches
 `encounter_none.ips`      - Permanently prevents random encounters. For challenge games or testing.\
-`fantasy_font v5.ips`     - An alternate font for a high fantasy feel. [(Preview)](https://github.com/SarahShinespark/arcana-sor3/blob/main/Patches/fantasy%20font%20demo.png)\
-`graphics_fix_snes9x.ips` - Shortens the pixellation when getting hit, to avoid a graphics bug in some emulators.
+`fantasy_font v6.ips`     - An alternate font for a high fantasy feel. [(Preview)](https://github.com/SarahShinespark/arcana-sor3/blob/main/Patches/fantasy%20font%20demo.png)\
+`graphics_fix_snes9x.ips` - Shortens the pixellation when getting hit, to avoid a Snes9x graphics bug.\
+`see all maps.ips`        - Makes every map completely visible, for those who don't want to fill them in.
 
 
 ## Contents
