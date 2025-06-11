@@ -25,14 +25,14 @@ The code language is 65c816 ASM, based on 6502 (NES).
 `Enemy stats`             - Lists every enemy's stats, element and race, and their random spellcast.\
 `Equipment`               - Lists all equipment stats, including some hidden stats and dummied equipment.\
 `Run chances`             - Shows how likely you are to escape from battle from each enemy, based on your respective LVLs.\
-`Spells`                  - Lists every spell in the game, including base accuracy and dummied spells.\
+`Spells`                  - Lists every spell in the game, including base accuracy and dummied spells.
 
 ## Patches
-(Applied with an [IPS patcher](https://www.romhacking.net/patch/). Make a backup of your ROM first!)
-`encounter_none`          - Permanently prevents random encounters. For challenge games or testing.\
-`fantasy_font v6`         - An alternate font for a high fantasy feel. [(Preview)](https://github.com/SarahShinespark/arcana-sor3/blob/main/Patches/fantasy%20font%20demo.png)\
+(Applied with an [IPS patcher](https://www.romhacking.net/patch/). Make a backup of your ROM first!)\
+`fantasy_font v6`         - (cospefogo) An alternate font, designed for a high fantasy feel. [(Preview)](https://github.com/SarahShinespark/arcana-sor3/blob/main/Patches/fantasy%20font%20demo.png)\
 `graphics_fix_snes9x`     - Shortens the pixellation when getting hit, to avoid a Snes9x graphics bug.\
-`see all maps`            - Makes every map completely visible, for those who don't want to fill them in.
+`see all maps`            - Makes every map completely visible, for those who don't want to fill them in.\
+`encounter_none`          - Permanently prevents random encounters. For challenge games or testing.
 
 
 ## Code
