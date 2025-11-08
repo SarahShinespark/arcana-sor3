@@ -39,7 +39,7 @@ db $03,$0D
 db $1C
 db $02,$04
 db $10 : dl $0015AF ;Name
-db $08,$34
+db $08,$35
 db $10 : dl $0015D6 ;Job
 db $0D
 db "LV"
@@ -280,6 +280,14 @@ db "%",$00        ;Draw % sign
 assert pc() <= $88E6B0  ;Don't overwrite SpellDetails in minor_text_sor_v3
 padbyte $FF
 pad $88E6B0
+
+;Prevent the cursor from highlighting the now-blank ring slot
+org $87850A
+lda.W #$0002    ;When pressing up on the 1st slot, set cursor to the 3rd slot
+sta.W $09C7,X
+rtl
+lda.W $09C7,X
+cmp.W #$0002    ;When pressing down on the 3rd slot, set cursor to the 1st slot
 
 
 ;Update pointer to WeaponSubscreen
