@@ -14,12 +14,12 @@ db $0C
 db $01, $00, $06
 db $03, $0E
 db $1C
-db "  Seal of Rimsala v3.1b7  "
+db "  Seal of Rimsala v3.1b8  "
 ;  " GAME HEADER LENGTH-----  "
 
 org $80FFC0
 RomHeaderName:
-db "ARCANA SOR V3.1B7   "
+db "ARCANA SOR V3.1B8   "
 ;  "ROM HEADER LENGTH---"
 
 ;Include new font and title screen
