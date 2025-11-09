@@ -4,6 +4,24 @@
 ;Gratuitous Japanese freespace
 ;$88CC27-$88CCB9
 
+;Jump point for Bartender purchases; jumping back here brings you back into the drink menu immediately
+org $83BBAC : Bartender_Menu:
+org $83BC1D : db $1A : dw Bartender_Menu    ;After buying Water, return to the food menu
+org $83BC55 : db $1A : dw Bartender_Menu    ;After buying Elixir
+org $83BC8D : db $1A : dw Bartender_Menu    ;After buying Food A
+org $83BCC5 : db $1A : dw Bartender_Menu    ;After buying Food B
+
+
+;Jump point for Card purchases; jumping back here lets you immediately buy another card.
+;Relocated from smart_shops to avoid patch conflicts
+org $83C059 : CardBuy_Input_Check:
+org $83C0C3 : Card_Buy:
+db $07 : dl $809C44 : db $00               ;Call GetSet_SFX (none)  (turning off the sound each time lets you go dingdingding)(Don't you love it when things go dingdingding?)
+db $07 : dl $809C44 : db $05               ;Call GetSet_SFX (ding)
+db $07 : dl $80A0AC : dl $88CCE4 : db $01  ;Call Text Reader (Sub_Shop_menu_GP, skip 1C opcode (screen clear))
+db $1A : dw CardBuy_Input_Check            ;Return to the input check, instead of exiting to "Anything Else?"
+
+
 ;Alchemist text: load FastROM bank
 org $83DE98
 lda #$0088
@@ -250,11 +268,11 @@ org $85F2E6 : dl ItemNoEffect                      ;05F2E6|088A28;
 
 ;Battle text----------------------
 org $8880C9
-Text_Waiting:
+Text_Defending:
    db $06, $0D, $0C, $05, $01, $05, " ", $0C, $01, $00, $06, $03, $0E, $1C;8880C9|        |      ;
    db $10                               ;8880D7|        |      ;
    dl $001581                           ;8880D8|        |001581;
-   db $0D, "is waiting.  ", $0D         ;8880DB|        |      ;
+   db $0D, "is defending.", $0D         ;8880DB|        |      ;
    db $7F                               ;8880EA|        |      ;
    db $00                               ;8880EB|        |      ;
 
@@ -292,38 +310,22 @@ org $88812B
 Town_menu:    ;Not sure where this is used actually
    db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
    db "  Open   Magic   Equipment", $0D
-   db "  Call"
-   db $08,$2E                           ;888155|        |      ;
-   db "Status "                         ;888157|        |      ;
-   db $08,$59                           ;88815E|        |      ;
-   db "Inventory", $0D
-   db $06, $0E, "  Map"
-   db $08,$2E                           ;888171|        |      ;
-   db $06, $0D, "Color"                 ;888173|        |      ;
-   db $08,$59                           ;88817A|        |      ;
-   db "Order    ", $0D
+   db "  Call",$08,$2E,"Status ",$08,$59,"Inventory", $0D
+   db $06, $0E
+   db "  Map"
+   db $06, $0D
+   db $08,$2E, "Color",$08,$59,"Order    ", $0D
    db "Money          "
-   db $11,$04                           ;888195|        |      ;
-   dl $001559                           ;888197|        |001559;
-   db "GP", $00                         ;88819A|        |      ;
+   db $11,$04 : dl $001559 : db "GP", $00
 
 org $88819D 
 Dungeon_menu:   ;I think this is used for both??
    db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
    db "  Open   Magic   Equipment", $0D
-   db "  Call"
-   db $08,$2E                           ;8881C7|        |      ;
-   db "Status "                         ;8881C9|        |      ;
-   db $08,$59                           ;8881D0|        |      ;
-   db "Inventory", $0D, "  Map"         ;8881D2|        |      ;
-   db $08,$2E                           ;8881E1|        |      ;
-   db "Color"                           ;8881E3|        |      ;
-   db $08,$59                           ;8881E8|        |      ;
-   db "Order    ", $0D
+   db "  Call",$08,$2E,"Status",$08,$59,"Inventory", $0D
+   db "  Map",$08,$2E,"Color",$08,$59,"Order    ", $0D
    db "Money          "
-   db $11,$04                           ;888203|        |      ;
-   dl $001559                           ;888205|        |001559;
-   db "GP", $00                         ;888208|        |      ;
+   db $11,$04 : dl $001559 : db "GP", $00
 
 org $88820B 
 Text_Enemies_defeated:
@@ -367,32 +369,10 @@ Text_No_escape:
    db $7F                               ;8882E3|        |      ;
    db $00                               ;8882E4|        |      ;
 
-org $8882E5 
-Text_Battle_menu_Rooks:
-   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
-   db "  Attack    Magic  Pass   ", $0D
-   db "  Weapons"
-   db $08,$3D                           ;888312|        |      ;
-   db "Item"                            ;888314|        |      ;
-   db $08,$64                           ;888318|        |      ;
-   db "Run   ", $0D, "  Arcana"         ;88831A|        |      ;
-   db $08,$64                           ;888329|        |      ;
-   db "Call", $00                       ;88832B|        |      ;
-
-org $888330 
-Text_Battle_menu_Spirit:
-   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
-   db "  Attack    Magic  Pass   ", $00
-
-org $888354 
-Text_Battle_menu_Guest:
-   db $06, $0D, $0C, $01, $00, $06, $03, $0E, $1C
-   db "  Attack    Magic  Pass   ", $0D
-   db "  Weapons"                       ;88837E|        |      ;
-   db $08,$3D                           ;888381|        |      ;
-   db "Item"
-   db $08,$64
-   db "Run    ", $00
+;=========================
+;Battle menus for Rooks, Spirit, Guest were moved to [hotkeys.asm]
+;Don't use $8882E5-$8883EA
+;=========================
 
 org $888492
 X_Attacks:
@@ -1072,25 +1052,81 @@ db $10 : dl Dungeon_TextSetup
 db $10 : dl $001598
 db $0D,$22,"Whoops! That was close.",$22,$0D,$7F,$00
 
-assert pc() <= $888D50 ;Don't overwrite new levelup location or relocated spell descriptions
+;Battle start text - Yikes (back attack), Combat (normal fight), Look out (sneak attack I think)
+;YikesTextSetup:
+;   db $06, $0D, $0C
+;   db $05, $01, $05, " ", $0C
+;   db $01, $00, $06
+;   db $05, $06, $01, $00
+Text_Yikes:
+   db $06, $0D, $0C
+   db $01, $2C, $14
+;   db $05, $06, $01
+   db $1D
+   db "Yikes!"
+   db $7F, $00
+Text_COMBAT:
+   db $06, $0D, $0C
+   db $01, $2C, $14
+;   db $05, $06, $01
+   db $1D
+   db "COMBAT"
+   db $7F, $00
+Text_LOOK_OUT:
+   db $06, $0D, $0C
+   db $01, $28, $14
+;   db $05, $06, $01
+   db $1D
+   db "Look out!"
+   db $7F, $00
+
+assert pc() <= $888D50 ;Don't overwrite relocated spell descriptions nor new levelup text
 padbyte $FF
 pad $888D50
+
+;Since Yikes/Combat were relocated, we have to update the pointers to them
+org $87B68D
+Tbl_LOOK_OUT_Text:
+   dw Text_LOOK_OUT
+   dw Text_LOOK_OUT
+   dw Text_LOOK_OUT
+   dw Text_LOOK_OUT
+   dw Text_LOOK_OUT
+   dw Text_LOOK_OUT
+   dw Text_LOOK_OUT
+   dw Text_LOOK_OUT
+   dw Text_LOOK_OUT
+org $87B6B1
+Tbl_YIKES_Text:
+   dw Text_Yikes
+   dw Text_Yikes
+   dw Text_Yikes
+   dw Text_Yikes
+   dw Text_Yikes
+   dw Text_Yikes
+   dw Text_Yikes
+   dw Text_Yikes
+   dw Text_Yikes
+org $87B6D5
+Tbl_COMBAT_Text:
+   dw Text_COMBAT
+   dw Text_COMBAT
+   dw Text_COMBAT
+   dw Text_COMBAT
+   dw Text_COMBAT
+   dw Text_COMBAT
+   dw Text_COMBAT
+   dw Text_COMBAT
+   dw Text_COMBAT
+
 ;---------------------------------
 ;Inventory menu
 org $888ED0
 db "Cards   ",$08,$50,"Items",$0D,$00
 
-;Yikes
-org $888EF0
-Text_Yikes:
-db $10                               ;888EF0|        |      ;
-dl $888EE1 ;Text_Yikes_Setup         ;888EF1|        |888EE1;
-db $0D, "           "
-db $22, "Yikes!", $22, " "
-db $0D                               ;888F09|        |      ;
-db $7F                               ;888F0A|        |      ;
-db $00                               ;888F0B|        |      ;
-
+;FREE SPACE where Yikes/Combat were relocated next to the dodge/crit text
+padbyte $FF
+pad $888F1D
 ;---------------------------------
 org $88CBD6
 db "<  >  Discard  Unequip ", $0D
@@ -1252,7 +1288,7 @@ org $83C020 : dl Healer_What_Else                  ;03C020|08D030;
 ;org $83C077 : dl Healer_4_Items_For_Sale           ;03C077|08E033;
 ;org $83C08C : dl Healer_3_Items_For_Sale           ;03C08C|08E081;
 org $83C0AC : dl Healer_What_Else                  ;03C0AC|08D030;
-org $83C0CC : dl Sub_Shop_menu_GP                  ;03C0CC|08CCE3;
+;org $83C0CC : dl Sub_Shop_menu_GP                  ;03C0CC|08CCE3;
 org $83C0E5 : dl Healer_What_Else                  ;03C0E5|08D030;
 org $83C0FA : dl Healer_Cant_Buy_Card              ;03C0FA|08CFBF;
 org $83C11C : dl Healer_Full_Cards                 ;03C11C|08CFF2;
