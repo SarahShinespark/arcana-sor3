@@ -1,18 +1,21 @@
 ;Modifications v3
 ;Contains the changes from vanilla to 2.1.15 not overwritten by 3.0
+;Also contains the new intro skip
 
 ;Wipes all EXP upon game start, prevents uninitialization bug
 org $808112 : CallWipeEXP:
-JSL.L Hack_Wipe_EXP                  ;808112|22B5FF87|87FFB5;
+JSL.L Hack_Wipe_EXP                  ;JSL $87FFB5
 
 ;Makes Spirit defense scale with level (fixes a vanilla bug)
 org $80C7FF : BuffSpiritDef:
 LDA.L $85F107,X  ;Tbl_Spirit_Def_copy     ;80C7FF|BF07F105|05F107;
 
-org $818B20 : db $40  ;Open field menu with X button
-org $818AA3 : db $40  ;Open town menu with X button
-org $8190CE : db $01  ;Level up waits for 1 A press (instead of 7)
+;Menu buttons were relocated to [hotkeys.asm]
+;org $818B20 : db $40  ;Open field menu with X button
+;org $818AA3 : db $40  ;Open town menu with X button
 
+;Level up waits for 1 A press (instead of 7)
+org $8190CE : db $01
 
 ;Part of Multi Levelup patch
 org $819028 : Call_MultiLevelLoop:  ;Call Loop lol
@@ -331,20 +334,30 @@ JSL.L Initialization_Hack            ;97800A|22C0FF9C|9CFFC0;
 NOP                                  ;97800E|EA      |      ;
 NOP                                  ;97800F|EA      |      ;
 
+; Splice in our intro skip code.
+; If A/Start are pressed, breaks out of the current text loop and jumps to the end.
+; Otherwise, reads the next byte (0) and checks if the text has finished printing before continuing (normal behavior)
 org $9785C8 : Call_Intro_Skip_Check:
-db $07                               ;9785C8|        |      ;
-dl Intro_Skip_Check                  ;9785C9|        |87BA4F;
+db $07 : dl Intro_Skip_Check
 
-;Skips 1/7 of the intro if A is pressed
+; Reduce pause: 100->25 frames, before "This was about 10 years ago". This also speeds up the intro skip.
+org $9785E5 : Last_Part_Of_Intro:
+db $06, $19
+
+;Skips the intro if Start are pressed (after fadein)
+;This will jump to the "10 years ago" line
 org $97FF00 : Intro_Skip_Check:
-LDA.W $0031                          ;97FF00|AD3100  |000031;
-AND.W #$0080                         ;97FF03|298000  |      ;
-BEQ +                                ;97FF06|F006    |97FF0E;
-LDA.W #$0001                         ;97FF08|A90100  |      ;
-STA.W $1095                          ;97FF0B|8D9510  |001095;
+LDA.W $0021
+AND.W #$1000       ;Check inputs held/pressed for Start
+BEQ +              ;Branch if false
+LDA.W #$0007       ;Set current intro animation to 7 ("This was around 10 years ago")
+STA.W $11B5
+INC.b $10          ;Advance program counter (since we're skipping the function that reads the next byte)
+LDA.W #$0001       ;Return 1 to break out of the loop
+RTL
 +:
-JML.L $87BA4F                        ;97FF0E|5C4FBA87|87BA4F;
-RTL                                  ;97FF12|6B      |      ;
+JML.L $87BA4F      ;Else: jump to original code (Waiting for text to be done printing)
+RTL
 
 
 ;Injection: Zeros a temp variable for HDMA channel
