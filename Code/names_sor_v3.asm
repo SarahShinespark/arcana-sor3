@@ -120,7 +120,7 @@ org $85A554
   db "Cleric          ", $00  ;Salah
   db "Spellsword      ", $00  ;Arwin
   db "Knight          ", $00  ;Axs
-  db "----------------", $00  ;Empty slot
+  db "------------    ", $00  ;Empty slot
 
 ;Location names
 ;These are 16 bytes each plus a trailing $00
