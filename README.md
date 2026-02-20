@@ -34,9 +34,11 @@ The code language is 65c816 ASM, based on 6502 (NES).
 `see all maps`            - Makes every map completely visible, for those who don't want to fill them in.\
 `encounter_none`          - Permanently prevents random encounters. For challenge games or testing.
 
+## Translation Template
+For those interested in retranslating SOR into other languages, this folder has all the text files.\
+You can edit the text in VS Code or Notepad++, then use `asar2.exe` to patch the `main` ASM on top of Seal of Rimsala.
 
 ## Code
-
 `cool_maps_sor_v3.asm`		- Draws more map icons, like exits and doors.\
 `descriptions_sor_v3.asm`	- Localized Item, Spell, Equipment descriptions.\
 `detail_expand_v10.asm`		- Expanded info like Spell power/accuracy in their descriptions, and an improved status screen.\
