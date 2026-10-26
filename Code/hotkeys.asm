@@ -1,6 +1,13 @@
 ; Dungeon hotkeys - Buttons you can press while exploring dungeons
 ; X = Menu
 ; Y = Map
+; Exit map with A,B,X or Y
+; Exit Call with A,B
+
+
+;Checks $31 to see if [val] buttons were pressed. Returns nonzero if true.
+;(takes a 2b argument; examples 8000=B, 0300 = left+right, 0080=A)
+org $80A00F : WasBtnPressed_2b:
 
 ;Open town menu with X button (relocated from [modifications_v3.asm] for completion)
 org $818AA3 : db $40  
@@ -16,25 +23,34 @@ org $818B38 : Dungeon_Menu:
 org $819C34 : Map_Loop_until_button_press:
    db $06, $01                               ; WAIT 1
    db $1E : dw $0000                         ; Clear accumulator
-   db $07 : dl $80A00F : dw $C0C0            ; Check for ABXY press
+   db $07 : dl WasBtnPressed_2b : dw $C0C0   ; Check for ABXY press
    db $0B : dw Map_Loop_until_button_press   ; If false, keep looping
+
+; Allows exiting the Call menu with either A or B. (It's confusing that only A exits after picking a spirit.)
+org $81A013 : Input_Loop_Call_menu:
+   db $06, $01                  ; WAIT 1
+   db $1E : dw $0000            ; LOAD 0
+   db $07 : dl WasBtnPressed_2b ; Were buttons pressed? (A, B)
+   dw $8080                     ;
+   db $0C : dw $A0CB            ; If true, exit
+; Do the same for the battle menu in bank 85.
+org $859A3D : Input_Loop_Call_Battle_menu:
+   db $06, $01                  ; WAIT 1
+   db $1E : dw $0000            ; LOAD 0
+   db $07 : dl WasBtnPressed_2b ; Were buttons pressed? (A, B)
+   dw $8080                     ;
+   db $0C : dw $9AF8            ; If true, exit
 
 
 org $81F990
 New_Dungeon_Hotkeys:
-   db $07 : dl $80A00F          ; Check for X pressed (Menu)
-   dw $0040                     ;
-   db $0C : dw Dungeon_Menu     ; If A pressed, jump to Menu
-
-   db $07 : dl $80A00F          ; Check for Y pressed (Map)
-   dw $4000                     ;
-   db $0C : dw Call_Map         ; If Y pressed, jump to Map subroutine
-
-   db $07 : dl $80A00F          ; Check for A pressed (Look)
-   dw $0080                     ;
-   db $0C : dw Call_Look        ; If A pressed, jump to Open subroutine
-
-   db $1A : dw $8AE9            ; Catch-all, jump to Code_Dungeon_Idle_Loop
+   db $07 : dl WasBtnPressed_2b : dw $0040 ; ASM CALL: Check for X pressed ($0040)
+   db $0C : dw Dungeon_Menu                ; If true, open the Menu
+   db $07 : dl WasBtnPressed_2b : dw $4000 ; ASM CALL: Check for Y pressed ($4000)
+   db $0C : dw Call_Map                    ; If true, open the Map
+   db $07 : dl WasBtnPressed_2b : dw $0080 ; ASM CALL: Check for A pressed ($0080)
+   db $0C : dw Call_Look                   ; If A pressed, try to Open a chest
+   db $1A : dw $8AE9                       ; Else, jump to Code_Dungeon_Idle_Loop (go back to idling)
 
 ;Look and Map end with a Return From Subroutine, so we have to call them with a subroutine
 Call_Map:
@@ -50,8 +66,7 @@ Call_Look:
    dl $809D07   ;  Call graphics transfer
    dl $81B52F   ;  Draw the menu black box
    db $16       ;MOV $157B, 0 - Hide the compass
-   dw $157B
-   dw $0000
+   dw $157B,$0000
    db $07       ;ASM_CALL
    dl $809C44   ;Play SFX 11 (Confirm)
    db $11
@@ -274,7 +289,7 @@ Selecting_Enemy_Button_Listen:
    db $00                               ;05983E|      ;
    db $00                               ;05983F|      ;
    db $07                               ;059840|      ; Was B pressed?
-   dl $80A00F  ;WasBtnPressed_2b                  ;059841|00A00F;
+   dl WasBtnPressed_2b
    dw $8000                             ;059844|      ;
    db $0C                               ;059846|      ; If true, exit Check
    dw Check_Cancel                     ;059847|059858;
@@ -282,7 +297,7 @@ Selecting_Enemy_Button_Listen:
    db $00                               ;05984A|      ;
    db $00                               ;05984B|      ;
    db $07                               ;059840|      ; Was A pressed?
-   dl $80A00F  ;WasBtnPressed_2b
+   dl WasBtnPressed_2b
    dw $0080                             ;059844|      ;
    db $0C                               ;059846|      ; If true, display check
    dw Display_Enemy_Info
