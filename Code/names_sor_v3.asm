@@ -419,7 +419,7 @@ org $85E340
   db "Unparalyze           ", $00
   db "Unpetrify            ", $00
   db "Revive Spirit        ", $00
-  db "Gate                 ", $00
+  db "Dimension Door       ", $00
   db "Set Magic Mark       ", $00
   db "Activate Magic Mark  ", $00
   db "Requiem 2            ", $00
