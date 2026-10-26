@@ -9,7 +9,7 @@ The code language is 65c816 ASM, based on 6502 (NES).
 * [Patch](https://www.romhacking.net/patch/) `sor_v3.ips` to an unheadered Arcana ROM. That's it!
 
 #### To play the latest beta ####
-* Patch `sor_v3.1_b8.ips` to an unheadered Arcana ROM.
+* Patch `sor_v3.1_b9.ips` to an unheadered Arcana ROM.
 
 #### To compile the game yourself (For total badasses) ####
 * Use an [IPS patcher](https://www.romhacking.net/patch/) to patch an unheadered Arcana ROM with `fastrom_kando_a16.ips`.
@@ -32,35 +32,37 @@ The code language is 65c816 ASM, based on 6502 (NES).
 `fantasy_font v6`         - (cospefogo) An alternate font, designed for a high fantasy feel. [(Preview)](https://github.com/SarahShinespark/arcana-sor3/blob/main/Patches/fantasy%20font%20demo.png)\
 `graphics_fix_snes9x`     - Shortens the pixellation when getting hit, to avoid a Snes9x graphics bug.\
 `see all maps`            - Makes every map completely visible, for those who don't want to fill them in.\
-`encounter_none`          - Permanently prevents random encounters. For challenge games or testing.
+`encounter_none`          - Permanently prevents random encounters. For challenge games or testing.\
+`rainbow low HP`          - Makes your character's HP glow in 5 colors instead of just red. Just for fun!
 
 ## Translation Template
 For those interested in retranslating SOR into other languages, this folder has all the text files.\
 You can edit the text in VS Code or Notepad++, then use `asar2.exe` to patch the `main` ASM on top of Seal of Rimsala.
 
 ## Code
-`cool_maps_sor_v3.asm`		- Draws more map icons, like exits and doors.\
-`descriptions_sor_v3.asm`	- Localized Item, Spell, Equipment descriptions.\
-`detail_expand_v10.asm`		- Expanded info like Spell power/accuracy in their descriptions, and an improved status screen.\
-`effects_sor_v3.asm`			- Healing effects of items and stat increases of honeys. Honeys were slightly strengthened.\
-`encounters_sor_v3.asm`		- Determines the possible random encounters. Some variety was increased and some rare encounters are more common.\
-`enemies_sor_v3.asm`			- Enemy stats. About 4 enemies were given different spells, and boss EXP was doubled.\
-`epilogue_sor_v3.asm`			- Localized epilogue text with faster transitions.\
-`equipment_sor_v3.asm`		- Editable equipment stats.\
-`events.asm`              - Edits to the event code.\
-`font_relo.asm`						- Editable VWF sizes (font pixel width). Relocates the font to a larger area.\
-`hotkeys.asm`						  - Allows for new shortcuts (A: open chest, X: open menu, Y: open map). Adds Check skill for checking enemy stats.\
-`intro_sor_v3.asm`			  - Localized intro crawl with better pacing, and chapter titles.\
-`main_sor_v3.asm`         - Patches all of the ASM files at once.\
-`minor_text_sor_v3.asm`   - Town dialogue, dungeon and battle text. Adds a message for "can't carry more GP." Also holds smart_shops now.\
-`miscellaneous.asm`			  - Has some miscellaneous global mods like the ROM header or editing the encounter rate.\
-`modifications_v3.asm`    - Contains more miscellaneous changes from v2.1.15 and before.\
-`names_sor_v3.asm`			  - Localized names. Enemies, Equipment, Spells, Towns... everything.\
-`spells_sor_v3.asm`			  - Spell statistics like their SFX. Unpatches 2.2's glitchy spell palettes.\
-`stage_select.asm`        - Edits the save files for the 4 stage selects.\
-`story_sor_v3.asm`			  - Localized main story. The meat and potatoes of this mod. (Mmm, meat and potatoes.)\
-`treasures_shops_sor_v3.asm` - Edits treasure locations and contents, and shop contents and prices.\
-`unfuck_credits_sor_v3.asm`	 - Makes the credits easier to modify. Tweaks a few things and adds an unused credit.\
+`cool_maps_sor_v3.asm`		    - Draws more map icons, like exits and doors.\
+`descriptions_sor_v3.asm`	    - Localized Item, Spell, Equipment descriptions.\
+`detail_expand_v10.asm`		    - Expanded info like Spell power/accuracy in their descriptions, and an improved status screen.\
+`effects_sor_v3.asm`			    - Healing effects of items and stat increases of honeys. Honeys were slightly strengthened.\
+`encounters_sor_v3.asm`		    - Determines the possible random encounters. Some variety was increased and some rare encounters are more common.\
+`enemies_sor_v3.asm`			    - Enemy stats. About 4 enemies were given different spells, and boss EXP was doubled.\
+`epilogue_sor_v3.asm`			    - Localized epilogue text with faster transitions.\
+`equipment_sor_v3.asm`		    - Editable equipment stats.\
+`events.asm`                  - Edits to the event code.\
+`font_relo.asm`						    - Editable VWF sizes (font pixel width). Relocates the font to a larger area.\
+`hotkeys.asm`						      - Allows for new shortcuts (A: open chest, X: open menu, Y: open map). Adds Check skill for checking enemy stats.\
+`intro_sor_v3.asm`			      - Localized intro crawl with better pacing, and chapter titles.\
+`main_sor_v3.asm`             - Patches all of the ASM files at once.\
+`minor_text_sor_v3.asm`       - Town dialogue, dungeon and battle text. Adds a message for "can't carry more GP." Also holds smart_shops now.\
+`miscellaneous.asm`			      - Has some miscellaneous global mods like the ROM header or editing the encounter rate.\
+`modifications_v3.asm`        - Contains more miscellaneous changes from v2.1.15 and before.\
+`names_sor_v3.asm`			      - Localized names. Enemies, Equipment, Spells, Towns... everything.\
+`reduced_flashing_sor_v3.asm`	- Photosensitivity patch, for players who struggle with flashing or quick screen movement.\
+`spells_sor_v3.asm`			      - Spell statistics like their SFX. Unpatches 2.2's glitchy spell palettes.\
+`stage_select.asm`            - Edits the save files for the 4 stage selects.\
+`story_sor_v3.asm`			      - Localized main story. The meat and potatoes of this mod. (Mmm, meat and potatoes.)\
+`treasures_shops_sor_v3.asm`  - Edits treasure locations and contents, and shop contents and prices.\
+`unfuck_credits_sor_v3.asm`   - Makes the credits easier to modify. Tweaks a few things and adds an unused credit.\
 \
 `new_font.bin`        - The extended font in uncompressed binary.\
 `new_font_cards.bin`  - The font for the character cards, compressed.\

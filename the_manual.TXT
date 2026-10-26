@@ -1,4 +1,4 @@
-Arcana: Seal of Rimsala - README
+Arcana: Seal of Rimsala - MANUAL
 
 
 TABLE OF CONTENTS
@@ -11,6 +11,7 @@ TABLE OF CONTENTS
    5. Bugs and Known Issues
    6. Version History
    7. Credits
+   8. Secrets!
 
 
 
@@ -138,33 +139,47 @@ to Earth (green) enemies and take much lower damage from them, but they'll reall
 struggle against Fire (red) enemies.
 
 
+=======================
+"CHECKING" YOUR ENEMIES
+=======================
+There's a new battle option called Check! This shows you an enemy's stats, without using a turn.
+It's there in case you have trouble telling colors apart; this option will outright tell you
+if an enemy is Fire attribute, Wind attribute and so on.
+
+You can also view an enemy's current HP, the EXP they give, and their LV (experience level).
+If one of your party members has a LV advantage over the enemies, it's easier to run from combat!
+
+
 =================
 THE STATUS SCREEN
 =================
 LV-     Your current Experience Level. On a Level Up, all of your stats will improve,
         and you'll naturally learn new spells. Rooks' spirits share his LV,
         as he is able to command them better.
-        Also, Level affects your chances of running from battle.
-EXP-    Your experience points to reach the next Experience Level.
-        As is standard fare nowadays, defeat enemies to gain experience.
-HP-     How much damage you can take.
+        Level also affects your chances of running from battle.
+EXP-    Your experience points to reach the next Level.
+          When your EXP reach 0, you will gain a level and get stronger.
+          In Seal of Rimsala, extra EXP will apply towards the next LV.
+          It's now possible to gain multiple levels in one fight!
+HP-     Hit Points; How much damage you can take.
           If any one person runs out of HP, it's GAME OVER.
           If a spirit dies, its card is torn and it must be revived at the Spirit Healer tent.
-MP-     How much magic you can use. Spells cost MP, but Rooks can cast some spells with his cards for free.
+MP-     Magic Points; How much magic you can use.
+          Spells cost MP, but Rooks can cast some spells with his cards for free.
 Str-    Strength; affects your physical damage and boosts your Base Attack.
 Endur-  Endurance; affects your physical damage taken and boosts your Base Defense.
 Int-    Intelligence; high levels affect magic damage, magic damage taken, and spell accuracy/evasion.
-Alert-  Alertness; every 8 points affect your accuracy, evasion, and chance to critical hit.
+Alert-  Alertness; every 8 points affect your accuracy, evasion, and chance to get an extra turn in battle.
 
 Equipment window:
-This shows your equipped weapon, armor, amulet and ring.
+This shows your equipped weapon, armor, and amulet.
 On the right are four stats (up from 2 in vanilla):
 
-Sword-   Base Attack: your weapon plus strength modifier plus attack buff.
-Shield-  Base Defense: your armor plus amulet, plus endurance modifier plus defense buff.
-Shield*- Magic Defense: determined by your amulet (shields and bracelets).
-         (Magic defense is kinda important later.)
-x2:      Critical Hit Rate: Your weapon's % chance to strike about double damage.
+Sword icon-   Base Attack: your weapon plus strength modifier plus attack buff.
+Shield icon-  Base Defense: your armor plus amulet, plus endurance modifier plus defense buff.
+Shield* icon- Magic Defense: determined by your amulet (shields and bracelets).
+              (Magic defense is kinda important later.)
+x2 CRIT icon- Critical Hit Rate: Your weapon's % chance to strike about double damage.
 
 The other attributes and bonuses are covered in the "Elemental Equipment" and "Enemy Races" sections.
 
@@ -219,11 +234,13 @@ Stat changes last the entire battle, so they're invaluable in long fights.
 =======
 ENEMIES
 =======
-Enemies will simply attack at random. If the enemy knows a spell, there's a 50% chance
-they'll cast it instead of attacking. Beware that if they're reduced to half health,
-this casting chance will increase to 75%. So don't use area-of-effect spells on a
-large group of mages unless you're sure it'll kill them.
+Enemies will simply pick a target at random.
 
+If the enemy knows a spell, there's a 50% chance they'll cast it instead of attacking.
+Beware that if they're reduced to half health, spellcasters will get angry,
+and the chance of casting their spell raises to 75%. Watch their health with the Check command!
+
+So don't use all-targeting spells on a large group of mages unless you're sure it'll kill them.
 Again, beware large groups of spellcasters.
 
 
@@ -236,14 +253,17 @@ Confuse: The target swings wildly, targeting a random friend or foe.
    Physical attacks again, won't snap them out of it.
    In Seal of Rimsala, Confuse was buffed so enemies can no longer cast spells.
    If there are many enemies, there's a good chance Confused enemies will hit each other.
-Paralyze: The target is unable to act... forever. Lasts after battle.
-Petrify: Also permanently prevents action and lasts after battle.
+Paralyze: The target is unable to act... forever.
+   Paralyze lasts after battle; heal this with a Tent or an Inn visit!
+Petrify: Permanently prevents action.
+   Petrify also lasts after battle. It can be healed with a Tent, or a night at the Inn.
    On enemies, this also reduces their HP to 1.
-   On allies, they will take 10% max HP damage every turn.
+   On allies, they will take 10% max HP damage every turn. (No enemy naturally inflicts Petrify.)
 
 The Spirits aren't targeted by status effects, so they may have to finish the battle sometimes.
-Sleep and Confuse are removed after battle, while Paralyze and Petrify can be lifted
-with certain items like a Tent; a night at the Inn; or with certain spells.
+
+Sleep and Confuse are removed after battle, while Paralyze and Petrify are not.
+Statuses can be lifted with certain items like a Tent; a night at the Inn; or the Water Spirit's "Purify All" spell.
 Incidentally, you can still cast Unpetrify or Unparalyze on yourself outside of battle.
 
 
@@ -297,12 +317,18 @@ and then use the Gate (Home) spell to warp back to town, the game will freeze.
 Return Rings are fine, though.
 (Probably only worth remembering in Bizance Castle, where there's no-encounter rooms.)
 
--The Trade glitch is still in the game. It's not something you could find casually anyway,
-but a speedrunner or TAS runner might risk making use of it for extra money.
-
 -If you start the final fight with no spirit summoned, your spirits will be set to 0 HP.
-The game might freeze, too.
+The game might freeze, too. (Your current spirit's max HP/MP is used to heal the other spirits,
+but if no spirit is there, then they all get the blank slot's 0 HP/MP.)
 
+-The Trade glitch (Shop glitch) is still in the game. It's not something a casual player would find,
+but a clever player can still use it for easy money. Note that I accounted for this glitch when making
+the Low Level Game retro achievements; if you actually bother lowering Rooks' LVL too low with this glitch,
+the achievement won't pop.
+
+-This game really does not like the Snes9x emulator. There's everything from graphics glitches, to lag,
+to certain enemies or spells randomly freezing the game. If you're using Snes9x, I recommend using
+save states in case things go south.
 
 
 
@@ -311,6 +337,8 @@ The game might freeze, too.
 6. VERSION HISTORY
 
 ==================
+
+*A more complete version history was moved to its own file*
 
 v3.0
 - Complete script retranslation; a clearer and more descriptive story
