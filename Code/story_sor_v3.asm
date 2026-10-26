@@ -740,7 +740,7 @@ SCRIPT_024: db $10 : dl CLEAR
             db $05,$FF,$28
             db $06,$0E,"73 ",$06,$0D,"points damage.",$0D
             db $05,$FF,$50
-            db "Chimera is defeated.",$0D
+            db "Chimera was",$0D,"defeated.",$0D
             db $05,$FF,$1E
             db $0C
             db $0D
@@ -754,14 +754,14 @@ SCRIPT_024: db $10 : dl CLEAR
             db $05,$FF,$28
             db $06,$0E,"81 ",$06,$0D,"points damage.",$0D
             db $05,$FF,$50
-            db "Chimera is defeated.",$0D
+            db "Chimera was",$0D,"defeated.",$0D
             db $05,$FF,$1E
             db $0C
             db $0D
             db $10 : dl CLEAR
             db $1B,$01,$0D
             db $05,$FF,$01
-            db "All monsters defeated.",$0D
+            db "All enemies defeated!",$0D
             db $7F
             db $0C
             db $1B,$01,$FF
@@ -780,7 +780,7 @@ SCRIPT_025: db $1B,$01,$14
             db $10 : dl WAIT_REMOVE_PORTRAIT
             db $10 : dl DISPLAY_THE_MAN
             db $22,"Entering the",$0D
-            db " Lost Forest is too",$0D
+            db " Lost Woods is too",$0D
             db " dangerous for novices."
             db $10 : dl CONTINUE_ARWIN
             db " You should turn back.",$22
