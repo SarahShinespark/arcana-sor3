@@ -14,12 +14,12 @@ db $0C
 db $01, $00, $06
 db $03, $0E
 db $1C
-db "  Seal of Rimsala v3.1b8  "
+db "  Seal of Rimsala v3.1b9  "
 ;  " GAME HEADER LENGTH-----  "
 
 org $80FFC0
 RomHeaderName:
-db "ARCANA SOR V3.1B8   "
+db "ARCANA SOR V3.1B9   "
 ;  "ROM HEADER LENGTH---"
 
 ;Include new font and title screen
@@ -30,6 +30,32 @@ org $979DD0 : incbin "title_screen.bin"
 ;Change internal size to 2mb; Expand ROM to 2mb
 org $FFD7 : db $0B
 org $BFFFFF : db $00
+
+org $80D118 : Sub_Set_Music:     ;A = song ID to set
+org $83A54C : Sub_Arwin_Theme:   ;If Arwin is present and it's not chapter 5, set the music to his theme
+;Splice into the BGM subroutine that checks if Arwin is present
+org $83A520
+Sub_Default_BGM:
+   LDA.W $1573                      ;Load current map. (01xx = dungeon, maps are 0100-0121)
+   JSR.W Sub_Alan_Theme             ;03A523|03A54C;
+   JML Sub_Set_Music                ;03A526|00D118;
+
+;New splice - Change the music back to Alan's theme after his Chapter 4 fight
+;Free space following cool_maps ASM (map tiles list)
+org $83EEF0 : Sub_Alan_Theme:
+   CMP.W #$010E                     ;If current dungeon is Endless 7F (Chapter 4)
+   BNE Check_Arwin
+   LDA.W $16F7                      ;and if dungeon X position is 7
+   CMP.W #$0007
+   BNE Check_Arwin
+   LDA.W $16F9                      ;and if dungeon Y position is 15 (21)
+   CMP.W #$0015
+   BNE Check_Arwin
+   LDA.W #$003F                     ;set the music to Alan's theme
+   RTS
+Check_Arwin:
+   JSR.W Sub_Arwin_Theme            ;else: check for Arwin's theme before setting the dungeon music
+   RTS
 
 ;Include custom maps
 org $A08000
