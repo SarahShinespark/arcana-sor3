@@ -160,28 +160,28 @@ Stage_Select_Ch2:
   dw $FF2A              ;06DEE5; Hard Leather
   dw $FF5C              ;06DEE7; Metal Bracelet
   dw $FF76              ;06DEE9; Tiamat Repellent
-  dw $FF00              ;06DEEB;  
-  dw $FF00              ;06DEED;  
-  dw $FF00              ;06DEEF;  
-  dw $FF00              ;06DEF1;  
-  dw $FF00              ;06DEF3;  
-  dw $FF00              ;06DEF5;  
-  dw $FF00              ;06DEF7;  
-  dw $FF00              ;06DEF9;  
-  dw $FF00              ;06DEFB;  
-  dw $FF00              ;06DEFD;  
-  dw $FF00              ;06DEFF;  
-  dw $FF00              ;06DF01;  
-  dw $FF00              ;06DF03;  
-  dw $FF00              ;06DF05;  
-  dw $FF00              ;06DF07;  
-  dw $FF00              ;06DF09;  
-  dw $FF00              ;06DF0B;  
-  dw $FF00              ;06DF0D;  
-  dw $FF00              ;06DF0F;  
-  dw $FF00              ;06DF11;  
-  dw $FF00              ;06DF13;  
-  dw $FF00              ;06DF15;  
+  dw $FF25              ;06DEEB; No-Horny Bat
+  dw $FF00              ;06DEED; 
+  dw $FF00              ;06DEEF; 
+  dw $FF00              ;06DEF1; 
+  dw $FF00              ;06DEF3; 
+  dw $FF00              ;06DEF5; 
+  dw $FF00              ;06DEF7; 
+  dw $FF00              ;06DEF9; 
+  dw $FF00              ;06DEFB; 
+  dw $FF00              ;06DEFD; 
+  dw $FF00              ;06DEFF; 
+  dw $FF00              ;06DF01; 
+  dw $FF00              ;06DF03; 
+  dw $FF00              ;06DF05; 
+  dw $FF00              ;06DF07; 
+  dw $FF00              ;06DF09; 
+  dw $FF00              ;06DF0B; 
+  dw $FF00              ;06DF0D; 
+  dw $FF00              ;06DF0F; 
+  dw $FF00              ;06DF11; 
+  dw $FF00              ;06DF13; 
+  dw $FF00              ;06DF15; 
   dw $0021              ;06DF17; Rooks' spells
   dw $0038              ;06DF19;  
   dw $004B              ;06DF1B;  
@@ -484,7 +484,7 @@ Stage_Select_Ch3:
   dw $FF06              ;06E3E3; Ice Blade
   dw $FF05              ;06E3E5; Bastard Sword
   dw $FF76              ;06E3E7; Tiamat Repellent
-  dw $FF00              ;06E3E9;  
+  dw $FF25              ;06E3E9; No-Horny Bat
   dw $FF00              ;06E3EB;  
   dw $FF00              ;06E3ED;  
   dw $FF00              ;06E3EF;  
@@ -1303,31 +1303,3 @@ Stage_Select_Ch5:
   dw $0000              ;06EF2D;  
   dw $0000              ;06EF2F;  
   dw $0018              ;06EF31; $18FF-1900 (Story progress)
-
-
-org $98C6ED   ;Original Tiamat event
-ASM_Vs_Tiamat:
-
-org $9896C5   ;Event list; Redirect Tiamat event to check for key item
-dw TiamatEventSkip
-
-;Subroutine to check Rooks' equipped ring
-org $98DB92   
-CheckTiamatRepellent:
-LDA.W $12CB   ;Check Rooks' equipped ring
-CMP #$0076    ;If ID=76 (Tiamat Repellent) return true
-BEQ +
-LDA #$0000
-RTL
-+:
-LDA #$0001
-RTL
-
-TiamatEventSkip:
-db $07 : dl CheckTiamatRepellent  ;Check if Rooks is wearing the key item
-db $0B : dw ASM_Vs_Tiamat     ;If false: play original event
-;                             ;Else
-db $07 : dl $009C44 : db $28  ;Play running away SFX
-db $16 : dw $1901,$0000       ;Disable cutscene and re-enable control
-db $00                        ;Return
-
