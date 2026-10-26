@@ -28,3 +28,35 @@ db $05                        ;Return long
 org $98A211
 dl $809C44 ;GetSet_SFX               ;18A211|009C44;
 db $22     ;Skyblade Blast SFX       ;18A214|      ;
+
+
+;Tiamat Skip custom event
+;This makes two new retroachievements possible, The Age Alliance and The Beauty Alliance (yes that's an In Stars And Time reference, and nobody can stop me)
+;You get the Rooks-exclusive ring "Tiamat Repellent" when using stage select now.
+;This event checks if he's wearing it, and if so, it skips the event where your final party leaves you.
+;If you warped to Chapter 2, 3 or 4, you can fight Rimsala with Rooks, Teefa and Arwin.
+;If you warped to Chapter 5, you can fight Rimsala with Rooks, Sarah and Axs. Good luck with that one.
+org $98C6ED   ;Original Tiamat event
+ASM_Vs_Tiamat:
+
+org $9896C5   ;Event list; Redirect Tiamat event to check for key item
+dw TiamatEventSkip
+
+;Subroutine to check Rooks' equipped ring
+org $98DB92   
+CheckTiamatRepellent:
+LDA.W $12CB   ;Check Rooks' equipped ring
+CMP #$0076    ;If ID=76 (Tiamat Repellent) return true
+BEQ +
+LDA #$0000
+RTL
++:
+LDA #$0001
+RTL
+TiamatEventSkip:
+db $07 : dl CheckTiamatRepellent  ;Check if Rooks is wearing the key item
+db $0B : dw ASM_Vs_Tiamat     ;If false: play original event
+;                             ;Else
+db $07 : dl $009C44 : db $28  ;Play running away SFX
+db $16 : dw $1901,$0000       ;Disable cutscene and re-enable control
+db $00                        ;Return
